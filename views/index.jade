@@ -27,10 +27,16 @@ html.en(lang='en')
       }
         /* header */
       .header {
-        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
         background-color: #3678ae;
+        box-shadow: 0 1px 2px rgba(0,0,0,.2);
+        -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+        -moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+        -khtml-box-shadow: 0 1px 2px rgba(0,0,0,.2);
         background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDIwODkgNjkiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxsaW5lYXJHcmFkaWVudCBpZD0iaGF0MCIgZ3JhZGllbnRVbml0cz0ib2JqZWN0Qm91bmRpbmdCb3giIHgxPSI1MCUiIHkxPSIxMDAlIiB4Mj0iNTAlIiB5Mj0iLTEuNDIxMDg1NDcxNTIwMmUtMTQlIj4KPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzI3NTU5NyIgc3RvcC1vcGFjaXR5PSIxIi8+CjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzQ5OWZjNSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgIDwvbGluZWFyR3JhZGllbnQ+Cgo8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMjA4OSIgaGVpZ2h0PSI2OSIgZmlsbD0idXJsKCNoYXQwKSIgLz4KPC9zdmc+);
-        background-image: linear-gradient(bottom, #275597 0%, #499fc5 100%);
+        background-image: -moz-linear-gradient(bottom,#275597 0,#499fc5 100%);
+        background-image: -o-linear-gradient(bottom,#275597 0,#499fc5 100%);
+        background-image: -webkit-linear-gradient(bottom,#275597 0,#499fc5 100%);
+        background-image: linear-gradient(bottom,#275597 0,#499fc5 100%);
         color: #fff;
         padding: 15px 0;
       }
@@ -72,10 +78,15 @@ html.en(lang='en')
         font-weight: normal;
         font-size: 18px;
       }
+
+      .twitter-typeahead input{
+        background-color:inherit;
+      }
+
         /* search form */
       .search-form {
         background-color: #fff;
-        background-color: rgba(255, 255, 255, 0.95);
+        background-color: rgba(255, 255, 255, 0.75);
         color: #293033;
         border-radius: 10px;
         background-clip: padding-box;
@@ -110,10 +121,12 @@ html.en(lang='en')
             .search-form
               strong.slogan Serving bus schedules for 4379 cities in 66 countries.	
               h1.guide Find a bus for your next trip.
-              .input-group.typeahead.input-group-lg#departure_container
-                  input#departure.form-control(type="text")
+              .input-group.form-group.typeahead.input-group-lg#departure_container
+                  span.location_marker.glyphicon.glyphicon-map-marker
+                  input#departure.form-control(placeholder="FROM",type="text",autocomplete="off")
 
-              .input-group.typeahead.input-group-lg#arrivals_container
-                  input#arrivals.form-control(type="text")  
-               button.search_button.btn.btn-default.btn-sm(type="button")
+              .input-group.form-group.typeahead.input-group-lg#arrivals_container
+                  span.location_marker.glyphicon.glyphicon-map-marker
+                  input#arrivals.form-control(placeholder="TO",type="text",autocomplete="off")  
+               button.search_button.btn.btn-custom.btn-sm(type="button")
                   span.glyphicon.glyphicon-search

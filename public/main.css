@@ -1,3 +1,26 @@
+input, textarea {
+  background-color : #f2f2f2;
+}
+
+#departure{
+    border-radius:5px;
+    padding-left:25px;
+}
+
+#arrivals{
+    border-radius:5px;
+    padding-left:25px;
+}
+
+.location_marker{
+    color:gray;
+    z-index: 1;
+    margin-top: 8px;
+    padding-left:6px;
+    vertical-align: middle;
+    position: absolute;
+}
+
 /*Typeahead CSS*/
 .tt-cursor{
     background:#66afe9;
@@ -10,16 +33,34 @@
 }
 
 #arrivals_container{
-    width:90%;
+    width:92%;
     float:left;
 }
 
 .search_button{
-    width:10%;
+    width:7%;
+    font-size:1.2em;
+    vertical-align:middle;
     height:34px;
     float:right;
 }
 
+.btn-custom {
+  background-color: hsl(193, 75%, 25%) !important;
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#1786a5", endColorstr="#0f5a6f");
+  background-image: -khtml-gradient(linear, left top, left bottom, from(#1786a5), to(#0f5a6f));
+  background-image: -moz-linear-gradient(top, #1786a5, #0f5a6f);
+  background-image: -ms-linear-gradient(top, #1786a5, #0f5a6f);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #1786a5), color-stop(100%, #0f5a6f));
+  background-image: -webkit-linear-gradient(top, #1786a5, #0f5a6f);
+  background-image: -o-linear-gradient(top, #1786a5, #0f5a6f);
+  background-image: linear-gradient(#1786a5, #0f5a6f);
+  border-color: #0f5a6f #0f5a6f hsl(193, 75%, 22%);
+  color: #fff !important;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.19);
+  -webkit-font-smoothing: antialiased;
+}
 .guide{
     margin-top:10px;
     margin-bottom:10px;
@@ -56,6 +97,9 @@
 }
 
 .tt-hint {
+    opacity:0.8 !important;
+    border-radius:5px;
+    padding-left:25px !important;
     color: #999
 }
 
@@ -75,6 +119,7 @@
 }
 
 .tt-suggestion {
+    z-index:999;
     padding: 3px 20px;
     font-size: 18px;
     line-height: 24px;
@@ -117,7 +162,7 @@
 .twitter-typeahead .hint-large
 {
     height: 45px;
-    padding: 10px 16px;
+    padding: 10px 16px 10px 25px;
     font-size: 18px;
     border-radius: 6px;
     line-height: 1.33;
