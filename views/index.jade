@@ -1,7 +1,18 @@
-!!! 5
+doctype html
 html.en(lang='en')
   head
-    title=title
+    title=title_
+    script(src="http://code.jquery.com/jquery-1.10.1.min.js")
+    script(src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js")
+
+    link(rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css")
+    link(rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css")
+
+    link(rel="stylesheet" href="main.css")
+
+    each s in scripts
+       script(src=s)
+
     style(type='text/css').
       html, body {
         margin: 0;
@@ -69,7 +80,7 @@ html.en(lang='en')
         border-radius: 10px;
         background-clip: padding-box;
         box-shadow: 0px 0px 4px 0px #000;
-        padding: 40px 80px 10px 80px;
+        padding: 30px 80px 30px 80px;
         margin-bottom: 20px;
       }
       .search-form h1 {
@@ -91,11 +102,15 @@ html.en(lang='en')
         .logo
           a(accesskey='1', href='/en/')
             span Logo
+
     #bd
       div
         .hero-unit
           .main-column
             .search-form
-              strong.slogan Now serving information between many places
-              // Form goes here
-              h1 Find three places
+              strong.slogan Serving bus schedules for 4379 cities in 66 countries.	
+              h1 Find a bus for your next trip.
+              .input-group.typeahead.input-group-lg
+                  input#departure.form-control(type="text")
+              .input-group.typeahead.input-group-lg
+                  input#arrivals.form-control(type="text")  
