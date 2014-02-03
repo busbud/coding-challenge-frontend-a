@@ -39,7 +39,7 @@ html.en(lang='en')
       }
         /* logo */
       .logo {
-        background: url("http://dnls6ci2ykmn3.cloudfront.net/images/sprites/R-gQfJb/logo_header.png") 0 0 no-repeat;
+        background: url("http://d3dob2gxndc0tm.cloudfront.net/nogzip/images/sprites/76107f9.logo_header.png") 0 0 no-repeat;
         width: 124px;
         height: 40px;
       }
@@ -59,7 +59,7 @@ html.en(lang='en')
         background-color: #000;
         background-position: center bottom;
         background-size: cover;
-        background-image: url(http://dnls6ci2ykmn3.cloudfront.net/images/homepage/k9cPgTX/buenos_aires.jpg);
+        background-image: url(http://d3dob2gxndc0tm.cloudfront.net/nogzip/images/homepage/f8513f3.buenos_aires.jpg);
         box-shadow: 0 1px 0 #fff;
         padding: 60px 0 40px 0;
         margin-bottom: 80px;
@@ -80,7 +80,7 @@ html.en(lang='en')
         border-radius: 10px;
         background-clip: padding-box;
         box-shadow: 0px 0px 4px 0px #000;
-        padding: 30px 80px 30px 80px;
+        padding: 30px 80px 80px 80px;
         margin-bottom: 20px;
       }
       .search-form h1 {
@@ -109,8 +109,11 @@ html.en(lang='en')
           .main-column
             .search-form
               strong.slogan Serving bus schedules for 4379 cities in 66 countries.	
-              h1 Find a bus for your next trip.
-              .input-group.typeahead.input-group-lg
+              h1.guide Find a bus for your next trip.
+              .input-group.typeahead.input-group-lg#departure_container
                   input#departure.form-control(type="text")
-              .input-group.typeahead.input-group-lg
+
+              .input-group.typeahead.input-group-lg#arrivals_container
                   input#arrivals.form-control(type="text")  
+               button.search_button.btn.btn-default.btn-sm(type="button")
+                  span.glyphicon.glyphicon-search

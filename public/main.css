@@ -1,5 +1,30 @@
 /*Typeahead CSS*/
+.tt-cursor{
+    background:#66afe9;
+    color:white;
+    cursor:pointer;
+}
 
+#departure_container{
+    width:100%;
+}
+
+#arrivals_container{
+    width:90%;
+    float:left;
+}
+
+.search_button{
+    width:10%;
+    height:34px;
+    float:right;
+}
+
+.guide{
+    margin-top:10px;
+    margin-bottom:10px;
+}
+	
 .tt-query,.tt-hint {
     width: 396px;
     height: 30px;
@@ -64,6 +89,10 @@
 .tt-suggestion p {
     margin: 0;
 }      
+
+.twitter-typeahead{
+    width:100%;
+}
 
 .twitter-typeahead .tt-hint
 {
