@@ -4,6 +4,6 @@
 
 exports.index = function(req, res){
   //Loading scripts so that they're available in the template.
-  res.render('index', { title_: 'Test',scripts: ['typeahead.js','control.js']});
+  res.render('index', { title_: 'Busbud Challenge',scripts: ['typeahead.js','control.js']});
 
 };
