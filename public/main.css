@@ -1,3 +1,4 @@
+/*My CSS (sans the typeahead suggestions CSS)*/
 input {
   -webkit-border-radius: 5px !important;
      -moz-border-radius: 5px !important;
@@ -12,6 +13,16 @@ input, textarea {
   color:#3471a8;
 }
 
+/*Departure and Arrival bars positioning*/
+#departure_container{
+    width:100%;
+}
+
+#arrivals_container{
+    width:92%;
+    float:left;
+}
+
 #departure{
     border-radius:5px;
     padding-left:25px;
@@ -20,31 +31,6 @@ input, textarea {
 #arrivals{
     border-radius:5px;
     padding-left:25px;
-}
-
-.location_marker{
-    color:gray;
-    z-index: 1;
-    margin-top: 8px;
-    padding-left:6px;
-    vertical-align: middle;
-    position: absolute;
-}
-
-/*Typeahead CSS*/
-.tt-cursor{
-    background:#66afe9;
-    color:white;
-    cursor:pointer;
-}
-
-#departure_container{
-    width:100%;
-}
-
-#arrivals_container{
-    width:92%;
-    float:left;
 }
 
 .search_button{
@@ -58,6 +44,23 @@ input, textarea {
 
 .search_button span{
     font-size:16px;
+}
+
+/*location markers in the text inputs*/
+.location_marker{
+    color:gray;
+    z-index: 1;
+    margin-top: 8px;
+    padding-left:6px;
+    vertical-align: middle;
+    position: absolute;
+}
+
+/*Typeahead Suggestion CSS - inherited from the Typeahead.js examples*/
+.tt-cursor{
+    background:#66afe9;
+    color:white;
+    cursor:pointer;
 }
 
 .btn-custom {
@@ -182,3 +185,91 @@ input, textarea {
     border-radius: 6px;
     line-height: 1.33;
 }
+
+/*Default CSS below*/
+      html, body {
+        margin: 0;
+        min-height: 300px;
+        background: #EBF0F2;
+      }
+        /* layouts */
+      .main-column {
+        max-width: 700px;
+        width: 700px;
+        margin: 0 auto;
+      }
+        /* header */
+      .header {
+        background-color: #3678ae;
+        box-shadow: 0 1px 2px rgba(0,0,0,.2);
+        -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+        -moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+        -khtml-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+        background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDIwODkgNjkiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxsaW5lYXJHcmFkaWVudCBpZD0iaGF0MCIgZ3JhZGllbnRVbml0cz0ib2JqZWN0Qm91bmRpbmdCb3giIHgxPSI1MCUiIHkxPSIxMDAlIiB4Mj0iNTAlIiB5Mj0iLTEuNDIxMDg1NDcxNTIwMmUtMTQlIj4KPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzI3NTU5NyIgc3RvcC1vcGFjaXR5PSIxIi8+CjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzQ5OWZjNSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgIDwvbGluZWFyR3JhZGllbnQ+Cgo8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMjA4OSIgaGVpZ2h0PSI2OSIgZmlsbD0idXJsKCNoYXQwKSIgLz4KPC9zdmc+);
+        background-image: -moz-linear-gradient(bottom,#275597 0,#499fc5 100%);
+        background-image: -o-linear-gradient(bottom,#275597 0,#499fc5 100%);
+        background-image: -webkit-linear-gradient(bottom,#275597 0,#499fc5 100%);
+        background-image: linear-gradient(bottom,#275597 0,#499fc5 100%);
+        color: #fff;
+        padding: 15px 0;
+      }
+      .header a {
+        color: #fff;
+      }
+        /* logo */
+      .logo {
+        background: url("http://d3dob2gxndc0tm.cloudfront.net/nogzip/images/sprites/76107f9.logo_header.png") 0 0 no-repeat;
+        width: 124px;
+        height: 40px;
+      }
+      .logo a {
+        display: block;
+        height: 100%;
+      }
+      .logo a:hover {
+        text-decoration: none;
+      }
+      .logo span {
+        display: none;
+      }
+        /* hero */
+      .hero-unit {
+        background-repeat: no-repeat;
+        background-color: #000;
+        background-position: center bottom;
+        background-size: cover;
+        background-image: url(http://d3dob2gxndc0tm.cloudfront.net/nogzip/images/homepage/f8513f3.buenos_aires.jpg);
+        box-shadow: 0 1px 0 #fff;
+        padding: 60px 0 40px 0;
+        margin-bottom: 80px;
+        font-family: "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-weight: normal;
+        color: #293033;
+        text-shadow: 0 1px 0 #fff;
+      }
+      .hero-unit .slogan {
+        font-weight: normal;
+        font-size: 18px;
+      }
+
+        /* search form */
+      .search-form {
+        background-color: #fff;
+        background-color: rgba(255, 255, 255, 0.75);
+        color: #293033;
+        border-radius: 10px;
+        background-clip: padding-box;
+        box-shadow: 0px 0px 4px 0px #000;
+        padding: 30px 80px 80px 80px;
+        margin-bottom: 20px;
+      }
+      .search-form h1 {
+        font-weight: normal;
+        color: #293033;
+        font-size: 32px;
+        text-shadow: 0 1px 0 #fff;
+        padding-bottom: 8px;
+      }
+      .search-form .error {
+        color: #9d261d;
+      }
