@@ -1,5 +1,15 @@
+input {
+  -webkit-border-radius: 5px !important;
+     -moz-border-radius: 5px !important;
+          border-radius: 5px !important;
+}
+
 input, textarea {
   background-color : #f2f2f2;
+}
+
+.busbud_blue{
+  color:#3471a8;
 }
 
 #departure{
@@ -39,10 +49,15 @@ input, textarea {
 
 .search_button{
     width:7%;
+    height:33px !important;
     font-size:1.2em;
     vertical-align:middle;
     height:34px;
     float:right;
+}
+
+.search_button span{
+    font-size:16px;
 }
 
 .btn-custom {
