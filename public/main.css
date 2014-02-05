@@ -55,6 +55,14 @@ input, textarea {
     vertical-align: middle;
     position: absolute;
 }
+/* Error handling relevant CSS */
+.alert{
+	padding: 7px 10px 7px 10px;
+	width:700px;
+	min-width:700px;
+	position:fixed;
+	display:none;
+}
 
 /*Typeahead Suggestion CSS - inherited from the Typeahead.js examples*/
 .tt-cursor{

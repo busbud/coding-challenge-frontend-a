@@ -34,6 +34,12 @@ html.en(lang='en')
 
               .input-group.form-group.typeahead.input-group-lg#arrivals_container
                   span.location_marker.glyphicon.glyphicon-map-marker
-                  input#arrivals.form-control(placeholder="TO",type="text",autocomplete="off")  
+                  input#arrivals.form-control(placeholder="TO",type="text",autocomplete="off")
+                
                button.search_button.btn.btn-custom.btn-sm(type="button")
                   span.glyphicon.glyphicon-search
+                             .error-container
+             .alert.alert-warning.fade.in
+                  button.close(type="button",data-dismiss="alert",aria-hidden="true")
+                         &times;
+                  | One or both of your selections is invalid. Please try again.
