@@ -25,7 +25,8 @@ module.exports = function(grunt) {
 			server: {
 				files: {
 					'web/js/compiled/client.js': [
-						'web/js/client.js'
+						'web/js/client.js',
+						'web/components/allmighty-autocomplete/script/autocomplete.js'
 					]
 				},
 				options: {
@@ -36,7 +37,7 @@ module.exports = function(grunt) {
 		sass: {
 			server: {
 				options: {
-					includePaths: require('node-bourbon').includePaths,
+					includePaths: require('node-bourbon').includePaths.concat('web/components/foundation/scss'),
 					outputStyle: 'compressed'
 				},
 				files: {
