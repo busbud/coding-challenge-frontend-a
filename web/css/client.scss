@@ -1,0 +1,65 @@
+@import "vars";
+@import "foundation";
+@import "bourbon";
+
+// Angular Cloak
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+	display: none !important;
+}
+
+.searching {
+	background: url(/img/city1.jpg) no-repeat top;
+	background-size: cover;
+	border-bottom: 1px solid #666;
+	min-height: 600px;
+	
+	.form-container {
+		h3, h5 {
+			text-shadow: 1px 1px rgba(255,255,255,0.9);
+		}
+		h5 {
+			color: #666;
+		}
+		
+		padding: 50px;
+		border-radius: 3px;
+		margin-top: 50px;
+		background-color: rgba(255,255,255,0.9);
+		box-shadow: 0 0 10px 10px rgba(50,50,50,0.5);
+	}
+}
+
+// Autocomplete
+.autocomplete {
+	width: 100%;
+	position: relative;
+	margin: 0 0 1rem;
+	
+	input {
+		margin: 0;
+	}
+	
+	ul {
+		margin-left: 0;
+		position: absolute;
+		left: 0;
+		width: 100%;
+		border-left: 1px solid #888;
+		border-right: 1px solid #888;
+		border-bottom: 1px solid #888;
+		z-index: 1;
+	}
+	
+	li {
+		text-align: left;
+		list-style:none;
+		width: 100%;
+		padding:0.4em;
+		background-color: #fff;
+	}
+	
+	li.active{
+		width: 100%;
+		background-color: #4bf;
+	}
+}
