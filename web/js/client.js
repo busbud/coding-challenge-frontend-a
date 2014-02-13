@@ -1,6 +1,6 @@
 'use strict';
 
-var app = angular.module('ngBusbudDemo', ['ngRoute', 'autocomplete'])
+var app = angular.module('ngBusbudDemo', ['ngRoute', 'autocomplete', 'randomclass-directive'])
 	.config(function ($routeProvider, $locationProvider) {
 		$locationProvider
 			.html5Mode(false)

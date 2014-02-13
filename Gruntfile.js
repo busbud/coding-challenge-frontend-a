@@ -13,6 +13,10 @@ module.exports = function(grunt) {
 				files: ['web/js/*.js'],
 				tasks: ['browserify:server']
 			},
+			directives: {
+				files: ['web/js/directives/*.js'],
+				tasks: ['browserify:server']
+			},
 			express: {
 				files: ['server.js'],
 				tasks: ['express:server'],
@@ -26,6 +30,7 @@ module.exports = function(grunt) {
 				files: {
 					'web/js/compiled/client.js': [
 						'web/js/client.js',
+						'web/js/directives/randomclass-directive.js',
 						'web/components/allmighty-autocomplete/script/autocomplete.js'
 					]
 				},
