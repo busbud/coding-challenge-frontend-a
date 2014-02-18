@@ -21,49 +21,6 @@ app.configure('development', function(){
 	app.use(express.errorHandler());
 });
 
-app.get('/api/locations/(?:location)?', function(req, res) {
-	var result = [];
-	
-	res.setHeader('Content-Type', 'application/json');
-	
-	if (!req.param('location')) {
-		res.status(200);
-		res.send(result);
-	}
-	
-	var url = 'http://www.busbud.com/en/complete/locations/' + req.param('location') + '?callback=fn';
-	
-	var request = http.get(url, function(response) {
-		var buffer = '';
-		
-		response.on('data', function(chunk) {
-			buffer += chunk;
-		});
-		
-		response.on('end', function(err) {
-			// why is callback fn mandatory? ... stripping it
-			buffer = buffer.substring(3, buffer.length);
-			buffer = buffer.substring(0, buffer.length - 2);
-			
-			try {
-				result = JSON.parse(buffer);
-			} catch (err) {
-				res.status(500);
-				res.send('Error parsing data.');
-			}
-			
-			res.status(200);
-			res.send(result);
-		});
-	});
-	
-	request.on('error', function(err) {
-		console.log('error!');
-		res.status(500);
-		res.send('Error contacting api.');
-	})
-});
-
 app.get('/', routes.index);
 
 http.createServer(app).listen(app.get('port'), function(){

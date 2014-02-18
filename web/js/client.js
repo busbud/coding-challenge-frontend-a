@@ -26,7 +26,7 @@ var app = angular.module('ngBusbudDemo', ['ngRoute', 'autocomplete', 'randomclas
 			}
 			
 			$http
-				.get('/api/locations/' + val)
+				.jsonp('http://www.busbud.com/en/complete/locations/' + val + '?callback=JSON_CALLBACK')
 				.success(function(data) {
 					$scope.departures = _.pluck(data, 'label');
 					$scope.invalidDeparture = ($scope.departure && !$scope.departures.length);
@@ -47,7 +47,7 @@ var app = angular.module('ngBusbudDemo', ['ngRoute', 'autocomplete', 'randomclas
 			}
 			
 			$http
-				.get('/api/locations/' + val)
+				.jsonp('http://www.busbud.com/en/complete/locations/' + val + '?callback=JSON_CALLBACK')
 				.success(function(data) {
 					$scope.destinations = _.pluck(data, 'label');
 					$scope.invalidDestination = ($scope.destination && !$scope.destinations.length);
