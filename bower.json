@@ -7,6 +7,6 @@
     "lodash": "2.4.1",
     "normalize-css": "3.0.0",
     "foundation": "5.1.1",
-    "allmighty-autocomplete": "chesleybrown/allmighty-autocomplete"
+    "allmighty-autocomplete": "JustGoscha/allmighty-autocomplete"
   }
 }
