@@ -1,0 +1,27 @@
+<div class="searching" random-class min="1" max="5" class-prefix="city">
+	<section class="row">
+		<div class="large-2 columns">&nbsp;</div>
+		<div class="large-8 small-12 columns form-container">
+			<form ng-submit="submit()">
+				<h5>Now serving bus schedules for <strong>4194 cities</strong> in <strong>67 countries</strong></h3>
+				<h3>Find a bus for your next trip</h4>
+				
+				<autocomplete ng-model="departure" data="departures" on-type="getDepartures" placeholder="Departure city"></autocomplete>
+				
+				<div class="row collapse">
+					<div class="small-9 medium-10 columns">
+						<autocomplete ng-model="destination" data="destinations" on-type="getDestinations" placeholder="Destination city"></autocomplete>
+					</div>
+					<div class="small-3 medium-2 columns">
+						<input type="submit" value="Search" class="button postfix">
+					</div>
+				</div>
+				
+				<div class="alert-box warning" ng-show="err">Something went wrong. Really sorry about that. Maybe just try again?</div>
+				<div class="alert-box warning" ng-show="invalidDeparture">Sorry, but that <strong>departure</strong> city was not found. Please try another search.</div>
+				<div class="alert-box warning" ng-show="invalidDestination">Sorry, but that <strong>destination</strong> city was not found. Please try another search.</div>
+			</form>
+		</div>
+		<div class="large-2 columns">&nbsp;</div>
+	</section>
+</div>

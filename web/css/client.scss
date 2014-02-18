@@ -1,0 +1,91 @@
+@import "vars";
+@import "foundation";
+@import "bourbon";
+
+// Angular Cloak
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+	display: none !important;
+}
+
+// City Background classes
+.city1 {
+	background-image: url(/img/city1.jpg);
+}
+.city2 {
+	background-image: url(/img/city2.jpg);
+}
+.city3 {
+	background-image: url(/img/city3.jpg);
+}
+.city4 {
+	background-image: url(/img/city4.jpg);
+}
+.city5 {
+	background-image: url(/img/city5.jpg);
+}
+
+.searching {
+	background-repeat: no-repeat;
+	background-position: top;
+	background-size: cover;
+	border-bottom: 1px solid #666;
+	min-height: 600px;
+	
+	.form-container {
+		h3, h5 {
+			text-shadow: 1px 1px rgba(255,255,255,0.9);
+		}
+		h5 {
+			color: #666;
+		}
+		
+		padding: 50px;
+		border: 1px solid $body-bg;
+		border-radius: 3px;
+		margin-top: 50px;
+		background-color: rgba(255,255,255,0.9);
+		box-shadow: 0 0 10px 10px rgba(50,50,50,0.5);
+	}
+}
+
+// Autocomplete
+.autocomplete {
+	width: 100%;
+	position: relative;
+	margin: 0 0 1rem;
+	
+	input {
+		margin: 0;
+	}
+	
+	ul {
+		margin-left: 0;
+		position: absolute;
+		left: 0;
+		width: 100%;
+		border-left: 1px solid $primary-color;
+		border-right: 1px solid $primary-color;
+		border-bottom: 1px solid $primary-color;
+		border-radius: 0 0 5px 5px;
+		z-index: 1000;
+		background-color: $body-bg;
+	}
+	
+	li {
+		text-align: left;
+		list-style:none;
+		width: 100%;
+		padding:0.4em;
+	}
+	li:hover {
+		cursor: pointer;
+	}
+	li.active{
+		width: 100%;
+		background-color: $primary-color;
+		color: $secondary-color;
+	}
+	li:last-child {
+		border-radius: 0 0 3px 3px;
+	}
+}

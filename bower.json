@@ -1,0 +1,12 @@
+{
+  "name": "frontend-challenge",
+  "version": "0.0.1",
+  "dependencies": {
+    "angular" : "1.2.12",
+    "angular-route": "1.2.12",
+    "lodash": "2.4.1",
+    "normalize-css": "3.0.0",
+    "foundation": "5.1.1",
+    "allmighty-autocomplete": "JustGoscha/allmighty-autocomplete"
+  }
+}
