@@ -15,7 +15,7 @@ Implement a form with two autocomplete text-boxes (sourced from a location sugge
 * The code should be hosted on github, and the repo should be shared with Busbud and submitted as a pull request
 * Style guide: https://github.com/busbud/js-style-guide
 
-## Bonus
+### Bonus
 * Localization: support for multiple languages (English, French, ...)
 * Responsive design
 
