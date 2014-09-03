@@ -1,0 +1,143 @@
+/* Foundtation update */
+.row .columns.tight{
+    padding-left: 0;
+    padding-right: 0;
+}
+.search-form{
+    background: url("//busbud-pubweb-assets.global.ssl.fastly.net/images/homepage/7a5ebe6.green_mountains.jpg") center -100px;
+}
+/* Form CSS */
+#search-form{
+    font-family: Interstate,"Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+    font-size: 1em;
+
+    .columns{        
+        position: relative;
+        height: 64px;
+        //    border: 1px solid blue;
+
+        margin: 10px 0;
+
+        &.tooltip-opened label{
+            color: #fff;
+        }     
+        &.focus input{
+            background: #2a91e0;
+        }     
+        .tooltip, label, input{
+            position: absolute;
+            // top: 0;
+            top: 32px;
+
+            width:100%;
+            height: 32px;
+            margin: 0;
+
+            text-shadow: none;
+            line-height: 32px;
+        }
+
+        .tooltip{
+            z-index: 100;
+
+            background: black;  
+            opacity: 0.4;
+        }
+        label{
+            z-index: 103;
+
+            padding-left: 32px;
+
+            color: #a2cff1;
+            cursor: text;
+            
+            &.label-hidden{
+                z-index: 101;
+            }
+        }
+        
+
+        input{
+            z-index: 102;
+            top: 32px;           
+
+            color: #fff;
+            border: 0;
+            border-top: 1px solid #75b8eb;
+            border-right: 1px solid #52a5e6;
+            background: #2089da;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+
+            &:focus{
+                outline: 0; 
+            }
+            &[type=text]{
+                padding: 0 10px 0 32px; 
+            }
+            &[type=submit]{
+                cursor: pointer;
+                font-size: 1em;
+                color: #a2cff1;
+                &:hover{
+                    color: #e8e8e8;
+                }
+            }
+        } 
+
+        svg{
+            position: absolute;
+            z-index: 106;
+            top: 32px;
+            
+            width: 16px;
+            height: 16px;
+            margin: 8px;
+            
+            fill: #e8e8e8;           
+        }
+
+        &.proposals-opened .proposals{
+            display: block;
+        }
+        .proposals{
+            display: none;
+
+            position: absolute;
+            top: 64px;
+            z-index: 110;
+
+            width:100%;
+            margin: 0;
+            padding: 0;
+
+            color: #e8e8e8;
+            text-shadow: none;
+            background: #2089da;
+            list-style-type: none;
+            font-size: 0.8em;
+            line-height: 32px;
+            box-shadow: 0px 10px 10px -10px rgba(50, 50, 50, 0.75) inset;
+
+            li{
+                width: 100%;
+                height: 32px;
+                padding-left: 32px;
+
+                cursor: pointer;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                white-space: nowrap;
+                
+                &.selected{
+                    background: #2a91e0;
+
+                    &:first-child{
+                        box-shadow: 0px 10px 10px -10px rgba(50, 50, 50, 0.75) inset;
+                    }
+                }
+            }
+        }
+    }
+}
