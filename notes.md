@@ -1,5 +1,7 @@
 #####quick notes as reminders
 
+I'm keeping the compiled css (and other assets) in the repo instead of putting it into the gitignore'd list of files. It will be easier for whoever to view this without installing gulp since it's not a part of the original README.md's installation instructions, I figured I'd adhere to that for simplicity for the viewers sake.
+
 Functionality
 =============
 
@@ -15,3 +17,7 @@ Design
 * Pull the 3 font icons for icon-from, icon-to and icon-search from http://fontello.com/. Avoid using entire font icons (like font-awesome, etc), we only need 3 here.  
 * Use Gulp + Sass to keep styles organized and separated.  
 * The images from the CDN included by default in the index.jade inline css are missing, just mimic the actual busbud.com website style.  
+
+Credits
+=======
+* Background image provided by https://twitter.com/jakegivens from http://unsplash.com under a CC0 license

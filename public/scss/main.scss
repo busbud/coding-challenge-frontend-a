@@ -1,6 +1,14 @@
+@import 'variables';
 @import 'normalize';
+@import 'mixins';
 
 html,
 body {
-	min-height: 100%;
+	height: 100%;
+}
+
+body {
+	background-image: url('../img/bg.jpg');
+	background-position: 50% 50%;
+	background-size: cover;
 }
