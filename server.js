@@ -21,7 +21,16 @@ app.configure('development', function() {
   app.use(express.errorHandler());
 });
 
-app.get('/', routes.index);
+/**
+ * Application routes
+ */
+
+var lang  = require('./routes/lang-api');
+var search  = require('./routes/search-api');
+
+app.use(lang);
+app.use(search);
+app.use(express.static('public'));
 
 
 http.createServer(app).listen(app.get('port'), function() {
