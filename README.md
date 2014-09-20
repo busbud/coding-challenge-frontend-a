@@ -22,7 +22,7 @@ Implement a form with two autocomplete text-boxes (sourced from a location sugge
 ### Remarks
 
 * Feel free to refactor or restructure as needed
-* In order to issue an authorized request against the suggestion endpoint, a long-lived guest token must be obtained from `http://busbud-napi-prod.global.ssl.fastly.net/auth/guest` and passed as the value to the `x-busbud-token` HTTP Header
+* In order to issue an authorized request against the suggestion endpoint, a long-lived guest token must be obtained from `http://busbud-napi-prod.global.ssl.fastly.net/auth/guest` and passed as the value of the `x-busbud-token` HTTP Header
 * CSS and JS added to support feature may be included in separate files
 * CSS can be written using SASS, LESS or similar higher-level language
 
