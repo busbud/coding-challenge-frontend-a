@@ -2,13 +2,227 @@
 @import 'normalize';
 @import 'mixins';
 
+// Apply a natural box model layout to all elemnts
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+// Expand the page to cover the entire page
 html,
 body {
-	height: 100%;
+   height: 100%;
 }
 
 body {
-	background-image: url('../img/bg.jpg');
-	background-position: 50% 50%;
-	background-size: cover;
+   background-image: url('../img/bg.jpg');
+   background-position: 50% 50%;
+   background-repeat: no-repeat;
+   background-size: cover;
+   font-family: "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
+   color: #fff;
+}
+
+.container {
+   width: 90%;
+   max-width: 900px;
+   margin: 0 auto;
+}
+
+.responsive-image {
+   max-width: 100%;
+   height: auto;
+   display: block;
+}
+
+.clear {
+  clear: both;
+}
+
+header.main-header {
+   padding-top: 12px;
+   padding-bottom: 12px;
+   background-color: $color-main;
+   box-shadow: 0 3px 10px rgba(#000, .5);
+
+   // Clear the floated logo and languages
+   @include clearfix;
+
+   a.logo {
+      display: block;
+      float: left;
+      width: 110px;
+   }
+
+   .languages {
+      float: right;
+
+      a {
+         display: inline-block;
+         margin-top: 10px;
+         margin-left: 10px;
+         padding: 2px 10px;
+         border-radius: 15px;
+         background-color: rgba(#fff, 0.2);
+         font-size: 12px;
+         text-decoration: none;
+         color: #fff;
+
+         &:hover {
+            background-color: rgba(#fff, 0.4);
+         }
+
+         &.active {
+            background-color: rgba(#fff, 0.4);
+         }
+      }
+   }
+}
+
+.search-header {
+   margin-top: 80px;
+   padding: 20px;
+   text-shadow: 0 1px 2px rgba(#000, .6);
+   background-color: rgba(#000, 0.2);
+
+   h1 {
+      font-size: 41px;
+      margin: 0;
+   }
+
+   h2 {
+      font-size: 17px;
+      margin: 0;
+   }
+}
+
+.search-bar {
+  margin-top: 40px;
+  background-color: rgba(#fff, 0.2);
+  box-shadow: 0 3px 12px 1px rgba(#000, .55);
+}
+
+label.search-container {
+  width: 40%;
+  display: block;
+  position: relative;
+  z-index: 10;
+  float: left;
+  background-color: $color-main;
+  border-top: 1px solid $color-outline;
+  border-right: 1px solid $color-outline;
+
+  &:hover,
+  &.active {
+    background-color: lighten($color-main, 2%);
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-family: 'bb-fonts';
+    font-size: 18px;
+  }
+
+  &.depart {
+    &:after {
+      content: '\e802';
+    }
+  }
+
+  &.arrive {
+    &:after {
+      content: '\e801';
+    }
+  }
+}
+
+.search-message {
+  position: absolute;
+  z-index: 0;
+}
+
+.twitter-typeahead {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+}
+
+.typeahead,
+.tt-query,
+.tt-hint {
+  background-color: transparent;
+  width: 100%;
+  height: 40px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  color: #fff;
+  letter-spacing: 1px;
+  padding-left: 30px;
+  padding-right: 10px;
+}
+
+.tt-hint {
+  color: lighten($color-main, 40%);
+  background-color: transparent !important;
+}
+
+.tt-dropdown-menu {
+  width: 100%;
+  background-color: rgba($color-main, 0.8);
+}
+
+.tt-suggestion {
+  padding-left: 30px;
+  padding-top: 13px;
+  padding-bottom: 13px;
+  padding-right: 10px;
+  font-size: 14px;
+  text-shadow: 0 1px 2px rgba(#000, .6);
+  line-height: 24px;
+}
+
+.tt-suggestion.tt-cursor {
+  background-color: lighten($color-main, 3%);
+
+}
+
+.tt-suggestion p {
+  margin: 0;
+}
+
+.search-submit {
+  float: left;
+  display: block;
+  width: 20%;
+  height: 41px;
+  border: none;
+  margin: 0;
+  font-weight: 600;
+  color: #fff;
+  border-top: 1px solid $color-outline;
+  border-right: 1px solid $color-outline;
+  background-color: lighten($color-main, 5%);
+}
+
+::-webkit-input-placeholder {
+  color: lighten($color-main, 40%);
+}
+
+:-moz-placeholder {
+  color: lighten($color-main, 40%);
+}
+
+::-moz-placeholder {
+  color: lighten($color-main, 40%);
+}
+
+:-ms-input-placeholder {
+  color: lighten($color-main, 40%);
 }

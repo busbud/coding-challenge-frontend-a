@@ -26,10 +26,48 @@
    </head>
    <body>
 
-      <form method="POST" action="//www.busbud.com/en/search">
-         <input type="text" name="from" id="depart-from" />
-         <input type="text" name="to" id="arrive-at" />
-      </form>
+      <header class="main-header">
+         <div class="container">
+            <a href="/" class="logo">
+               <img src="img/logo.png" class="responsive-image" alt="Busbud" />
+            </a>
+
+            <div class="languages">
+               <a href="#en" class="active">en</a>
+               <a href="#fr">fr</a>
+               <a href="#es">es</a>
+            </div>
+         </div>
+      </header>
+
+      <div class="container">
+
+         <div class="search-header">
+            <h1 data-translate="pageHeader">Find a bus for your next trip</h1>
+            <h2 data-translate="pageSubheader">Now serving bus schedules for 10463 cities in 89 countries</h2>
+         </div>
+
+         <div class="search-bar">
+            <form method="POST" action="//www.busbud.com/en/search">
+               <label class="search-container depart" for="depart-from">
+                  <div class="search-message" data-translation="locationFrom">
+                     Leaving from
+                  </div>
+                  <input type="text" name="from" class="typeahead" id="depart-from" placeholder="Leaving from" data-translate="placeholder:locationFrom" />
+               </label>
+               <label class="search-container arrive" for="arrive-at">
+                  <input type="text" name="to" class="typeahead" id="arrive-at" placeholder="Going to" data-translate="placeholder:locationTo" />
+               </label>
+               <button type="submit" class="search-submit">
+                  <i class="icon-search"></i>
+                  <span data-translate="locationSearch">Search</span>
+                  </button>
+               <div class="clear"></div>
+            </form>
+         </div>
+
+      </div>
+
       <script src="js/jquery-1.11.1.min.js"></script>
       <script src="js/typeahead.jquery.min.js"></script>
       <script src="js/app.js"></script>

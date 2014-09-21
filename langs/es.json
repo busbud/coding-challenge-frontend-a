@@ -4,5 +4,6 @@
 	"pageSubheader": "Ahora tenemos horarios de autobuses para 10463 ciudades en 89 países",
 	"locationFrom": "Saliendo de",
 	"locationTo": "Hacia",
-	"locationSearch": "Buscar"
+	"locationSearch": "Buscar",
+	"fieldMandatory": "Este campo es obligatorio"
 }

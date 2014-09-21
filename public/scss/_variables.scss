@@ -2,3 +2,8 @@
 $breakpoint-sm: 320px;
 $breakpoint-md: 640px;
 $breakpoint-lg: 1024px;
+
+// Color scheme
+$color-main: #127ccb;
+$color-accent: #409ce3;
+$color-outline: desaturate(lighten($color-main, 15%), 25%);

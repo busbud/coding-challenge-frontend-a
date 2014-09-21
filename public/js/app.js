@@ -14,8 +14,7 @@ cityResults.initialize();
 
 $('#depart-from,#arrive-at').typeahead({
   minLength: 2,
-  hint: true,
-  highlight: true
+  hint: true
 },
 {
   name: 'city',
@@ -26,6 +25,14 @@ $('#depart-from,#arrive-at').typeahead({
   console.log('selected');
 });
 
-$('#arrive-at').change(function() {
+$('#depart-from,#arrive-at').change(function() {
   console.log('changed');
+});
+
+$('label.search-container input').focus(function() {
+  $(this).parents('label.search-container').addClass('active');
+});
+
+$('label.search-container input').blur(function() {
+  $(this).parents('label.search-container').removeClass('active');
 });

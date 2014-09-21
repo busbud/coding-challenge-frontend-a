@@ -4,5 +4,6 @@
 	"pageSubheader": "Now serving bus schedules for 10463 cities in 89 countries",
 	"locationFrom": "Leaving From",
 	"locationTo": "Going to",
-	"locationSearch": "Search"
+	"locationSearch": "Search",
+	"fieldMandatory": "This field is mandatory"
 }
