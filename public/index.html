@@ -49,20 +49,34 @@
 
          <div class="search-bar">
             <form method="POST" action="//www.busbud.com/en/search">
+
                <label class="search-container depart" for="depart-from">
-                  <div class="search-message" data-translation="locationFrom">
-                     Leaving from
+                  <div class="search-message-container">
+                     <div class="search-message" data-translation="locationFrom">
+                        Leaving from
+                     </div>
                   </div>
+
                   <input type="text" name="from" class="typeahead" id="depart-from" placeholder="Leaving from" data-translate="placeholder:locationFrom" />
                </label>
+
                <label class="search-container arrive" for="arrive-at">
+                  <div class="search-message-container">
+                     <div class="search-message" data-translation="locationTo">
+                        Going to
+                     </div>
+                  </div>
+
                   <input type="text" name="to" class="typeahead" id="arrive-at" placeholder="Going to" data-translate="placeholder:locationTo" />
                </label>
+
                <button type="submit" class="search-submit">
                   <i class="icon-search"></i>
                   <span data-translate="locationSearch">Search</span>
-                  </button>
+               </button>
+
                <div class="clear"></div>
+
             </form>
          </div>
 
