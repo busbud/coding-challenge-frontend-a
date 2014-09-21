@@ -88,14 +88,33 @@ header.main-header {
    text-shadow: 0 1px 2px rgba(#000, .6);
    background-color: rgba(#000, 0.2);
 
+   @include responsive(sm) {
+    margin-top: 30px;
+   }
+
    h1 {
-      font-size: 41px;
+      font-size: 42px;
       margin: 0;
+
+      @include responsive(sm) {
+        font-size: 18px;
+        text-align: center;
+      }
+
+      @include responsive(md) {
+        font-size: 34px;
+      }
    }
 
    h2 {
       font-size: 17px;
       margin: 0;
+
+      @include hidden(sm);
+
+      @include responsive(md) {
+        font-size: 14px;
+      }
    }
 }
 
@@ -103,6 +122,10 @@ header.main-header {
   margin-top: 40px;
   background-color: rgba(#fff, 0.2);
   box-shadow: 0 3px 12px 1px rgba(#000, .55);
+
+  @include responsive(sm) {
+    padding: 30px;
+  }
 }
 
 label.search-container {
@@ -114,24 +137,47 @@ label.search-container {
   border-top: 1px solid $color-outline;
   border-right: 1px solid $color-outline;
 
+  @include responsive(sm) {
+    width: 100%;
+    margin-bottom: 15px;
+
+    background-color: #fff;
+    border: 1px solid #aaa;
+  }
+
   &:hover,
   &.active {
     background-color: lighten($color-main, 2%);
+
+    @include responsive(sm) {
+      background-color: #fff;
+    }
 
     // Active state
     .search-message {
       opacity: 1;
       top: 0px;
+
+      @include hidden(sm);
     }
   }
 
   &:after {
     content: '';
     position: absolute;
-    top: 10px;
-    left: 10px;
+    top: 15px;
+    left: 14px;
     font-family: 'bb-fonts';
     font-size: 18px;
+
+    @include responsive(sm) {
+      color: #aaa;
+    }
+
+    @include responsive(sm, md) {
+      left: 10px;
+      top: 10px;
+    }
   }
 
   &.depart {
@@ -182,19 +228,35 @@ label.search-container {
 .tt-hint {
   background-color: transparent;
   width: 100%;
-  height: 40px;
+  height: 50px;
   border: none;
   outline: none;
-  font-size: 14px;
+  font-size: 16px;
+  font-weight: 600;
   color: #fff;
   letter-spacing: 1px;
-  padding-left: 30px;
+  padding-left: 40px;
   padding-right: 10px;
+
+  @include responsive(sm) {
+    color: #000;
+  }
+
+  @include responsive(sm, md) {
+    height: 40px;
+    font-size: 14px;
+    font-weight: 400;
+    padding-left: 30px;
+  }
 }
 
 .tt-hint {
   color: lighten($color-main, 40%);
   background-color: transparent !important;
+
+  @include responsive(sm) {
+    color: #aaa;
+  }
 }
 
 .tt-dropdown-menu {
@@ -203,13 +265,20 @@ label.search-container {
 }
 
 .tt-suggestion {
-  padding-left: 30px;
+  padding-left: 40px;
   padding-top: 13px;
   padding-bottom: 13px;
   padding-right: 10px;
-  font-size: 14px;
+  font-size: 16px;
+  font-weight: 600;
   text-shadow: 0 1px 2px rgba(#000, .6);
   line-height: 24px;
+
+  @include responsive(sm, md) {
+    padding-left: 30px;
+    font-size: 14px;
+    font-weight: 400;
+  }
 }
 
 .tt-suggestion.tt-cursor {
@@ -225,7 +294,7 @@ label.search-container {
   float: left;
   display: block;
   width: 20%;
-  height: 41px;
+  height: 51px;
   border: none;
   margin: 0;
   font-weight: 600;
@@ -233,6 +302,15 @@ label.search-container {
   border-top: 1px solid $color-outline;
   border-right: 1px solid $color-outline;
   background-color: lighten($color-main, 5%);
+
+  @include responsive(sm) {
+    width: 100%;
+    border: none;
+  }
+
+  @include responsive(sm, md) {
+    height: 41px;
+  }
 
   &:hover {
     background-color: lighten($color-main, 7%);
@@ -250,16 +328,32 @@ label.search-container {
 
 ::-webkit-input-placeholder {
   color: lighten($color-main, 40%);
+
+  @include responsive(sm) {
+    color: #aaa;
+  }
 }
 
 :-moz-placeholder {
   color: lighten($color-main, 40%);
+
+  @include responsive(sm) {
+    color: #aaa;
+  }
 }
 
 ::-moz-placeholder {
   color: lighten($color-main, 40%);
+
+  @include responsive(sm) {
+    color: #aaa;
+  }
 }
 
 :-ms-input-placeholder {
   color: lighten($color-main, 40%);
+
+  @include responsive(sm) {
+    color: #aaa;
+  }
 }
