@@ -1,3 +1,12 @@
+/**
+ * Note:
+ *
+ * This search-api route acts as a proxy between the web app and the Busbud
+ * API. Unfortunately, including custom headers in padded JSON (jsonp)
+ * requests through the browser via ajax calls seems impossible to do in
+ * current browsers, so this route/proxy is necessary to scrape information
+ */
+
 var express = require('express');
 var app = module.exports = express();
 var http = require('http');

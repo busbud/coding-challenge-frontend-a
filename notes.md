@@ -1,6 +1,7 @@
-#####quick notes as reminders
+###quick notes as reminders
 
-I'm keeping the compiled css (and other assets) in the repo instead of putting it into the gitignore'd list of files. It will be easier for whoever to view this without installing gulp since it's not a part of the original README.md's installation instructions, I figured I'd adhere to that for simplicity for the viewers sake.
+* These are only notes, not guidelines or documentation of what's been done or will be done. I might skip some of these or change how they work entirely.  
+* I'm keeping the compiled css (and other assets) in the repo instead of putting it into the gitignore'd list of files. It will be easier for whoever to view this without installing gulp since it's not a part of the original README.md's installation instructions, I figured I'd adhere to that for simplicity for the viewers sake.
 
 Functionality
 =============

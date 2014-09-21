@@ -89,12 +89,14 @@ function translateElement(language, element) {
     transKey = split[1];
   }
 
+  // Text needs to be inserted into the element
   if(transAttr === 'text')
   {
     $(element).text(language[transKey]);
   }
   else
   {
+    // Everything else can be updated via attribute mods
     $(element).attr(transAttr, language[transKey]);
   }
 }
