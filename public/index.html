@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-bind="put knockout lang bind here">
+<html lang="en" data-translate="lang:langCode">
    <head>
       <meta charset="utf-8" />
 
@@ -33,9 +33,9 @@
             </a>
 
             <div class="languages">
-               <a href="#en" class="active">en</a>
-               <a href="#fr">fr</a>
-               <a href="#es">es</a>
+               <a href="#en" id="en">en</a>
+               <a href="#fr" id="fr">fr</a>
+               <a href="#es" id="es">es</a>
             </div>
          </div>
       </header>
@@ -48,24 +48,28 @@
          </div>
 
          <div class="search-bar">
-            <form method="POST" action="//www.busbud.com/en/search">
+            <form id="busbud-search" method="POST" action="//www.busbud.com/en/search">
 
                <label class="search-container depart" for="depart-from">
                   <div class="search-message-container">
-                     <div class="search-message" data-translation="locationFrom">
+                     <div class="search-message" data-translate="locationFrom">
                         Leaving from
                      </div>
                   </div>
+
+                  <div class="error-message" data-translate="mandatory">This field is mandatory</div>
 
                   <input type="text" name="from" class="typeahead" id="depart-from" placeholder="Leaving from" data-translate="placeholder:locationFrom" />
                </label>
 
                <label class="search-container arrive" for="arrive-at">
                   <div class="search-message-container">
-                     <div class="search-message" data-translation="locationTo">
+                     <div class="search-message" data-translate="locationTo">
                         Going to
                      </div>
                   </div>
+
+                  <div class="error-message" data-translate="mandatory">This field is mandatory</div>
 
                   <input type="text" name="to" class="typeahead" id="arrive-at" placeholder="Going to" data-translate="placeholder:locationTo" />
                </label>

@@ -70,6 +70,8 @@ header.main-header {
          font-size: 12px;
          text-decoration: none;
          color: #fff;
+         border: none;
+         outline: none;
 
          &:hover {
             background-color: rgba(#fff, 0.4);
@@ -189,6 +191,35 @@ label.search-container {
   &.arrive {
     &:after {
       content: '\e801';
+    }
+  }
+
+  .error-message {
+    position: absolute;
+    display: none;
+    z-index: 100;
+    top: 100%;
+    left: 25px;
+    width: 80%;
+    padding: 5px 10px;
+    margin-top: -3px;
+    background-color: #df0012;
+    border-radius: 10px;
+    border: 2px solid darken(#df0012, 10%);
+    font-size: 12px;
+
+    &:after {
+      content: '';
+      position: absolute;
+      top: -5px;
+      left: 15px;
+      width: 8px;
+      height: 8px;
+
+      transform: rotate(45deg);
+      background-color: #df0012;
+      border-left: 2px solid darken(#df0012, 10%);
+      border-top: 2px solid darken(#df0012, 10%);
     }
   }
 }
