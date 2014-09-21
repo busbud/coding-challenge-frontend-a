@@ -2,7 +2,7 @@
 	"langCode": "en",
 	"pageHeader": "Find a bus for your next trip",
 	"pageSubheader": "Now serving bus schedules for 10463 cities in 89 countries",
-	"locationFrom": "Leaving From",
+	"locationFrom": "Leaving from",
 	"locationTo": "Going to",
 	"locationSearch": "Search",
 	"fieldMandatory": "This field is mandatory"

@@ -89,6 +89,9 @@ function translateElement(language, element) {
     transKey = split[1];
   }
 
+  // @HACK: Wow... typeahead clones the placeholder into the hint :(
+  if($(element).hasClass('tt-hint')) { return; }
+
   // Text needs to be inserted into the element
   if(transAttr === 'text')
   {
