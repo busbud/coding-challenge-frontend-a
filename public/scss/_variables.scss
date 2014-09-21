@@ -1,0 +1,9 @@
+// Media query declarations for break points
+$breakpoint-sm: 640px;
+$breakpoint-md: 960px;
+$breakpoint-lg: 1366px;
+
+// Color scheme
+$color-main: #127ccb;
+$color-accent: #409ce3;
+$color-outline: desaturate(lighten($color-main, 15%), 25%);

@@ -1,0 +1,59 @@
+/**
+ * Mixin for clearfixing a parent element with floated children
+ */
+@mixin clearfix {
+	&:after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+}
+
+/**
+ * Mixin for easily creating responsive content based on the 4 sizes outlined
+ * in our variables: sm, md, lg, xl
+ */
+@mixin responsive($sizes...) {
+	@each $size in $sizes {
+		@if $size == sm {
+			@media screen and (max-width: $breakpoint-sm) { @content; }
+		}
+		@else if $size == md {
+			@media screen and (min-width: $breakpoint-sm + 1) and (max-width: $breakpoint-md) { @content; }
+		}
+		@else if $size == lg {
+			@media screen and (min-width: $breakpoint-md + 1) and (max-width: $breakpoint-lg) { @content; }
+		}
+		@else if $size == xl {
+			@media screen and (min-width: $breakpoint-lg + 1) { @content; }
+		}
+	}
+}
+
+/**
+ * A quick shortcut for simply hiding something in certain screen resolutions
+ * (via display: none;) through our responsive mixin
+ */
+@mixin hidden($sizes...) {
+	@include responsive($sizes...) { display: none; }
+}
+
+/**
+ * A mixin for making overflow-text fit the container viewport by truncating
+ * excess text with the ellipsis (...)
+ */
+@mixin ellipsis {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+/**
+ * A mixin for transitions that I don't feel like copy+pasting everwhere
+ */
+@mixin transition($type, $delay) {
+	@if $type == easeBounce {
+		transition: all $delay cubic-bezier(0.63, -0.7, 0.37, 1.61);
+		transition-timing-function: cubic-bezier(0.63, -0.7, 0.37, 1.61);
+	}
+}

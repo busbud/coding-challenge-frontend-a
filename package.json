@@ -1,12 +1,21 @@
 {
-  "name": "application-name",
+  "name": "busbud-coding-challenge",
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node app"
+    "start": "node server"
   },
   "dependencies": {
     "express": "3.0.6",
     "jade": "*"
+  },
+  "devDependencies": {
+    "gulp": "^3.8.8",
+    "gulp-autoprefixer": "^1.0.0",
+    "gulp-jshint": "^1.8.4",
+    "gulp-livereload": "^2.1.1",
+    "gulp-sass": "^0.7.3",
+    "gulp-util": "^3.0.1",
+    "jshint-stylish": "^0.4.0"
   }
 }

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" data-translate="lang:langCode">
+   <head>
+      <meta charset="utf-8" />
+
+      <title>index.html</title>
+
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+      <link href="css/main.css" type="text/css" rel="stylesheet" />
+
+      <!-- Icon fonts -->
+      <link href="css/bb-fonts.css" type="text/css" rel="stylesheet" />
+      <!--[if lt IE 8]>
+         <link href="css/bb-fonts-ie7.css" type="text/css" rel="stylesheet" />
+      <![endif]-->
+
+      <!-- TypeKit web fonts -->
+		<script type="text/javascript" src="//use.typekit.net/pdu4jrt.js"></script>
+		<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+      <!-- IE shims -->
+      <!--[if lt IE 9]>
+         <script src="js/respond.min.js"></script>
+         <script src="js/html5shiv.min/js"></script>
+      <![endif]-->
+   </head>
+   <body>
+
+      <div class="cover">
+         <header class="main-header">
+            <div class="container">
+               <a href="/" class="logo">
+                  <img src="img/logo.png" class="responsive-image" alt="Busbud" />
+               </a>
+
+               <div class="languages">
+                  <a href="#en" id="en">en</a>
+                  <a href="#fr" id="fr">fr</a>
+                  <a href="#es" id="es">es</a>
+               </div>
+            </div>
+         </header>
+
+         <div class="container">
+
+            <div class="search-header">
+               <h1 data-translate="pageHeader">Find a bus for your next trip</h1>
+               <h2 data-translate="pageSubheader">Now serving bus schedules for 10463 cities in 89 countries</h2>
+            </div>
+
+            <div class="search-bar">
+               <form id="busbud-search" method="POST" action="//www.busbud.com/en/search">
+
+                  <label class="search-container depart" for="depart-from">
+                     <div class="search-message-container">
+                        <div class="search-message" data-translate="locationFrom">
+                           Leaving from
+                        </div>
+                     </div>
+
+                     <div class="error-message" data-translate="fieldMandatory">This field is mandatory</div>
+
+                     <input type="text" name="from" class="typeahead" id="depart-from" placeholder="Leaving from" data-translate="placeholder:locationFrom" />
+                  </label>
+
+                  <label class="search-container arrive" for="arrive-at">
+                     <div class="search-message-container">
+                        <div class="search-message" data-translate="locationTo">
+                           Going to
+                        </div>
+                     </div>
+
+                     <div class="error-message" data-translate="fieldMandatory">This field is mandatory</div>
+
+                     <input type="text" name="to" class="typeahead" id="arrive-at" placeholder="Going to" data-translate="placeholder:locationTo" />
+                  </label>
+
+                  <button type="submit" class="search-submit">
+                     <i class="icon-search"></i>
+                     <span data-translate="locationSearch">Search</span>
+                  </button>
+
+                  <div class="clear"></div>
+
+               </form>
+            </div>
+
+         </div>
+
+      </div>
+
+      <script src="js/jquery-1.11.1.min.js"></script>
+      <script src="js/typeahead.jquery.min.js"></script>
+      <script src="js/app.js"></script>
+   </body>
+</html>
