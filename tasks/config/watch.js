@@ -1,3 +1,4 @@
+// Watches files for changes and runs tasks based on the changed files
 module.exports = function(grunt) {
   'use strict';
 
@@ -6,17 +7,23 @@ module.exports = function(grunt) {
       livereload: true
     },
     express: {
+      files: ['app.js'],
+      tasks: ['express:dev']
+    },
+    grunt: {
       files: [
-        'app.js',
         'Gruntfile.js',
         'tasks/*/*.js'
-      ],
-      tasks: ['express:dev']
+      ]
     },
     views: {
       files: [
         'views/{,*/}*.jade'
       ]
+    },
+    sass: {
+      files: ['assets/styles/{,*/}*.scss'],
+      tasks: ['sass:dev', 'autoprefixer']
     }
   });
 };

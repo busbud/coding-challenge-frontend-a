@@ -1,1 +1,5 @@
+.sass-cache
+assets/bower_components
 node_modules
+dist
+npm-debug.log
