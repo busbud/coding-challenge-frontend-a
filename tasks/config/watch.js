@@ -23,7 +23,19 @@ module.exports = function(grunt) {
     },
     sass: {
       files: ['assets/styles/{,*/}*.scss'],
-      tasks: ['sass:dev', 'autoprefixer']
+      tasks: [
+        'sass:dev',
+        'autoprefixer'
+      ]
+    },
+    js: {
+      files: [
+        'assets/scripts/{,*/}*.js',
+        'app.js',
+        'Gruntfile.js',
+        'tasks/*/*.js'
+      ],
+      tasks: ['jshint']
     }
   });
 };
