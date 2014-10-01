@@ -1,92 +1,24 @@
-html,
-body {
-  background: #ebf0f2;
-  margin: 0;
-  min-height: 300px;
-}
+// Setup
+@import '../bower_components/normalize.css/normalize';
+@import '../bower_components/inuit-defaults/settings.defaults';
+@import '../bower_components/inuit-responsive-settings/settings.responsive';
+@import 'vars';
 
-// layouts
-.main-column {
-  margin: 0 auto;
-  max-width: 700px;
-  width: 700px;
-}
+// Dependencies
+@import '../bower_components/font-awesome/scss/font-awesome';
+@import '../bower_components/sass-less-stylus.easing/easings';
+@import '../bower_components/inuit-responsive-tools/tools.responsive';
+@import '../bower_components/inuit-widths-generator/trumps.widths-generator';
+@import '../bower_components/inuit-widths-responsive-generator/trumps.widths-responsive-generator';
+@import 'libs/grid';
+@import 'libs/helpers';
 
-// header
-.header {
-  background-color: #3678ae;
-  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDIwODkgNjkiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxsaW5lYXJHcmFkaWVudCBpZD0iaGF0MCIgZ3JhZGllbnRVbml0cz0ib2JqZWN0Qm91bmRpbmdCb3giIHgxPSI1MCUiIHkxPSIxMDAlIiB4Mj0iNTAlIiB5Mj0iLTEuNDIxMDg1NDcxNTIwMmUtMTQlIj4KPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzI3NTU5NyIgc3RvcC1vcGFjaXR5PSIxIi8+CjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzQ5OWZjNSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgIDwvbGluZWFyR3JhZGllbnQ+Cgo8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMjA4OSIgaGVpZ2h0PSI2OSIgZmlsbD0idXJsKCNoYXQwKSIgLz4KPC9zdmc+');
-  background-image: linear-gradient(bottom, #275597 0%, #499fc5 100%);
-  box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
-  color: #fff;
-  padding: 15px 0;
+// Base Layout
+@import 'scaffolding';
 
-  a {
-    color: #fff;
-  }
-}
-
-// logo
-.logo {
-  background: url('http://dnls6ci2ykmn3.cloudfront.net/images/sprites/R-gQfJb/logo_header.png') 0 0 no-repeat;
-  height: 40px;
-  width: 124px;
-
-  a {
-    display: block;
-    height: 100%;
-
-    &:hover {
-      text-decoration: none;
-    }
-  }
-
-  span {
-    display: none;
-  }
-}
-
-// hero
-.hero-unit {
-  background-color: #000;
-  background-image: url('http://dnls6ci2ykmn3.cloudfront.net/images/homepage/k9cPgTX/buenos_aires.jpg');
-  background-position: center bottom;
-  background-repeat: no-repeat;
-  background-size: cover;
-  box-shadow: 0 1px 0 #fff;
-  color: #293033;
-  font-family: "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: normal;
-  margin-bottom: 80px;
-  padding: 60px 0 40px;
-  text-shadow: 0 1px 0 #fff;
-
-  .slogan {
-    font-size: 18px;
-    font-weight: normal;
-  }
-}
-
-// search form
-.search-form {
-  background-clip: padding-box;
-  background-color: #fff;
-  background-color: rgba(255, 255, 255, .95);
-  border-radius: 10px;
-  box-shadow: 0 0 4px 0 #000;
-  color: #293033;
-  margin-bottom: 20px;
-  padding: 40px 80px 10px;
-
-  h1 {
-    color: #293033;
-    font-size: 32px;
-    font-weight: normal;
-    padding-bottom: 8px;
-    text-shadow: 0 1px 0 #fff;
-  }
-
-  .error {
-    color: #9d261d;
-  }
-}
+// Blocks
+@import 'blocks/header';
+@import 'blocks/logo';
+@import 'blocks/hero';
+@import 'blocks/home-typeahead';
+@import 'blocks/home-search-button';

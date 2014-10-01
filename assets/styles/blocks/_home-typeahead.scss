@@ -1,0 +1,67 @@
+.home-typeahead {
+  position: relative;
+  height: 50px;
+  border-right: solid 1px #75b8eb;
+  user-select: none;
+
+  &:hover {
+    background-color: #2a91e0;
+  }
+
+  &:hover &__tooltip {
+    opacity: 1;
+    transform: translate3d(0, -30px, 0);
+  }
+
+  @at-root {
+
+    &__tooltip {
+      opacity: 0;
+      position: absolute;
+      width: 100%;
+      height: 30px;
+      left: 0;
+      top: 0;
+      background: rgba(#000, .5);
+      color: #fff;
+      font-size: 14px;
+      line-height: 30px;
+      text-align: center;
+      text-shadow: 0 1px 1px #000;
+      transition: all .15s;
+      z-index: 1;
+    }
+
+    &__icon {
+      position: absolute;
+      top: 14px;
+      left: 20px;
+      font-size: 1.5em;
+      color: #fff;
+      z-index: 3;
+    }
+
+    &__textbox {
+      position: relative;
+      border: 0;
+      border-top: solid 1px #75b8eb;
+      box-shadow: none;
+      background-color: #2089da;
+      margin: 0;
+      padding: 10px 10px 10px 50px;
+      width: 100%;
+      min-height: 100%;
+      max-height: 100%;
+      resize: none;
+      outline: 0;
+      color: #fff;
+      font-size: 1.2em;
+      line-height: normal;
+      z-index: 2;
+
+      @include input-placeholder {
+        color: #a2cff1;
+      }
+    }
+  }
+}

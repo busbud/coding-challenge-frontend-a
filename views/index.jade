@@ -1,22 +1,29 @@
 doctype html
 html.en(lang='en')
   head
-    title=title
+    title Coding Challenge
     link(href='/styles/main.css', type='text/css', rel='stylesheet', media='all')
-    script(src='http://use.typekit.net/pdu4jrt.js')
-    script.
-      try{Typekit.load();}catch(e){}
-  body#b
-    .header
-      .main-column
+  body
+    header.header
+      .container
         .logo
           a(accesskey='1', href='/en/')
-            span Logo
-    #bd
-      div
-        .hero-unit
-          .main-column
-            .search-form
-              strong.slogan Now serving information between many places
-              // Form goes here
-              h1 Find three places
+            img(src='/images/logo-post-60@2x.png' alt='Busbud')
+    .hero
+      .container
+        .hero__headlines
+          h1.hero__title Trouvez un bus pour votre prochain voyage
+          h2.hero__sub-title Des horaires de bus en ligne pour 10463 villes dans 89 pays
+        .hero__search-bar
+          form.grid(id='homepage-search-form')
+            label(for='from' class='home-typeahead 5/12')
+              .home-typeahead__tooltip Départ de
+              i.fa.fa-location-arrow.home-typeahead__icon
+              input.home-typeahead__textbox(placeholder='Départ de' id='from' type='text' tabindex='1' autofocus autocorrect='off' autocomplete='off' spellcheck='false')
+            label(for='to' class='home-typeahead 5/12')
+              .home-typeahead__tooltip Aller à
+              i.fa.fa-map-marker.home-typeahead__icon
+              input.home-typeahead__textbox(placeholder='Aller à' id='to' type='text' tabindex='2' autocorrect='off' autocomplete='off' spellcheck='false')
+            button(class='home-search-button 2/12' tabindex='3')
+              i.fa.fa-search.home-search-button__icon
+              span.home-search-button__text Rechercher

@@ -1,0 +1,71 @@
+// Pattern Helpers
+
+%reset-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  > li {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+%visuallyhidden {
+  border: 0 !important;
+  clip: rect(0 0 0 0) !important;
+  height: 1px !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  width: 1px !important;
+}
+
+
+// Mixin Helpers
+
+@mixin input-placeholder {
+
+  &::-webkit-input-placeholder {
+    @content;
+  }
+
+  &:-moz-placeholder {
+    @content;
+  }
+
+  &::-moz-placeholder {
+    @content;
+  }
+
+  &:-ms-input-placeholder {
+    @content;
+  }
+}
+
+
+// Animation Helpers
+
+@keyframes shake {
+
+  8%, 41% {
+    transform: translateX(-10px);
+  }
+
+  25%, 58% {
+    transform: translateX(10px);
+  }
+
+  75% {
+    transform: translateX(-5px);
+  }
+
+  92% {
+    transform: translateX(5px);
+  }
+
+  0%, 100% {
+    transform: translateX(0);
+  }
+}

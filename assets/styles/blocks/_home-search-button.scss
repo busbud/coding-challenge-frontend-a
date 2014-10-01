@@ -1,0 +1,44 @@
+.home-search-button {
+  position: relative;
+  height: 50px;
+  border: 0;
+  border-top: solid 1px #75b8eb;
+  border-right: solid 1px #49a1e4;
+  margin: 0;
+  padding: 0 0 2px;
+  background: #3798e2;
+  color: #fff;
+  outline: 0;
+  text-align: center;
+  user-select: none;
+
+  &:hover {
+    background-color: #409ce3;
+  }
+
+  &:active,
+  &:focus {
+    background-color: #5face8;
+  }
+
+  @at-root {
+
+    &__icon {
+      display: inline-block;
+      vertical-align: middle;
+      width: 22px;
+      height: 22px;
+      font-size: 1.5em;
+      position: relative;
+      top: -1px;
+      margin-right: 8px;
+    }
+
+    &__text {
+      display: inline-block;
+      vertical-align: middle;
+      font-size: 1.2em;
+      line-height: normal;
+    }
+  }
+}
