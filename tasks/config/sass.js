@@ -4,8 +4,7 @@ module.exports = function(grunt) {
 
   grunt.config.set('sass', {
     options: {
-      loadPath: 'assets/bower_components',
-      sourcemap: true
+      loadPath: 'assets/bower_components'
     },
     dev: {
       files: [{
