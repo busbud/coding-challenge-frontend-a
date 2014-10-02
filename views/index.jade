@@ -16,14 +16,9 @@ html.en(lang='en')
           h2.hero__sub-title Des horaires de bus en ligne pour 10463 villes dans 89 pays
         .hero__search-bar
           form.grid(id='homepage-search-form')
-            label(for='from' class='home-typeahead 5/12')
-              .home-typeahead__tooltip Départ de
-              i.fa.fa-location-arrow.home-typeahead__icon
-              input.home-typeahead__textbox(placeholder='Départ de' id='from' type='text' tabindex='1' autofocus autocorrect='off' autocomplete='off' spellcheck='false')
-            label(for='to' class='home-typeahead 5/12')
-              .home-typeahead__tooltip Aller à
-              i.fa.fa-map-marker.home-typeahead__icon
-              input.home-typeahead__textbox(placeholder='Aller à' id='to' type='text' tabindex='2' autocorrect='off' autocomplete='off' spellcheck='false')
+            .react-typeahead(data-name='home-typeahead' class='5/12' data-placeholder='Départ de' data-input-id='from' data-icon-class='fa fa-location-arrow' data-tabindex='1' data-autofocus='on')
+            .react-typeahead(data-name='home-typeahead' class='5/12' data-placeholder='Aller à' data-input-id='to' data-icon-class='fa fa-map-marker' data-tabindex='2' data-autofocus='off')
             button(class='home-search-button 2/12' tabindex='3')
               i.fa.fa-search.home-search-button__icon
               span.home-search-button__text Rechercher
+    script(src='/scripts/main.js')
