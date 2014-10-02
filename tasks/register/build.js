@@ -4,6 +4,7 @@ module.exports = function(grunt) {
   grunt.registerTask('build', [
     'clean:dist',
     'copy:dist',
+    'browserify:dev',
     'copy:normalize',
     'sass:dev',
     'autoprefixer'

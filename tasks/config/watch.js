@@ -7,13 +7,20 @@ module.exports = function(grunt) {
       livereload: true
     },
     express: {
-      files: ['app.js'],
-      tasks: ['express:dev']
+      files: [
+        'app.js'
+      ],
+      tasks: [
+        'express:dev'
+      ]
     },
     grunt: {
       files: [
         'Gruntfile.js',
         'tasks/*/*.js'
+      ],
+      tasks: [
+        'build'
       ]
     },
     views: {
@@ -22,7 +29,9 @@ module.exports = function(grunt) {
       ]
     },
     sass: {
-      files: ['assets/styles/{,*/}*.scss'],
+      files: [
+        'assets/styles/{,*/}*.scss'
+      ],
       tasks: [
         'sass:dev',
         'autoprefixer'
@@ -35,7 +44,17 @@ module.exports = function(grunt) {
         'Gruntfile.js',
         'tasks/*/*.js'
       ],
-      tasks: ['jshint']
+      tasks: [
+        //'jshint'
+      ]
+    },
+    browserify: {
+      files: [
+        'assets/scripts/{,*/}*.js'
+      ],
+      tasks: [
+        'browserify:dev'
+      ]
     }
   });
 };

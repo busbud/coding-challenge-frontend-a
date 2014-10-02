@@ -10,6 +10,7 @@
     "inuit-widths-responsive-generator": "~0.1.3",
     "jquery": "~1.11.1",
     "normalize.css": "~3.0.1",
-    "sass-less-stylus.easing": "~0.1.0"
+    "sass-less-stylus.easing": "~0.1.0",
+    "lodash": "~2.4.1"
   }
 }
