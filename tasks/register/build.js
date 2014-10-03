@@ -3,6 +3,7 @@ module.exports = function(grunt) {
 
   grunt.registerTask('build', [
     'jshint',
+    'scsslint',
     'clean:dist',
     'copy:dist',
     'browserify:dev',
