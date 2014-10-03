@@ -1,24 +1,27 @@
 doctype html
 html.en(lang='en')
   head
-    title Coding Challenge
+    title #{i18n.__('site_title')}
     link(href='/styles/main.css', type='text/css', rel='stylesheet', media='all')
   body
     header.header
       .container
         .logo
-          a(accesskey='1', href='/en/')
+          a(accesskey='1', href='/')
             img(src='/images/logo-post-60@2x.png' alt='Busbud')
+        form.locale-buttons(action='/' method='POST')
+          button(name='locale' value='en' class='#{i18n.locale === "en" ? "is-active" : ""}') #{i18n.__('locale_english')}
+          button(name='locale' value='fr' class='#{i18n.locale === "fr" ? "is-active" : ""}') #{i18n.__('locale_french')}
     .hero
       .container
         .hero__headlines
-          h1.hero__title Trouvez un bus pour votre prochain voyage
-          h2.hero__sub-title Des horaires de bus en ligne pour 10463 villes dans 89 pays
+          h1.hero__title #{i18n.__('home_title')}
+          h2.hero__sub-title #{i18n.__('home_subtitle')}
         .hero__search-bar
           form.grid(id='homepage-search-form')
-            .react-typeahead(data-name='home-typeahead' class='5/12' data-placeholder='Départ de' data-input-id='from' data-icon-class='fa fa-location-arrow' data-tabindex='1' data-autofocus='on')
-            .react-typeahead(data-name='home-typeahead' class='5/12' data-placeholder='Aller à' data-input-id='to' data-icon-class='fa fa-map-marker' data-tabindex='2' data-autofocus='off')
+            .react-typeahead(data-name='home-typeahead' class='5/12' data-placeholder='#{i18n.__("leaving_from")}' data-input-id='from' data-icon-class='fa fa-location-arrow' data-tabindex='1' data-autofocus='on')
+            .react-typeahead(data-name='home-typeahead' class='5/12' data-placeholder='#{i18n.__("going_to")}' data-input-id='to' data-icon-class='fa fa-map-marker' data-tabindex='2' data-autofocus='off')
             button(class='home-search-button 2/12' tabindex='3')
               i.fa.fa-search.home-search-button__icon
-              span.home-search-button__text Rechercher
+              span.home-search-button__text #{i18n.__('search_button')}
     script(src='/scripts/main.js')
