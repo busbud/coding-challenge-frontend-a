@@ -11,10 +11,15 @@
  */
 module.exports = function() {
   'use strict';
-  if (!arguments[0].length) return;
+
+  if (!arguments[0].length) {
+    return;
+  }
+
   var str = arguments[0];
   var args = Array.prototype.slice.call(arguments, 0).slice(1);
+
   return str.replace(/{(\d+)}/g, function(match, number) {
-    return typeof args[number] != 'undefined' ? args[number] : match;
+    return typeof args[number] !== 'undefined' ? args[number] : match;
   });
 };

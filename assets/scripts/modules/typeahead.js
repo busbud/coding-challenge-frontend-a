@@ -1,4 +1,8 @@
 /** @jsx React.DOM */
+/* jshint quotmark:false */
+/* globals React, $, _ */
+'use strict';
+
 
 // Helper
 var strFormat = require('../helpers/stringFormat');
@@ -294,7 +298,7 @@ var TypeAhead = React.createClass({
     if (new_index === -1) {
       this.setCity();
     } else {
-      this.setCity(suggestions[new_index].city_id)
+      this.setCity(suggestions[new_index].city_id);
     }
   },
 

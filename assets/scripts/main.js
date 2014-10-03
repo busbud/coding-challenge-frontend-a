@@ -1,3 +1,5 @@
+/* jshint unused:false */
+
 // Global Dependencies
 var $ = require('jquery');
 var _ = require('lodash');
