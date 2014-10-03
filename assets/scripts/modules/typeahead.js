@@ -132,15 +132,15 @@ var TypeAhead = React.createClass({
       class_name += ' has-error';
     }
 
-    return (
+    var input = (
       <input placeholder={options.placeholder}
       ref="textBox"
       id={options.inputId}
       type="text"
-      htmlTabindex={options.tabindex}
-      htmlAutocorrect="off"
-      htmlAutocomplete="off"
-      htmlSpellcheck="false"
+      tabIndex={options.tabindex}
+      autoCorrect="off"
+      autoComplete="off"
+      spellCheck="false"
       className={class_name}
       onKeyDown={this.checkKeyboardActions}
       onKeyPress={this.findSuggestions}
@@ -149,6 +149,12 @@ var TypeAhead = React.createClass({
       onFocus={this.onFocus}
       onBlur={this.onBlur} />
     );
+
+    if (options.autofocus === 'on') {
+      input.props.autoFocus = true;
+    }
+
+    return input;
   },
 
   /**
