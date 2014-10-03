@@ -77,8 +77,11 @@
       position: absolute;
       top: 50px;
       left: 0;
-      background-color: #127ccb;
       width: 100%;
+
+      li.is-active {
+        border-left: solid 2px red;
+      }
 
       a {
         display: block;
@@ -87,6 +90,14 @@
         font-size: 12px;
         line-height: 30px;
         text-shadow: 0 0 2px rgba(#000, .9);
+        background-color: rgba(30, 131, 209, .95);
+        cursor: pointer;
+
+        &:hover,
+        &.is-active {
+          background-color: rgba(37, 142, 223, .95);
+          text-decoration: none;
+        }
       }
     }
   }
