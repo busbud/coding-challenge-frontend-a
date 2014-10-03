@@ -45,7 +45,7 @@ module.exports = function(grunt) {
         'tasks/*/*.js'
       ],
       tasks: [
-        //'jshint'
+        'jshint'
       ]
     },
     browserify: {
