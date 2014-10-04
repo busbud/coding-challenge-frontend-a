@@ -17,11 +17,10 @@ html.en(lang='en')
         .hero__headlines
           h1.hero__title #{i18n.__('home_title')}
           h2.hero__sub-title #{i18n.__('home_subtitle')}
-        .hero__search-bar
-          form.grid(id='homepage-search-form')
-            .react-typeahead(data-name='home-typeahead' class='5/12' data-placeholder='#{i18n.__("leaving_from")}' data-input-id='from' data-icon-class='fa fa-location-arrow' data-tabindex='1' data-autofocus='on')
-            .react-typeahead(data-name='home-typeahead' class='5/12' data-placeholder='#{i18n.__("going_to")}' data-input-id='to' data-icon-class='fa fa-map-marker' data-tabindex='2' data-autofocus='off')
-            button(class='home-search-button 2/12' tabindex='3')
-              i.fa.fa-search.home-search-button__icon
-              span.home-search-button__text #{i18n.__('search_button')}
+        form.hero__search-bar.grid(id='city-search-form')
+          .react-typeahead(data-name='home-typeahead' class='5/12' data-placeholder='#{i18n.__("leaving_from")}' data-input-id='from' data-icon-class='fa fa-location-arrow' data-tabindex='1' data-autofocus='on' data-required='#{i18n.__("leaving_from_required")}' data-invalid-city='#{i18n.__("leaving_from_invalid")}')
+          .react-typeahead(data-name='home-typeahead' class='5/12' data-placeholder='#{i18n.__("going_to")}' data-input-id='to' data-icon-class='fa fa-map-marker' data-tabindex='2' data-autofocus='off' data-required='#{i18n.__("going_to_required")}' data-invalid-city='#{i18n.__("going_to_invalid")}')
+          button(class='home-search-button 2/12' tabindex='3')
+            i.fa.fa-search.home-search-button__icon
+            span.home-search-button__text #{i18n.__('search_button')}
     script(src='/scripts/main.js')

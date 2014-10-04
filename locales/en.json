@@ -1,10 +1,14 @@
 {
-	"site_title": "Coding Challenge",
-	"home_title": "Find a bus for your next trip",
-	"home_subtitle": "Now serving bus schedules for 10463 cities in 89 countries",
-	"leaving_from": "Leaving from",
-	"going_to": "Going to",
-	"search_button": "Search",
-	"locale_english": "English",
-	"locale_french": "Français"
+  "site_title": "Coding Challenge",
+  "home_title": "Find a bus for your next trip",
+  "home_subtitle": "Now serving bus schedules for 10463 cities in 89 countries",
+  "leaving_from": "Leaving from",
+  "going_to": "Going to",
+  "search_button": "Search",
+  "locale_english": "English",
+  "locale_french": "Français",
+  "leaving_from_required": "Oops, you forgot to select a city.",
+  "leaving_from_invalid": "Oops, the city is invalid.",
+  "going_to_required": "Oops, you forgot to select a city.",
+  "going_to_invalid": "Oops, the city is invalid."
 }

@@ -6,5 +6,9 @@
   "going_to": "Aller à",
   "search_button": "Rechercher",
   "locale_english": "English",
-  "locale_french": "Français"
+  "locale_french": "Français",
+  "leaving_from_required": "Oups, vous avez oublié de sélectionner une ville.",
+  "leaving_from_invalid": "Oops, la ville n'est pas valide.",
+  "going_to_required": "Oups, vous avez oublié de sélectionner une ville.",
+  "going_to_invalid": "Oops, la ville n'est pas valide."
 }

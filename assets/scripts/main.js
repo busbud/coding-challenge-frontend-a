@@ -6,4 +6,4 @@ var _ = require('lodash');
 var React = window.React = require('react');
 
 // Modules
-require('./modules/typeahead.js');
+require('./modules/citySearchForm.js');

@@ -7,19 +7,12 @@
 // Helper
 var strFormat = require('../helpers/stringFormat');
 
-// Busbud API & Type Ahead Settings
-var BUSBUD_TOKEN = 'GUEST_khVwsXJaQ-KiYFXJnMgyUQ';
-var BUSBUD_CITY_SEARCH_ENDPOINT = 'http://busbud-napi-prod.global.ssl.fastly.net/search?q={0}';
+
+// Global Settings
 var DEBOUNCE_AJAX_REQUEST = 300;
-var MIN_CHARS_BEFORE_AJAX_REQUEST = 2;
 
-// jQuery ajax request
-var ajax_request = {
-  beforeSend: function(req) {
-    req.setRequestHeader('x-busbud-token', BUSBUD_TOKEN);
-  }
-};
 
+// Create the TypeAhead React Component
 var TypeAhead = React.createClass({
 
   /**
@@ -57,6 +50,7 @@ var TypeAhead = React.createClass({
 
     this.props.current_city = city;
     this.refs.textBox.getDOMNode().value = new_value;
+    this.props.error_message = null;
   },
 
   /**
@@ -106,18 +100,36 @@ var TypeAhead = React.createClass({
    * @returns {XML}
    */
   render: function() {
-    var options = this.props.options;
+    var options = this.props.html_options;
+    var error_msg = this.props.error_message || '';
 
-    return (
-      <div className={options.name + (this.props.is_active === true ? ' has-focus' : '')}>
+    var container = (
+      <div className={options.name} ref="container">
         <label htmlFor={options.inputId}>
-          <div className={options.name + '__tooltip'}>{options.placeholder}</div>
+          <div className={options.name + '__tooltip-container'}>
+            <div className={options.name + '__tooltip'}>
+              {options.placeholder}
+            </div>
+            <div className={options.name + '__error-message'}>
+              {error_msg}
+            </div>
+          </div>
           <i className={options.name + '__icon ' + options.iconClass}></i>
           {this.renderTextBox()}
         </label>
         {this.renderSuggestions([])}
       </div>
     );
+
+    if (this.props.is_active === true) {
+      container.props.className += ' has-focus';
+    }
+
+    if (error_msg) {
+      container.props.className += ' has-error';
+    }
+
+    return container;
   },
 
   /**
@@ -125,8 +137,8 @@ var TypeAhead = React.createClass({
    * @returns {XML}
    */
   renderTextBox: function() {
-    var options = this.props.options;
-    var class_name = this.props.options.name + '__textbox';
+    var options = this.props.html_options;
+    var class_name = this.props.html_options.name + '__textbox';
 
     if (this.state.error) {
       class_name += ' has-error';
@@ -162,7 +174,7 @@ var TypeAhead = React.createClass({
    * @returns {XML}
    */
   renderSuggestions: function() {
-    var options = this.props.options;
+    var options = this.props.html_options;
     var suggestions = this.getSuggestions();
     var active_suggestion = this.props.active_suggestion;
     var active_city_id = active_suggestion ? active_suggestion.city_id : null;
@@ -243,6 +255,7 @@ var TypeAhead = React.createClass({
    */
   checkKeyboardActions: function(e) {
     var key_code = e.which;
+    var index = this.getActiveSuggestionIndex();
     var suggestions_length;
 
     // Backspace and Delete Keys
@@ -259,7 +272,7 @@ var TypeAhead = React.createClass({
     }
 
     // Enter Key
-    if (key_code === 13) {
+    if (key_code === 13 && index !== -1) {
       suggestions_length = this.getSuggestions().length;
 
       if (suggestions_length) {
@@ -313,13 +326,28 @@ var TypeAhead = React.createClass({
    */
   findSuggestions: _.debounce(function() {
     var value = this.getValue();
+    var endpoint_url = this.props.api_data.endpoint;
+    var min_chars = this.props.api_data.min_chars;
+    var http_headers = this.props.api_data.headers;
+    var ajax_request;
     this.props.value = value;
 
     // The TextBox value has changed, the current city need to be re-validated
     this.props.current_city = null;
 
-    if (value.length >= MIN_CHARS_BEFORE_AJAX_REQUEST) {
-      ajax_request.url = strFormat(BUSBUD_CITY_SEARCH_ENDPOINT, value);
+    if (value.length >= min_chars) {
+
+      // Prepare the jQuery ajax request
+      ajax_request = {
+        url: strFormat(endpoint_url, value),
+        beforeSend: function(req) {
+          for (var header in http_headers) {
+            if (http_headers.hasOwnProperty(header)) {
+              req.setRequestHeader(header, http_headers[header]);
+            }
+          }
+        }
+      };
 
       $
         .ajax(ajax_request)
@@ -354,6 +382,14 @@ var TypeAhead = React.createClass({
   },
 
   /**
+   * Set Focus on the TextBox
+   * @returns {*}
+   */
+  setFocus: function() {
+    return this.refs.textBox.getDOMNode().focus();
+  },
+
+  /**
    * On Blur on the TextBox
    */
   onBlur: function() {
@@ -381,36 +417,40 @@ var TypeAhead = React.createClass({
       this.setActiveSuggestionIndex(-1);
     }
 
-    // Validate the content value
-    this.validate();
+    this.forceUpdate();
   },
 
   /**
    * Validate the content of the TextBox
+   * @returns {*}
    */
   validate: function() {
     var value = this.getValue();
-    var error;
+    var error = null;
+    var required_msg = this.props.html_options.required;
+    var invalid_city_msg = this.props.html_options.invalidCity;
 
     if (!value) {
       error = 'required';
+      this.props.error_message = required_msg;
     }
 
     if (value && !this.props.current_city) {
       error = 'invalid_city';
+      this.props.error_message = invalid_city_msg;
     }
 
-    if (error) {
-      console.log(this.props.options.inputId + ':', error);
+    if (!error) {
+      this.props.error_message = null;
     }
 
     this.setState({error: error});
+    this.forceUpdate();
+
+    return error;
   }
+
 });
 
-var initTypeAheads = function() {
-  var options = $(this).data();
-  React.renderComponent(<TypeAhead options={options} />, this);
-};
 
-$('.react-typeahead').each(initTypeAheads);
+module.exports = TypeAhead;
