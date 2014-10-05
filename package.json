@@ -35,6 +35,7 @@
   },
   "browser": {
     "jquery": "./assets/bower_components/jquery/dist/jquery.js",
+    "jquery-ajax-hooks-xdr": "./assets/bower_components/jquery-ajax-hooks/src/xdr.js",
     "lodash": "./assets/bower_components/lodash/dist/lodash.js"
   },
   "browserify-shim": {
