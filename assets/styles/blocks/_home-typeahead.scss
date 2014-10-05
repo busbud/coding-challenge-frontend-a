@@ -6,19 +6,46 @@
   border-right: solid 1px #75b8eb;
   user-select: none;
 
-  &:hover {
-    background-color: #2a91e0;
+  @include mq(mobile-and-tablet) {
+    height: 42px;
+  }
+
+  @include mq(mobile) {
+    margin-bottom: 10px;
+    height: auto;
+    border-right: 0;
   }
 
   &:hover &__tooltip-container,
   &.has-focus &__tooltip-container {
     opacity: 1;
     transform: translate3d(0, -30px, 0);
+
+    @include mq(mobile) {
+      opacity: 0;
+      transform: translate3d(0, 0, 0);
+    }
   }
 
   &.has-error:hover &__tooltip-container,
   &.has-error.has-focus &__tooltip-container {
     transform: translate3d(0, -50px, 0);
+  }
+
+  &.has-error &__tooltip-container,
+  &.has-error:hover &__tooltip-container,
+  &.has-error.has-focus &__tooltip-container {
+    @include mq(mobile) {
+      opacity: 1;
+      height: 20px;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  &.has-error.has-focus &__dropdown {
+    @include mq(mobile) {
+      transform: translate3d(0, 58px, 0);
+    }
   }
 
   &.has-focus &__dropdown {
@@ -35,8 +62,14 @@
       height: 50px;
       left: 0;
       top: 0;
-      transition: all .15s;
+      transition: opacity .15s, top .15s, transform .15s, height .15s;
       z-index: 1;
+      transform: translate3d(0, 0, 0);
+
+      @include mq(mobile) {
+        position: relative;
+        height: 0;
+      }
     }
 
     &__tooltip,
@@ -49,6 +82,10 @@
     &__tooltip {
       font-size: 14px;
       line-height: 30px;
+
+      @include mq(mobile) {
+        display: none;
+      }
     }
 
     &__error-message {
@@ -59,11 +96,22 @@
 
     &__icon {
       position: absolute;
-      top: 14px;
+      bottom: 15px;
       left: 20px;
       font-size: 1.5em;
       color: #fff;
       z-index: 3;
+
+      @include mq(mobile-and-tablet) {
+        bottom: 12px;
+        font-size: 1.2em;
+      }
+
+      @include mq(mobile) {
+        bottom: 10px;
+        color: #a0adb7;
+        left: 12px;
+      }
     }
 
     &__textbox {
@@ -84,8 +132,39 @@
       line-height: normal;
       z-index: 2;
 
+      @include mq(tablet) {
+        font-size: .9em;
+        padding-left: 45px;
+      }
+
+      @include mq(mobile) {
+        background-color: #fff;
+        border: 1px solid #ccc;
+        color: #454d52;
+        font-size: .9em;
+        padding-left: 34px;
+
+        &:focus {
+          border-color: #73b8ee;
+          box-shadow: 0 0 4px #2089da;
+        }
+      }
+
+      &:hover,
+      &:focus {
+        background-color: #2a91e0;
+
+        @include mq(mobile) {
+          background-color: #fff;
+        }
+      }
+
       @include input-placeholder {
         color: #a2cff1;
+
+        @include mq(mobile) {
+          color: #a0adb7;
+        }
       }
     }
 
@@ -93,19 +172,37 @@
       @extend %reset-list;
       display: none;
       position: absolute;
-      top: 50px;
+      top: 0;
       left: 0;
+      transform: translate3d(0, 50px, 0);
       width: 100%;
+      z-index: 10;
+
+      @include mq(tablet) {
+        transform: translate3d(0, 42px, 0);
+      }
+
+      @include mq(mobile) {
+        transform: translate3d(0, 38px, 0);
+      }
 
       a {
         display: block;
-        padding: 5px 5px 5px 50px;
+        padding: 12px 5px 12px 50px;
         color: #fff;
         font-size: 12px;
-        line-height: 30px;
+        line-height: 16px;
         text-shadow: 0 0 2px rgba(#000, .9);
         background-color: rgba(30, 131, 209, .95);
         cursor: pointer;
+
+        @include mq(tablet) {
+          padding-left: 45px;
+        }
+
+        @include mq(mobile) {
+          padding-left: 34px;
+        }
 
         &:hover,
         &.is-active {

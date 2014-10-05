@@ -3,6 +3,10 @@
   top: 12px;
   left: 10px;
 
+  @include mq(mobile) {
+    top: 10px;
+  }
+
   a {
     display: inline-block;
 
@@ -13,6 +17,11 @@
     img {
       max-width: 106px;
       max-height: 36px;
+
+      @include mq(mobile) {
+        max-width: 88px;
+        max-height: 30px;
+      }
     }
   }
 }

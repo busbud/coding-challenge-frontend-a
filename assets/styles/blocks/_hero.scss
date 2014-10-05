@@ -8,11 +8,20 @@
   padding: 90px 0 40px;
   height: 400px;
 
+  @include mq(mobile) {
+    padding: 30px 0 40px;
+    height: 300px;
+  }
+
   @at-root {
 
     &__headlines {
       background: url('/images/text-shadow.png') no-repeat;
       background-size: contain;
+
+      @include mq(mobile) {
+        background: none;
+      }
     }
 
     &__title,
@@ -26,15 +35,34 @@
     &__title {
       font-size: 3em;
       margin: 0 0 10px;
+
+      @include mq(tablet) {
+        font-size: 2em;
+      }
+
+      @include mq(mobile) {
+        font-size: 1.5em;
+        text-align: center;
+        margin-bottom: 20px;
+      }
     }
 
     &__sub-title {
       font-size: 1.25em;
       margin: 0 0 62px;
+
+      @include mq(mobile) {
+        display: none;
+      }
     }
 
     &__search-bar {
       box-shadow: 0 3px 12px 1px rgba(0, 0, 0, .55);
+
+      @include mq(mobile) {
+        padding: 10px;
+        box-shadow: 0 3px 12px 1px rgba(0, 0, 0, .55);
+      }
 
       &.has-error {
         animation: shake .5s linear;

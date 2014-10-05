@@ -3,6 +3,7 @@ html.en(lang='en')
   head
     title #{i18n.__('site_title')}
     link(href='/styles/main.css', type='text/css', rel='stylesheet', media='all')
+    meta(name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no')
   body
     header.header
       .container
@@ -18,9 +19,9 @@ html.en(lang='en')
           h1.hero__title #{i18n.__('home_title')}
           h2.hero__sub-title #{i18n.__('home_subtitle')}
         form.hero__search-bar.grid(id='city-search-form')
-          .react-typeahead(data-name='home-typeahead' class='5/12' data-placeholder='#{i18n.__("leaving_from")}' data-input-id='from' data-icon-class='fa fa-location-arrow' data-tabindex='1' data-autofocus='on' data-required='#{i18n.__("leaving_from_required")}' data-invalid-city='#{i18n.__("leaving_from_invalid")}')
-          .react-typeahead(data-name='home-typeahead' class='5/12' data-placeholder='#{i18n.__("going_to")}' data-input-id='to' data-icon-class='fa fa-map-marker' data-tabindex='2' data-autofocus='off' data-required='#{i18n.__("going_to_required")}' data-invalid-city='#{i18n.__("going_to_invalid")}')
-          button(class='home-search-button 2/12' tabindex='3')
+          .react-typeahead(data-name='home-typeahead' class='mobile-1/1 tablet-and-desk-5/12' data-placeholder='#{i18n.__("leaving_from")}' data-input-id='from' data-icon-class='fa fa-location-arrow' data-tabindex='1' data-autofocus='on' data-required='#{i18n.__("leaving_from_required")}' data-invalid-city='#{i18n.__("leaving_from_invalid")}')
+          .react-typeahead(data-name='home-typeahead' class='mobile-1/1 tablet-and-desk-5/12' data-placeholder='#{i18n.__("going_to")}' data-input-id='to' data-icon-class='fa fa-map-marker' data-tabindex='2' data-autofocus='off' data-required='#{i18n.__("going_to_required")}' data-invalid-city='#{i18n.__("going_to_invalid")}')
+          button(class='home-search-button mobile-1/1 tablet-and-desk-2/12' tabindex='3')
             i.fa.fa-search.home-search-button__icon
             span.home-search-button__text #{i18n.__('search_button')}
     script(src='/scripts/main.js')

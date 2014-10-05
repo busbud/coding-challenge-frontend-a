@@ -4,6 +4,10 @@
   right: 10px;
   display: inline-block;
 
+  @include mq(mobile) {
+    top: 7px;
+  }
+
   button {
     border: 0;
     background-color: transparent;

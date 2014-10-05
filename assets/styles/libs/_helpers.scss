@@ -22,7 +22,6 @@
   width: 1px !important;
 }
 
-
 // Mixin Helpers
 
 @mixin input-placeholder {
@@ -41,6 +40,14 @@
 
   &:-ms-input-placeholder {
     @content;
+  }
+}
+
+@mixin mq($targets...) {
+  @each $target in $targets {
+    @include media-query($target) {
+      @content;
+    }
   }
 }
 

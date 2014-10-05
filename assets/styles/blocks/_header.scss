@@ -6,6 +6,10 @@
   position: relative;
   z-index: 1;
 
+  @include mq(mobile) {
+    height: 48px;
+  }
+
   a {
     color: #fff;
   }

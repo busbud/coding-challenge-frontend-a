@@ -1,6 +1,6 @@
 // Fonts
 $fa-font-path: '/bower_components/font-awesome/fonts';
-$base-font-family: Interstate, "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Garuda, Verdana, Tahoma, sans-serif;
+$base-font-family: Interstate, 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Garuda, Verdana, Tahoma, sans-serif;
 
 // Widths
 $inuit-widths: 1, 12;
@@ -9,3 +9,12 @@ $inuit-widths: 1, 12;
 $base-color: #292f33;
 $active-color: #009abf;
 $light-color: #8899a6;
+
+// Responsive BreakPoints
+$breakpoints: (
+  'mobile'             'screen and (max-width: 639px)',
+  'mobile-and-tablet'  'screen and (max-width: 1023px)',
+  'tablet'             'screen and (min-width: 640px) and (max-width: 1023px)',
+  'tablet-and-desk'    'screen and (min-width: 640px)',
+  'desk'               'screen and (min-width: 1024px)',
+);
