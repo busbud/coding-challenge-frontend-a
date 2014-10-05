@@ -2,6 +2,7 @@
   "name": "busbud-coding-challenge",
   "private": true,
   "dependencies": {
+    "es5-shim": "4.0.3",
     "font-awesome": "4.2.0",
     "inuit-defaults": "0.2.1",
     "inuit-responsive-settings": "0.1.3",

@@ -34,6 +34,8 @@
     "time-grunt": "1.0.0"
   },
   "browser": {
+    "es5-shim": "./assets/bower_components/es5-shim/es5-shim.js",
+    "es5-sham": "./assets/bower_components/es5-shim/es5-sham.js",
     "jquery": "./assets/bower_components/jquery/dist/jquery.js",
     "jquery-ajax-hooks-xdr": "./assets/bower_components/jquery-ajax-hooks/src/xdr.js",
     "lodash": "./assets/bower_components/lodash/dist/lodash.js"
