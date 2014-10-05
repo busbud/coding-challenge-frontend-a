@@ -5,7 +5,7 @@
 
 
 // The TypeAhead React Component
-var TypeAhead = require('./../components/typeahead');
+var TypeAhead = require('./typeahead');
 
 
 // Global Settings

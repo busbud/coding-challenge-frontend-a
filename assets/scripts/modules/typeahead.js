@@ -15,6 +15,7 @@ var DEBOUNCE_AJAX_REQUEST = 300;
 // Create the TypeAhead React Component
 var TypeAhead = React.createClass({
 
+
   /**
    * Init React States
    * @returns {{}}
@@ -22,6 +23,7 @@ var TypeAhead = React.createClass({
   getInitialState: function() {
     return {};
   },
+
 
   /**
    * Get the trimmed content value of the TextBox
@@ -31,6 +33,7 @@ var TypeAhead = React.createClass({
     var textbox = this.refs.textbox;
     return textbox ? textbox.getDOMNode().value.trim() : '';
   },
+
 
   /**
    * Set the new City on the TextBox
@@ -54,6 +57,7 @@ var TypeAhead = React.createClass({
     this.props.error_message = null;
   },
 
+
   /**
    * Get the suggestion from the Ajax Request
    * @returns {Array}
@@ -62,6 +66,7 @@ var TypeAhead = React.createClass({
     return this.props._suggestions || [];
   },
 
+
   /**
    * Set a new suggestions list
    * @param {{}} suggestions
@@ -69,6 +74,7 @@ var TypeAhead = React.createClass({
   setSuggestions: function(suggestions) {
     this.props._suggestions = suggestions;
   },
+
 
   /**
    * Get the active suggestion index from all the suggestions
@@ -84,6 +90,7 @@ var TypeAhead = React.createClass({
     return active_suggestion_index;
   },
 
+
   /**
    * Set a new active suggestion index and update the corresponding active suggestion object
    * @param {number} active_suggestion_index
@@ -95,6 +102,7 @@ var TypeAhead = React.createClass({
     this.props.active_suggestion = suggestions[active_suggestion_index];
     this.forceUpdate();
   },
+
 
   /**
    * Render the TypeAhead component
@@ -150,6 +158,7 @@ var TypeAhead = React.createClass({
     return container;
   },
 
+
   /**
    * Render the TextBox in the main component
    * @returns {XML}
@@ -187,6 +196,7 @@ var TypeAhead = React.createClass({
     return input;
   },
 
+
   /**
    * Render the Suggestion DropDown in the main component
    * @returns {XML}
@@ -216,6 +226,7 @@ var TypeAhead = React.createClass({
     );
   },
 
+
   /**
    * Render a specific row in the Suggestion DropDown
    * @param {{}} suggestion
@@ -235,6 +246,7 @@ var TypeAhead = React.createClass({
     );
   },
 
+
   /**
    * Mouse Over: When the user is using the Suggestion DropDown with a mouse
    */
@@ -247,12 +259,14 @@ var TypeAhead = React.createClass({
     this.setActiveSuggestionIndex(-1);
   },
 
+
   /**
    * Mouse Leave: When the user is using the Suggestion DropDown with a mouse
    */
   suggestionsMouseLeave: function() {
     this.props.active_dropdown = false;
   },
+
 
   /**
    * The user has clicked on an item in the Suggestion DropDown
@@ -266,6 +280,7 @@ var TypeAhead = React.createClass({
     this.refs.textbox.getDOMNode().focus();
     this.props.active_dropdown = false;
   },
+
 
   /**
    * Process the corresponding behaviour on certain keyboard events
@@ -300,6 +315,7 @@ var TypeAhead = React.createClass({
       }
     }
   },
+
 
   /**
    * Keyboard navigation in the Suggestions DropDown
@@ -339,6 +355,7 @@ var TypeAhead = React.createClass({
     }
   },
 
+
   /**
    * Find new Suggestions according to the values entered by the user
    */
@@ -376,6 +393,7 @@ var TypeAhead = React.createClass({
     }
   }, DEBOUNCE_AJAX_REQUEST),
 
+
   /**
    * Process the new Suggestions and update the content of the DropDown
    * @param {Array} suggestions
@@ -391,6 +409,7 @@ var TypeAhead = React.createClass({
     this.forceUpdate();
   },
 
+
   /**
    * On Focus on the TextBox
    */
@@ -399,6 +418,7 @@ var TypeAhead = React.createClass({
     this.props.is_active = true;
   },
 
+
   /**
    * Set Focus on the TextBox
    * @returns {*}
@@ -406,6 +426,7 @@ var TypeAhead = React.createClass({
   setFocus: function() {
     return this.refs.textbox.getDOMNode().focus();
   },
+
 
   /**
    * On Blur on the TextBox
@@ -437,6 +458,7 @@ var TypeAhead = React.createClass({
 
     this.forceUpdate();
   },
+
 
   /**
    * Validate the content of the TextBox
