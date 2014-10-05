@@ -35,6 +35,10 @@
       transition: opacity .15s, top .15s, transform .15s, height .15s;
       z-index: 1;
 
+      .no-rgba & {
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#80000000, endColorstr=#80000000);
+      }
+
       @include mq(mobile) {
         position: relative;
         height: 0;
@@ -230,6 +234,10 @@
         background-color: rgba(30, 131, 209, .95);
         cursor: pointer;
 
+        .no-rgba & {
+          filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#F21F84D1, endColorstr=#F21F84D1);
+        }
+
         @include mq(tablet) {
           padding-left: 45px;
         }
@@ -242,6 +250,10 @@
         &.is-active {
           background-color: rgba(37, 142, 223, .95);
           text-decoration: none;
+
+          .no-rgba & {
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#F2258EDF, endColorstr=#F2258EDF);
+          }
         }
       }
     }
