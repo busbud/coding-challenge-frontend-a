@@ -51,6 +51,14 @@
   }
 }
 
+@mixin translate3d-y ($y) {
+  transform: translate3d(0, $y, 0);
+
+  .no-csstransforms3d & {
+    top: $y;
+  }
+}
+
 
 // Animation Helpers
 

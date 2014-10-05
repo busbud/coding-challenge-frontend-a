@@ -1,6 +1,6 @@
 /** @jsx React.DOM */
 /* jshint quotmark:false */
-/* globals React, $, _ */
+/* globals React, $, _, Modernizr */
 'use strict';
 
 
@@ -28,7 +28,8 @@ var TypeAhead = React.createClass({
    * @returns {string}
    */
   getValue: function() {
-    return this.refs.textBox.getDOMNode().value.trim();
+    var textbox = this.refs.textbox;
+    return textbox ? textbox.getDOMNode().value.trim() : '';
   },
 
   /**
@@ -49,7 +50,7 @@ var TypeAhead = React.createClass({
     }
 
     this.props.current_city = city;
-    this.refs.textBox.getDOMNode().value = new_value;
+    this.refs.textbox.getDOMNode().value = new_value;
     this.props.error_message = null;
   },
 
@@ -100,12 +101,22 @@ var TypeAhead = React.createClass({
    * @returns {XML}
    */
   render: function() {
+    var value = this.getValue();
     var options = this.props.html_options;
     var error_msg = this.props.error_message || '';
+    var placeholder_polyfill = null;
+
+    if (!Modernizr.input.placeholder) {
+      placeholder_polyfill = (
+        <span className={options.name + '__placeholder-polyfill'}>
+          {options.placeholder}
+        </span>
+      );
+    }
 
     var container = (
       <div className={options.name} ref="container">
-        <label htmlFor={options.inputId}>
+        <label htmlFor={options.inputId} className={options.name + '__label'}>
           <div className={options.name + '__tooltip-container'}>
             <div className={options.name + '__tooltip'}>
               {options.placeholder}
@@ -114,8 +125,11 @@ var TypeAhead = React.createClass({
               {error_msg}
             </div>
           </div>
-          <i className={options.name + '__icon ' + options.iconClass}></i>
-          {this.renderTextBox()}
+          <div className={options.name + '__textbox-container'}>
+            <i className={options.name + '__icon ' + options.iconClass}></i>
+            {placeholder_polyfill}
+            {this.renderTextBox()}
+          </div>
         </label>
         {this.renderSuggestions([])}
       </div>
@@ -123,6 +137,10 @@ var TypeAhead = React.createClass({
 
     if (this.props.is_active === true) {
       container.props.className += ' has-focus';
+    }
+
+    if (value) {
+      container.props.className += ' has-value';
     }
 
     if (error_msg) {
@@ -146,7 +164,7 @@ var TypeAhead = React.createClass({
 
     var input = (
       <input placeholder={options.placeholder}
-      ref="textBox"
+      ref="textbox"
       id={options.inputId}
       type="text"
       tabIndex={options.tabindex}
@@ -245,7 +263,7 @@ var TypeAhead = React.createClass({
 
     this.setCity(city_id);
     this.setSuggestions([]);
-    this.refs.textBox.getDOMNode().focus();
+    this.refs.textbox.getDOMNode().focus();
     this.props.active_dropdown = false;
   },
 
@@ -386,7 +404,7 @@ var TypeAhead = React.createClass({
    * @returns {*}
    */
   setFocus: function() {
-    return this.refs.textBox.getDOMNode().focus();
+    return this.refs.textbox.getDOMNode().focus();
   },
 
   /**
