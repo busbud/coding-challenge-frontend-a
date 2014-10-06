@@ -57,10 +57,12 @@
 
     &__search-bar {
       box-shadow: 0 3px 12px 1px rgba(0, 0, 0, .55);
+      background-color: $input-blue-background;
 
       @include mq(mobile) {
         padding: 10px;
         box-shadow: 0 3px 12px 1px rgba(0, 0, 0, .55);
+        background-color: transparent;
       }
 
       &.has-error {
