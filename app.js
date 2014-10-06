@@ -23,6 +23,10 @@ app.configure(function() {
   app.use('/bower_components', express.static(__dirname + '/assets/bower_components'));
   app.use(express.static(__dirname + '/dist'));
   app.use(express.favicon());
+  app.use(function(req,res,next){
+    res.header('X-UA-Compatible', 'IE=Edge');
+    next();
+  });
   app.use(express.logger('dev'));
   app.use(express.bodyParser());
   app.use(express.methodOverride());
