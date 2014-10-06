@@ -21,7 +21,7 @@
     &:hover,
     &.is-active {
       cursor: pointer;
-      background-color: #1b94eb;
+      background-color: $active-color;
     }
   }
 }

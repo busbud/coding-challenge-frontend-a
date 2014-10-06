@@ -3,7 +3,7 @@
   display: inline-block;
   width: 100%;
   height: 50px;
-  border-right: solid 1px #75b8eb;
+  border-right: solid 1px $input-blue-border;
   user-select: none;
 
   @include mq(mobile-and-tablet) {
@@ -75,7 +75,7 @@
     &__error-message {
       color: #fff;
       text-align: center;
-      text-shadow: 0 1px 1px #000;
+      text-shadow: 0 1px 1px $base-color;
     }
 
     &__tooltip {
@@ -116,8 +116,8 @@
     &__textbox-container {
       height: 100%;
       position: relative;
-      background-color: #2089da;
-      border-top: solid 1px #75b8eb;
+      background-color: $input-blue-background;
+      border-top: solid 1px $input-blue-border;
       z-index: 2;
 
       @include mq(mobile) {
@@ -128,14 +128,14 @@
 
     &.has-focus &__textbox-container {
       @include mq(mobile) {
-        border-color: #73b8ee;
-        box-shadow: 0 0 4px #2089da;
+        border-color: $input-blue-border;
+        box-shadow: 0 0 4px $input-blue-background;
       }
     }
 
     &.has-focus &__textbox-container,
     &__textbox-container:hover {
-      background-color: #2a91e0;
+      background-color: $active-color;
 
       @include mq(mobile) {
         background-color: #fff;
