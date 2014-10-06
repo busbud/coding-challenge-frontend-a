@@ -9,9 +9,12 @@ var routes = require('./routes');
 var http = require('http');
 var app = express();
 
+// Define available locales, the first will be the default
+app.locales = ['en', 'fr'];
+
 // Add localization support
 var i18n = new (require('i18n-2'))({
-  locales: ['en', 'fr'],
+  locales: app.locales,
   extension: '.json'
 });
 app.locals.i18n = i18n;
@@ -37,21 +40,9 @@ app.configure('development', function() {
   app.use(express.errorHandler());
 });
 
-app
-  .get('/', routes.index)
-  .post('/', setLocale);
+app.get('/', routes.index);
+app.get('/:lang', routes.index);
 
 http.createServer(app).listen(app.get('port'), function() {
   console.log('Express server listening on port ' + app.get('port'));
 });
-
-// Very basic support of the localization switching
-function setLocale(req, res) {
-  var new_locale = req.param('locale');
-
-  if (new_locale) {
-    i18n.setLocale(new_locale);
-  }
-
-  res.redirect('/');
-}

@@ -40,6 +40,7 @@ module.exports = function(grunt) {
     js: {
       files: [
         'assets/scripts/{,*/}*.js',
+        'routes/*.js',
         'app.js',
         'Gruntfile.js',
         'tasks/*/*.js'

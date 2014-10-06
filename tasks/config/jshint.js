@@ -12,6 +12,7 @@ module.exports = function(grunt) {
       'Gruntfile.js',
       'assets/scripts/{,*/}*.js',
       '!assets/scripts/vendor/*',
+      'routes/*.js',
       'tasks/{,*/}*.js'
     ]
   });

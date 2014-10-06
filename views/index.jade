@@ -12,9 +12,9 @@ html.en(lang='en')
         .logo
           a(accesskey='1', href='/')
             img(src='/images/logo-post-60@2x.png' alt='Busbud')
-        form.locale-buttons(action='/' method='POST')
-          button(name='locale' value='en' class='#{i18n.locale === "en" ? "is-active" : ""}') #{i18n.__('locale_english')}
-          button(name='locale' value='fr' class='#{i18n.locale === "fr" ? "is-active" : ""}') #{i18n.__('locale_french')}
+        div.locale-buttons
+          a(href='/en' class='#{i18n.locale === "en" ? "is-active" : ""}') #{i18n.__('locale_english')}
+          a(href='/fr' class='#{i18n.locale === "fr" ? "is-active" : ""}') #{i18n.__('locale_french')}
     .hero
       .container
         .hero__headlines
