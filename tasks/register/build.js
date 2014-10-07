@@ -7,6 +7,7 @@ module.exports = function(grunt) {
     'clean:dist',
     'copy:dist',
     'browserify:dev',
+    'exorcise:browserify',
     'copy:normalize',
     'sass:dev',
     'autoprefixer'
