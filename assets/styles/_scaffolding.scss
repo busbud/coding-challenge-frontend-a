@@ -1,0 +1,43 @@
+// Some basic styling
+
+html,
+body {
+  background: #fff;
+  margin: 0;
+  padding-bottom: 300px;
+  min-width: 320px;
+  min-height: 300px;
+  font-size: 14px;
+  line-height: 1.8em;
+}
+
+body {
+  font-family: $base-font-family;
+  color: $base-color;
+}
+
+a {
+  color: $active-color;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+// containers
+
+.container {
+  max-width: 980px;
+  margin: 0 auto;
+  position: relative;
+  padding: 0 .625rem;
+}
+
+
+// Apply a natural box layout model to all elements
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}

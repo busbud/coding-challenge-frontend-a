@@ -1,0 +1,14 @@
+{
+  "site_title": "Coding Challenge",
+  "home_title": "Trouvez un bus pour votre prochain voyage",
+  "home_subtitle": "Des horaires de bus en ligne pour 10463 villes dans 89 pays",
+  "leaving_from": "Départ de",
+  "going_to": "Aller à",
+  "search_button": "Rechercher",
+  "locale_english": "English",
+  "locale_french": "Français",
+  "leaving_from_required": "Oups, vous avez oublié de sélectionner une ville.",
+  "leaving_from_invalid": "Oops, la ville n'est pas valide.",
+  "going_to_required": "Oups, vous avez oublié de sélectionner une ville.",
+  "going_to_invalid": "Oops, la ville n'est pas valide."
+}

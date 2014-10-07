@@ -1,0 +1,26 @@
+// Fonts
+$fa-font-path: '/bower_components/font-awesome/fonts';
+$base-font-family: Interstate, 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Garuda, Verdana, Tahoma, sans-serif;
+
+
+// Widths
+$inuit-widths: 1, 12;
+
+
+// Colors
+$base-color:              #293033;
+$active-color:            #2a91e0;
+$blue-busbud:             #127ccb;
+$input-blue-border:       #75b8eb;
+$input-blue-background:   #2089da;
+$button-blue-background:  #3798e2;
+
+
+// Responsive BreakPoints
+$breakpoints: (
+  'mobile'             'screen and (max-width: 639px)',
+  'mobile-and-tablet'  'screen and (max-width: 1023px)',
+  'tablet'             'screen and (min-width: 640px) and (max-width: 1023px)',
+  'tablet-and-desk'    'screen and (min-width: 640px)',
+  'desk'               'screen and (min-width: 1024px)',
+);

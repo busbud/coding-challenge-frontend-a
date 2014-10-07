@@ -1,0 +1,25 @@
+// Setup
+@import '../bower_components/normalize.css/normalize';
+@import '../bower_components/inuit-defaults/settings.defaults';
+@import '../bower_components/inuit-responsive-settings/settings.responsive';
+@import 'vars';
+
+// Dependencies
+@import '../bower_components/font-awesome/scss/font-awesome';
+@import '../bower_components/sass-less-stylus.easing/easings';
+@import '../bower_components/inuit-responsive-tools/tools.responsive';
+@import '../bower_components/inuit-widths-generator/trumps.widths-generator';
+@import '../bower_components/inuit-widths-responsive-generator/trumps.widths-responsive-generator';
+@import 'libs/grid';
+@import 'libs/helpers';
+
+// Base Layout
+@import 'scaffolding';
+
+// Blocks
+@import 'blocks/header';
+@import 'blocks/logo';
+@import 'blocks/locale-buttons';
+@import 'blocks/hero';
+@import 'blocks/home-typeahead';
+@import 'blocks/home-search-button';

@@ -1,0 +1,271 @@
+.home-typeahead {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  height: 50px;
+  border-right: solid 1px $input-blue-border;
+  user-select: none;
+
+  @include mq(mobile-and-tablet) {
+    height: 42px;
+  }
+
+  @include mq(mobile) {
+    margin-bottom: 10px;
+    height: auto;
+    border-right: 0;
+  }
+
+  @at-root {
+
+    &__label {
+      height: 100%;
+      display: block;
+    }
+
+    &__tooltip-container {
+      @include translate3d-y(0);
+      opacity: 0;
+      background: rgba(#000, .5);
+      position: absolute;
+      width: 100%;
+      height: 50px;
+      left: 0;
+      top: 0;
+      transition: opacity .15s, top .15s, transform .15s, height .15s;
+      z-index: 1;
+
+      .no-rgba & {
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#80000000, endColorstr=#80000000);
+      }
+
+      @include mq(mobile) {
+        position: relative;
+        height: 0;
+      }
+    }
+
+    &:hover &__tooltip-container,
+    &.has-focus &__tooltip-container {
+      @include translate3d-y(-30px);
+      opacity: 1;
+
+      @include mq(mobile) {
+        @include translate3d-y(0);
+        opacity: 0;
+      }
+    }
+
+    &.has-error:hover &__tooltip-container,
+    &.has-error.has-focus &__tooltip-container {
+      @include translate3d-y(-50px);
+    }
+
+    &.has-error &__tooltip-container,
+    &.has-error:hover &__tooltip-container,
+    &.has-error.has-focus &__tooltip-container {
+      @include mq(mobile) {
+        @include translate3d-y(0);
+        opacity: 1;
+        height: 20px;
+      }
+    }
+
+    &__tooltip,
+    &__error-message {
+      color: #fff;
+      text-align: center;
+      text-shadow: 0 1px 1px $base-color;
+    }
+
+    &__tooltip {
+      font-size: 14px;
+      line-height: 30px;
+
+      @include mq(mobile) {
+        display: none;
+      }
+    }
+
+    &__error-message {
+      background: rgba(#000, .1);
+      font-size: 11px;
+      line-height: 20px;
+    }
+
+    &__icon {
+      position: absolute;
+      bottom: 15px;
+      left: 20px;
+      font-size: 1.5em;
+      color: #fff;
+      z-index: 3;
+
+      @include mq(mobile-and-tablet) {
+        bottom: 12px;
+        font-size: 1.2em;
+      }
+
+      @include mq(mobile) {
+        bottom: 9px;
+        color: #a0adb7;
+        left: 12px;
+      }
+    }
+
+    &__textbox-container {
+      height: 100%;
+      position: relative;
+      background-color: $input-blue-background;
+      border-top: solid 1px $input-blue-border;
+      z-index: 2;
+
+      @include mq(mobile) {
+        background-color: #fff;
+        border: 1px solid #ccc;
+      }
+    }
+
+    &.has-focus &__textbox-container {
+      @include mq(mobile) {
+        border-color: $input-blue-border;
+        box-shadow: 0 0 4px $input-blue-background;
+      }
+    }
+
+    &.has-focus &__textbox-container,
+    &__textbox-container:hover {
+      background-color: $active-color;
+
+      @include mq(mobile) {
+        background-color: #fff;
+      }
+    }
+
+    &__textbox {
+      position: relative;
+      background-color: transparent;
+      border: 0;
+      box-shadow: none;
+      margin: 0;
+      padding: 10px 10px 10px 50px;
+      width: 100%;
+      min-height: 100%;
+      max-height: 100%;
+      resize: none;
+      outline: 0;
+      color: #fff;
+      font-size: 1.2em;
+      line-height: normal;
+
+      @include mq(tablet) {
+        font-size: .9em;
+        padding-left: 45px;
+      }
+
+      @include mq(mobile) {
+        color: #454d52;
+        font-size: .9em;
+        padding-left: 34px;
+      }
+
+      @include input-placeholder {
+        color: #a2cff1;
+
+        @include mq(mobile) {
+          color: #a0adb7;
+        }
+      }
+    }
+
+    &__placeholder-polyfill {
+      position: absolute;
+      top: 11px;
+      left: 50px;
+      color: #a2cff1;
+      font-size: 1.2em;
+      line-height: normal;
+      display: inline-block;
+
+      @include mq(mobile) {
+        color: #a0adb7;
+        font-size: .9em;
+        top: 10px;
+        left: 34px;
+      }
+
+      @include mq(tablet) {
+        font-size: .9em;
+        top: 10px;
+        left: 45px;
+      }
+    }
+
+    &.has-focus &__placeholder-polyfill,
+    &.has-value &__placeholder-polyfill {
+      display: none;
+    }
+
+    &__dropdown {
+      @extend %reset-list;
+      @include translate3d-y(50px);
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 10;
+
+      @include mq(tablet) {
+        @include translate3d-y(42px);
+      }
+
+      @include mq(mobile) {
+        @include translate3d-y(38px);
+      }
+
+      a {
+        display: block;
+        padding: 12px 5px 12px 50px;
+        color: #fff;
+        font-size: 12px;
+        line-height: 16px;
+        text-shadow: 0 0 2px rgba(#000, .9);
+        background-color: rgba(30, 131, 209, .95);
+        cursor: pointer;
+
+        .no-rgba & {
+          filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#F21F84D1, endColorstr=#F21F84D1);
+        }
+
+        @include mq(tablet) {
+          padding-left: 45px;
+        }
+
+        @include mq(mobile) {
+          padding-left: 34px;
+        }
+
+        &:hover,
+        &.is-active {
+          background-color: rgba(37, 142, 223, .95);
+          text-decoration: none;
+
+          .no-rgba & {
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#F2258EDF, endColorstr=#F2258EDF);
+          }
+        }
+      }
+    }
+
+    &.has-error.has-focus &__dropdown {
+      @include mq(mobile) {
+        @include translate3d-y(58px);
+      }
+    }
+
+    &.has-focus &__dropdown {
+      display: block;
+    }
+  }
+}

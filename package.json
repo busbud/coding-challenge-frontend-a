@@ -1,12 +1,58 @@
 {
-  "name": "application-name",
+  "name": "busbud-coding-challenge",
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node app"
+    "start": "node app",
+    "postinstall": "./node_modules/.bin/bower install && ./node_modules/.bin/grunt heroku"
+  },
+  "engines": {
+    "node": "0.10.32"
   },
   "dependencies": {
+    "bower": "1.3.12",
+    "browserify": "5.12.1",
+    "browserify-shim": "3.7.0",
     "express": "3.0.6",
-    "jade": "*"
+    "grunt": "0.4.5",
+    "grunt-autoprefixer": "~1.0.1",
+    "grunt-browserify": "3.0.1",
+    "grunt-cli": "0.1.13",
+    "grunt-contrib-clean": "0.6.0",
+    "grunt-contrib-copy": "0.6.0",
+    "grunt-contrib-jshint": "0.10.0",
+    "grunt-contrib-sass": "0.8.1",
+    "grunt-contrib-uglify": "0.6.0",
+    "grunt-contrib-watch": "0.6.1",
+    "grunt-exorcise": "0.2.0",
+    "grunt-express-server": "0.4.19",
+    "grunt-jsxhint": "0.3.0",
+    "grunt-notify": "0.3.1",
+    "grunt-scss-lint": "0.3.3",
+    "i18n-2": "0.4.6",
+    "include-all": "0.1.6",
+    "jade": "1.7.0",
+    "jshint-stylish": "1.0.0",
+    "load-grunt-tasks": "0.6.0",
+    "react": "0.11.2",
+    "react-tools": "0.11.2",
+    "reactify": "0.14.0",
+    "time-grunt": "1.0.0"
+  },
+  "devDependencies": {},
+  "browser": {
+    "es5-shim": "./assets/bower_components/es5-shim/es5-shim.js",
+    "es5-sham": "./assets/bower_components/es5-shim/es5-sham.js",
+    "jquery": "./assets/bower_components/jquery/dist/jquery.js",
+    "jquery-ajax-hooks-xdr": "./assets/bower_components/jquery-ajax-hooks/src/xdr.js",
+    "lodash": "./assets/bower_components/lodash/dist/lodash.js"
+  },
+  "browserify-shim": {
+    "jquery": {
+      "exports": "$"
+    },
+    "lodash": {
+      "exports": "_"
+    }
   }
 }

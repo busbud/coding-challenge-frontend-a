@@ -1,0 +1,58 @@
+.home-search-button {
+  position: relative;
+  height: 50px;
+  border: 0;
+  border-top: solid 1px $input-blue-border;
+  border-right: solid 1px $input-blue-border;
+  margin: 0;
+  padding: 0 0 2px;
+  background: $button-blue-background;
+  color: #fff;
+  outline: 0;
+  text-align: center;
+  user-select: none;
+
+  @include mq(mobile-and-tablet) {
+    height: 42px;
+  }
+
+  &:hover {
+    background-color: #409ce3;
+  }
+
+  &:active,
+  &:focus {
+    background-color: #5face8;
+  }
+
+  @at-root {
+
+    &__icon {
+      display: inline-block;
+      vertical-align: middle;
+      width: 22px;
+      height: 22px;
+      font-size: 1.5em;
+      position: relative;
+      top: -1px;
+      margin-right: 8px;
+
+      @include mq(mobile-and-tablet) {
+        top: 2px;
+        font-size: 1.2em;
+        margin-right: 4px;
+      }
+    }
+
+    &__text {
+      display: inline-block;
+      vertical-align: middle;
+      font-size: 1.2em;
+      line-height: normal;
+
+      @include mq(mobile-and-tablet) {
+        font-size: .9em;
+      }
+    }
+  }
+}
