@@ -23,6 +23,11 @@ html.en(lang='en')
         color: #fff;
         padding: 15px 0;
       }
+      
+      h1 h2 h3 {
+        color: #fff;
+      }
+      
       .header a {
         color: #fff;
       }
@@ -55,8 +60,8 @@ html.en(lang='en')
         margin-bottom: 80px;
         font-family: "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
         font-weight: normal;
-        color: #293033;
-        text-shadow: 0 1px 0 #fff;
+        color: #fff;
+        text-shadow: 0 2px 0 #555;
       }
       .hero-unit .slogan {
         font-weight: normal;
@@ -75,7 +80,7 @@ html.en(lang='en')
       }
       .search-form h1 {
         font-weight: normal;
-        color: #293033;
+        color: #fff;
         font-size: 32px;
         text-shadow: 0 1px 0 #fff;
         padding-bottom: 8px;
@@ -83,9 +88,51 @@ html.en(lang='en')
       .search-form .error {
         color: #9d261d;
       }
+      /* highlight results */
+      .ui-autocomplete span.hl_results {
+          background-color: #ffff66;
+      }
+       
+      /* loading - the AJAX indicator */
+      .ui-autocomplete-loading {
+          background: white url('../img/ui-anim_basic_16x16.gif') right center no-repeat;
+      }
+       
+      /* scroll results */
+      .ui-autocomplete {
+          max-height: 250px;
+          overflow-y: auto;
+          /* prevent horizontal scrollbar */
+          overflow-x: hidden;
+          /* add padding for vertical scrollbar */
+          padding-right: 5px;
+      }
+       
+      .ui-autocomplete li {
+          font-size: 16px;
+      }
+       
+      /* IE 6 doesn't support max-height
+      * we use height instead, but this forces the menu to always be this tall
+      */
+      * html .ui-autocomplete {
+          height: 250px;
+      }
     script(src='http://use.typekit.net/pdu4jrt.js')
+    script(src='//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js')
+    script(src='//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js')
+    link(href='//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css', rel='stylesheet')
+    link(href='//busbud-pubweb-assets.global.ssl.fastly.net/css/5f6c40d.main.css', rel='stylesheet')
     script.
       try{Typekit.load();}catch(e){}
+      
+    script(type='text/javascript').  
+      $(function() {
+      $( "#search-view-from" ).autocomplete({
+      source: "http://canopyproductions.com/TestProject/javatest.js",minLength: 2
+      });
+      });
+   		   
   body#b
     .header
       .main-column
@@ -96,7 +143,13 @@ html.en(lang='en')
       div
         .hero-unit
           .main-column
-            .search-form
-              strong.slogan Now serving information between many places
+            .home-hero
+              h1 Find a bus for your next trip
               // Form goes here
-              h1 Find three places
+              h2 Now serving bus schedules for 10463 cities in 89 countries
+              h3 Leaving from
+              label(for='search-view-from' class='search-input')
+               input(type='text', id='search-view-from', placeholder='Leaving from')
+              h3 Going to
+              label(for='search-view-to' class='search-input')
+               input(type='text', id='search-view-to', placeholder='Going to')
