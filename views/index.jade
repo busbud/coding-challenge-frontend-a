@@ -121,15 +121,63 @@ html.en(lang='en')
     script(src='http://use.typekit.net/pdu4jrt.js')
     script(src='//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js')
     script(src='//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js')
+    script(src='../routes/autocomplete.js')
+    script(type='text/javascript' src='public/vendor/jquery/jquery.min.js')
     link(href='//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css', rel='stylesheet')
     link(href='//busbud-pubweb-assets.global.ssl.fastly.net/css/5f6c40d.main.css', rel='stylesheet')
     script.
       try{Typekit.load();}catch(e){}
       
     script(type='text/javascript').  
+      var token = getToken();
+      $.support.cors = true;
+      
+      function getToken()
+      {
+          $.ajax({
+               type: "GET",
+               url: "http://busbud-napi-prod.global.ssl.fastly.net/auth/guest",
+               contentType: "application/json",
+               crossDomain: true,
+               success: function(data) {
+                  return data['token'];
+               }
+          })
+      }
+
       $(function() {
       $( "#search-view-from" ).autocomplete({
-      source: "http://canopyproductions.com/TestProject/javatest.js",minLength: 2
+        source: function (request, response) {
+            $.ajax({
+               type: "GET",
+               crossDomain: true,
+               url: "http://busbud-napi-prod.global.ssl.fastly.net/search",
+               headers: {"x-busbud-token": token},
+               beforeSend: function (request)
+               {
+                  request.setRequestHeader("Access-Control-Request-Headers", "x-busbud-token");
+                  request.setRequestHeader("Access-Control-Request-Method", "GET");
+               },
+               contentType: "application/json",
+               data: {
+                  q: request.term
+               },
+               success: function(data) {
+        	      response($.map(data, function (item) {
+                     return {
+                        id: item.city_id,
+                        label: item.full_name,
+                        value: item.city_url
+                     };
+                  }));
+               }
+            });
+      },
+      minLength: 2,
+      /*select: function(e, ui) {
+        console.log ( 'Select function' );
+        $("#").val(ui.item.title);
+         }*/
       });
       });
    		   
@@ -147,9 +195,14 @@ html.en(lang='en')
               h1 Find a bus for your next trip
               // Form goes here
               h2 Now serving bus schedules for 10463 cities in 89 countries
-              h3 Leaving from
-              label(for='search-view-from' class='search-input')
-               input(type='text', id='search-view-from', placeholder='Leaving from')
-              h3 Going to
-              label(for='search-view-to' class='search-input')
-               input(type='text', id='search-view-to', placeholder='Going to')
+              form(id='search-form' action='/search' method='POST' class='city-search-form')
+               div(id='test')
+               h3 Leaving from
+               label(for='search-view-from' class='search-input')
+                input(type='text', id='search-view-from', placeholder='Leaving from')
+               h3 Going to
+               label(for='search-view-to' class='search-input')
+                input(type='text', id='search-view-to', placeholder='Going to')
+               .search-cta
+                a(tabindex='3', type='submit', class='city-search-button btn primary') Search 	
+                 i(class='bb-icon icon-search')
