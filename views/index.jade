@@ -10,16 +10,14 @@ html.en(lang='en')
       }
         /* layouts */
       .main-column {
-        max-width: 700px;
-        width: 700px;
+        max-width: 1000px;
+        width: 1000px;
         margin: 0 auto;
       }
         /* header */
       .header {
         box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-        background-color: #3678ae;
-        background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDIwODkgNjkiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxsaW5lYXJHcmFkaWVudCBpZD0iaGF0MCIgZ3JhZGllbnRVbml0cz0ib2JqZWN0Qm91bmRpbmdCb3giIHgxPSI1MCUiIHkxPSIxMDAlIiB4Mj0iNTAlIiB5Mj0iLTEuNDIxMDg1NDcxNTIwMmUtMTQlIj4KPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzI3NTU5NyIgc3RvcC1vcGFjaXR5PSIxIi8+CjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzQ5OWZjNSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgIDwvbGluZWFyR3JhZGllbnQ+Cgo8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMjA4OSIgaGVpZ2h0PSI2OSIgZmlsbD0idXJsKCNoYXQwKSIgLz4KPC9zdmc+);
-        background-image: linear-gradient(bottom, #275597 0%, #499fc5 100%);
+        background-color: rgba(30, 131, 209, 0.95);
         color: #fff;
         padding: 15px 0;
       }
@@ -52,13 +50,13 @@ html.en(lang='en')
       .hero-unit {
         background-repeat: no-repeat;
         background-color: #000;
-        background-position: center bottom;
+        background-position:  30% 64%;
         background-size: cover;
         background-image: url("//busbud-pubweb-assets.global.ssl.fastly.net/images/homepage/c70405a.bolivia.jpg");
         box-shadow: 0 1px 0 #fff;
-        padding: 60px 0 40px 0;
+        padding: 80px 0 40px 0;
         margin-bottom: 80px;
-        font-family: "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-family: Interstate,"Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
         font-weight: normal;
         color: #fff;
         text-shadow: 0 2px 0 #555;
@@ -106,11 +104,45 @@ html.en(lang='en')
           overflow-x: hidden;
           /* add padding for vertical scrollbar */
           padding-right: 5px;
+          color: rgba(30, 131, 209, 0.95);
+      }
+      
+      .ui-menu .ui-menu-item{
+          color:  #FFFFFF;
+          background: rgba(30, 131, 209, 0.95);
+          border-radius: 0px;
+          
       }
        
       .ui-autocomplete li {
-          font-size: 16px;
+          font-size: 13px;
+          color:White;
+          background:#96B202;
+          outline:none;
       }
+      
+      .city-search{
+          color: #FFFFFF;  
+          width: 22%;  
+      }
+      
+      .city-search-button{
+         
+          float: left;
+          height: 42px;
+          width: 16.6666%;
+          font-family: Interstate,"Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+          color: #fff;
+       }
+
+       
+       .ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus
+       {
+           background: rgba(30, 131, 209, .87) !important;
+           color: white !important;
+           border-radius:0;	
+       }
+       
        
       /* IE 6 doesn't support max-height
       * we use height instead, but this forces the menu to always be this tall
@@ -121,15 +153,18 @@ html.en(lang='en')
     script(src='http://use.typekit.net/pdu4jrt.js')
     script(src='//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js')
     script(src='//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js')
-    script(src='../routes/autocomplete.js')
-    script(type='text/javascript' src='public/vendor/jquery/jquery.min.js')
     link(href='//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css', rel='stylesheet')
     link(href='//busbud-pubweb-assets.global.ssl.fastly.net/css/5f6c40d.main.css', rel='stylesheet')
+    link(href='//busbud-pubweb-assets.global.ssl.fastly.net/css/be34938.homepage.css', rel='stylesheet')
+    
     script.
       try{Typekit.load();}catch(e){}
       
     script(type='text/javascript').  
-      var token = getToken();
+      var token;
+      var fromfilled, tofilled;
+      fromfilled = false;
+      tofilled = false;
       $.support.cors = true;
       
       function getToken()
@@ -139,14 +174,18 @@ html.en(lang='en')
                url: "http://busbud-napi-prod.global.ssl.fastly.net/auth/guest",
                contentType: "application/json",
                crossDomain: true,
+               dataType: 'json',
                success: function(data) {
-                  return data['token'];
+               console.log(data['token']);
+                  token = data['token'];
                }
-          })
+               })     
       }
-
+      
+      getToken();	
+      
       $(function() {
-      $( "#search-view-from" ).autocomplete({
+      $( ".city-search" ).autocomplete({
         source: function (request, response) {
             $.ajax({
                type: "GET",
@@ -157,7 +196,9 @@ html.en(lang='en')
                {
                   request.setRequestHeader("Access-Control-Request-Headers", "x-busbud-token");
                   request.setRequestHeader("Access-Control-Request-Method", "GET");
+                  request.setRequestHeader("x-busbud-token", token);
                },
+               
                contentType: "application/json",
                data: {
                   q: request.term
@@ -174,12 +215,36 @@ html.en(lang='en')
             });
       },
       minLength: 2,
-      /*select: function(e, ui) {
+      select: function(e, ui) {
         console.log ( 'Select function' );
-        $("#").val(ui.item.title);
-         }*/
+        console.log ( $(this).attr("id") );
+        if($(this).attr("id")=="search-view-from")
+        {
+           fromfilled = true;
+        }
+        else if($(this).attr("id")=="search-view-to")
+        {
+           tofilled = true;
+        }
+      }
       });
       });
+      
+      function submitForm()
+      {
+      	 console.log ( 'submitForm' );
+      	 if(fromfilled == true && tofilled == true)
+      	 {
+      	 	 console.log ( 'Submit!!' );
+      	 	 $( ".search-form" ).submit();
+      	 	 return true;
+      	 }
+      	 else
+      	 {
+      	 	alert("not filled!");
+      	 }
+      	 
+      }
    		   
   body#b
     .header
@@ -192,17 +257,22 @@ html.en(lang='en')
         .hero-unit
           .main-column
             .home-hero
+             .home-hero-2
               h1 Find a bus for your next trip
               // Form goes here
               h2 Now serving bus schedules for 10463 cities in 89 countries
-              form(id='search-form' action='/search' method='POST' class='city-search-form')
+              form(id='search-form' action='search.js' method='POST' class='city-search-form')
                div(id='test')
-               h3 Leaving from
+               h3(class='fat') Leaving from
                label(for='search-view-from' class='search-input')
-                input(type='text', id='search-view-from', placeholder='Leaving from')
-               h3 Going to
+                i(class='bb-icon icon-location-arrow') 
+                input(type='text', id='search-view-from', placeholder='Leaving from', class='city-search',name='search-view-from')
                label(for='search-view-to' class='search-input')
-                input(type='text', id='search-view-to', placeholder='Going to')
-               .search-cta
-                a(tabindex='3', type='submit', class='city-search-button btn primary') Search 	
-                 i(class='bb-icon icon-search')
+                i(class='bb-icon icon-map-marker') 
+                input(type='text', id='search-view-to', placeholder='Going to', class='city-search',name='search-view-to')
+               a(tabindex='3', type='submit', class='city-search-button btn',onclick='submitForm()') 	
+                i(class='bb-icon icon-search')  
+                | Search            
+
+               
+               
