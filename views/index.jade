@@ -8,13 +8,13 @@ html.en(lang='en')
         min-height: 300px;
         background: #EBF0F2;
       }
-        /* layouts */
+      
       .main-column {
         max-width: 1000px;
         width: 1000px;
         margin: 0 auto;
       }
-        /* header */
+
       .header {
         box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
         background-color: rgba(30, 131, 209, 0.95);
@@ -29,7 +29,7 @@ html.en(lang='en')
       .header a {
         color: #fff;
       }
-        /* logo */
+
       .logo {
         background: url("//busbud-pubweb-assets.global.ssl.fastly.net/images/logos/fc7ed21.logo-post-60@2x.png") 0 0 no-repeat;
         background-size: 124px;
@@ -46,7 +46,7 @@ html.en(lang='en')
       .logo span {
         display: none;
       }
-        /* hero */
+
       .hero-unit {
         background-repeat: no-repeat;
         background-color: #000;
@@ -61,11 +61,12 @@ html.en(lang='en')
         color: #fff;
         text-shadow: 0 2px 0 #555;
       }
+      
       .hero-unit .slogan {
         font-weight: normal;
         font-size: 18px;
       }
-        /* search form */
+
       .search-form {
         background-color: #fff;
         background-color: rgba(255, 255, 255, 0.95);
@@ -76,6 +77,7 @@ html.en(lang='en')
         padding: 40px 80px 10px 80px;
         margin-bottom: 20px;
       }
+      
       .search-form h1 {
         font-weight: normal;
         color: #fff;
@@ -86,17 +88,15 @@ html.en(lang='en')
       .search-form .error {
         color: #9d261d;
       }
-      /* highlight results */
+
       .ui-autocomplete span.hl_results {
           background-color: #ffff66;
       }
        
-      /* loading - the AJAX indicator */
       .ui-autocomplete-loading {
           background: white url('../img/ui-anim_basic_16x16.gif') right center no-repeat;
       }
        
-      /* scroll results */
       .ui-autocomplete {
           max-height: 250px;
           overflow-y: auto;
@@ -120,7 +120,14 @@ html.en(lang='en')
           background:#96B202;
           outline:none;
       }
-      
+
+       .ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus
+       {
+           background: rgba(30, 131, 209, .87) !important;
+           color: white !important;
+           border-radius:0;	
+       }
+
       .city-search{
           color: #FFFFFF;  
           width: 22%;  
@@ -130,26 +137,35 @@ html.en(lang='en')
          
           float: left;
           height: 42px;
-          width: 16.6666%;
+          width: 12%;
           font-family: Interstate,"Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
           color: #fff;
        }
-
+              
+      .city-search-button-noscript{
+          background: #3798e2 !important;
+          font-family: Interstate,"Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+          width: 12%;
+          padding: 0px;
+       }              
        
-       .ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus
-       {
-           background: rgba(30, 131, 209, .87) !important;
-           color: white !important;
-           border-radius:0;	
+       .error {
+           color: #D8000C;
+           background-color: #FFBABA;
+           border-style: solid;
+           border-width: 1px;
+           border-color: #ff0000;
+           text-shadow: none;
        }
        
+       .hidden {
+           display: none;
+       }
        
-      /* IE 6 doesn't support max-height
-      * we use height instead, but this forces the menu to always be this tall
-      */
       * html .ui-autocomplete {
           height: 250px;
       }
+      
     script(src='http://use.typekit.net/pdu4jrt.js')
     script(src='//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js')
     script(src='//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js')
@@ -162,11 +178,16 @@ html.en(lang='en')
       
     script(type='text/javascript').  
       var token;
-      var fromfilled, tofilled;
-      fromfilled = false;
-      tofilled = false;
+      var is_from_selected;
+      var is_to_selected
+      is_from_selected = false;
+      is_to_selected = false;
       $.support.cors = true;
-      
+
+      $(document).ready(function(){
+          $("#search-button").show();
+      });
+
       function getToken()
       {
           $.ajax({
@@ -196,7 +217,7 @@ html.en(lang='en')
                {
                   request.setRequestHeader("Access-Control-Request-Headers", "x-busbud-token");
                   request.setRequestHeader("Access-Control-Request-Method", "GET");
-                  request.setRequestHeader("x-busbud-token", token);
+                  request.setRequestHeader("x-busbud-token", token);  
                },
                
                contentType: "application/json",
@@ -208,40 +229,37 @@ html.en(lang='en')
                      return {
                         id: item.city_id,
                         label: item.full_name,
-                        value: item.city_url
+                        value: item.full_name
                      };
                   }));
                }
             });
-      },
-      minLength: 2,
-      select: function(e, ui) {
-        console.log ( 'Select function' );
-        console.log ( $(this).attr("id") );
-        if($(this).attr("id")=="search-view-from")
-        {
-           fromfilled = true;
-        }
-        else if($(this).attr("id")=="search-view-to")
-        {
-           tofilled = true;
-        }
-      }
+        },
+        minLength: 2,
+        select: function(e, ui) {
+
+           if($(this).attr("id")=="search-view-from")
+           {
+              is_from_selected = true;
+           }
+           else if($(this).attr("id")=="search-view-to")
+           {
+              is_to_selected = true;
+           }
+         }
       });
       });
       
-      function submitForm()
+      function validateSearchForm()
       {
-      	 console.log ( 'submitForm' );
-      	 if(fromfilled == true && tofilled == true)
+      	 if(is_from_selected == true && is_to_selected == true)
       	 {
-      	 	 console.log ( 'Submit!!' );
-      	 	 $( ".search-form" ).submit();
+      	 	 $("#search-form" ).submit();
       	 	 return true;
       	 }
       	 else
       	 {
-      	 	alert("not filled!");
+             $(".error").show();
       	 }
       	 
       }
@@ -261,18 +279,24 @@ html.en(lang='en')
               h1 Find a bus for your next trip
               // Form goes here
               h2 Now serving bus schedules for 10463 cities in 89 countries
-              form(id='search-form' action='search.js' method='POST' class='city-search-form')
-               div(id='test')
-               h3(class='fat') Leaving from
+              span(class='error hidden') You need to select a city in the list!
+              form(id='search-form' action='/search' method='POST' class='city-search-form')
                label(for='search-view-from' class='search-input')
+                div(class='tooltip-container')
+                 div(class='tooltip') Leaving from
                 i(class='bb-icon icon-location-arrow') 
-                input(type='text', id='search-view-from', placeholder='Leaving from', class='city-search',name='search-view-from')
+                input(type='text', id='search-view-from', placeholder='Leaving from', class='city-search',name='SearchViewFrom')
                label(for='search-view-to' class='search-input')
+                div(class='tooltip-container')
+                 div(class='tooltip') Going to
                 i(class='bb-icon icon-map-marker') 
-                input(type='text', id='search-view-to', placeholder='Going to', class='city-search',name='search-view-to')
-               a(tabindex='3', type='submit', class='city-search-button btn',onclick='submitForm()') 	
-                i(class='bb-icon icon-search')  
-                | Search            
+                input(type='text', id='search-view-to', placeholder='Going to', class='city-search',name='SearchViewTo')
+               noscript
+                input(type='submit', id='submit-button' class='city-search-button-noscript btn', value='Search')
+               div(id='search-button', class='hidden')
+                a(tabindex='3', type='submit', class='city-search-button btn',onclick='validateSearchForm()') 	
+                 i(class='bb-icon icon-search')  	
+                 | Search            
 
                
                
