@@ -43,20 +43,41 @@ html.en(lang='en')
       .logo span {
         display: none;
       }
+      .row {
+        max-width: 980px;
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 0;
+        margin-botton: 0;
+      }
         /* hero */
-      .hero-unit {
+      .home-hero {
+        height: 400px;
+        position: relative;
+      }
+      .hero {
         background-repeat: no-repeat;
         background-color: #000;
-        background-position: center bottom;
+        background-position: center;
         background-size: cover;
         background-image: url("//busbud-pubweb-assets.global.ssl.fastly.net/images/homepage/c70405a.bolivia.jpg");
         box-shadow: 0 1px 0 #fff;
         padding: 60px 0 40px 0;
         margin-bottom: 80px;
-        font-family: "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
         font-weight: normal;
         color: #293033;
         text-shadow: 0 1px 0 #fff;
+        min-height: 250px;
+      }
+      .hero h1, .hero h2 {
+        color: #fff;
+        text-shadow: 0 1px 2px rgba(0,0,0,.6);
+      }
+      .home-hero h2 {
+        font-size: 1.25em;
+        margin-bottom: 60px;
       }
       .hero-unit .slogan {
         font-weight: normal;
@@ -83,20 +104,32 @@ html.en(lang='en')
       .search-form .error {
         color: #9d261d;
       }
+    link(href='/bower_components/angucomplete/angucomplete.css', rel='stylesheet')
+    link(href='http://fonts.googleapis.com/css?family=Open+Sans', rel='stylesheet', type='text/css')
     script(src='http://use.typekit.net/pdu4jrt.js')
     script.
       try{Typekit.load();}catch(e){}
-  body#b
+    script(src='/bower_components/jquery/dist/jquery.min.js')
+    script(src='/bower_components/bootstrap/dist/js/bootstrap.min.js')
+    script(src='/bower_components/angular/angular.js')
+    script(src='/bower_components/angucomplete/angucomplete.js')
+    script(src='/js/coding_challenge_app.js')
+    script(src='/js/coding_challenge_controllers.js')
+  body#b(ng-app='coding_challenge_app')
     .header
       .main-column
         .logo
           a(accesskey='1', href='/en/')
             span Logo
-    #bd
-      div
-        .hero-unit
-          .main-column
-            .search-form
-              strong.slogan Now serving information between many places
-              // Form goes here
-              h1 Find three places
+    div(ng-controller='IndexCtrl')
+      .hero
+        .row
+          .home-hero
+            h1 Find a bus for your next trip
+            .hidden-phone
+              h2 Now serving bus schedules for 10463 cities in 89 countries
+            form.form-inline(role='form')
+              angucomplete(id="departures", placeholder="Departure", pause="400", selectedobject="selected_departure", url="http://busbud-napi-prod.global.ssl.fastly.net/search?q=", requestheaders="{x-busbud-token: '{{ busbud_token }}'}", titlefield="full_name", minlength="2", inputclass="form-control form-control")
+              angucomplete(id="destinations", placeholder="Destination", pause="400", selectedobject="selected_destination", url="http://busbud-napi-prod.global.ssl.fastly.net/search?q=", requestheaders="{x-busbud-token: '{{ busbud_token }}'}", titlefield="full_name", minlength="2", inputclass="form-control form-control-small")
+              button(type='submit', class='btn btn-default', ng-click="submit()") Search
+              div(ng-hide="{{form_label_display}}") {{ form_label }}
