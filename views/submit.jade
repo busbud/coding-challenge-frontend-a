@@ -1,0 +1,20 @@
+doctype html
+html.en(lang='en')
+  head
+    title=title
+    link(rel='stylesheet', href='/css/app.css')
+    script(src='http://use.typekit.net/pdu4jrt.js')
+    script.
+      try{Typekit.load();}catch(e){}
+  body
+    .header
+      .main-column
+        img.logo(src='//busbud-pubweb-assets.global.ssl.fastly.net/images/logos/fc7ed21.logo-post-60@2x.png')
+    .main-column
+      .search-column
+        h1 Ready to go
+        p 
+          = 'You are going from ' + from + ' to '+ to + '.'
+        a(class='main-button' href='/index') Go back
+        footer
+          p Built by <a href='http://themoe.me'>Mohamed Adam Chaieb</a> as part of the Busbud coding challenge.
