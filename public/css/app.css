@@ -1,0 +1,172 @@
+html, body {
+  margin: 0;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-color: #000;
+  background-position: center bottom;
+  background-size: cover;
+  background-image: url("//busbud-pubweb-assets.global.ssl.fastly.net/images/homepage/c70405a.bolivia.jpg");
+  box-shadow: 0 1px 0 #fff;
+  font-family: "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  text-shadow: 0 1px 0 #fff;
+}
+
+/* layouts */
+.main-column {
+  max-width: 900px;
+  width: 80%;
+  margin: 0 auto;
+  color: #fff;
+  font-weight: 100;
+  text-shadow: 0 1px 2px rgba(0,0,0,.6);
+  height: 100%;
+}
+
+.main-column h1{
+  font-size: 2.5em;
+  margin: 0;
+}
+
+/* header */
+.header {
+  box-shadow: 0 8px 8px rgba(0, 0, 0, 0.2);
+  background-color: #3678ae;
+  color: #fff;
+  height: 60px;
+}
+
+.header a {
+  color: #fff;
+}
+
+/* logo */
+.logo {
+  height: 40px;
+  margin-top: 10px;
+}
+
+.logo a {
+  display: block;
+  height: 100%;
+}
+
+.logo a:hover {
+  text-decoration: none;
+}
+
+.logo span {
+  display: none;
+}
+
+/* search form */
+.search-column {
+  margin-top: 100px;
+  margin-bottom: 20px;
+}
+
+.search-column h1, h3 {
+  font-weight: 100;
+}
+
+.search-form .error {
+  color: #9d261d;
+}
+
+/* main part of the form */
+.main-form {
+  display: block;
+  width:100%;
+  height: 50px;
+  margin: 20px 0 20px 0;
+  box-shadow: 0px 5px 15px 5px rgba(0,0,0,.55);
+  padding: 1px;
+}
+
+.main-form .twitter-typeahead{
+  display: inline-block;
+  width: 40%;
+  height: 100%;
+  float: left;
+  -webkit-transition: background-color 0.3s;
+  transition: background-color 0.3s;
+  background-color: #2089da;
+}
+
+.main-form input[type='text']{
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  border: none;
+  font-size: 1em;
+  padding-left: 10px;
+  outline: none;
+  box-shadow: 0 0 -1px 0 rgba(0,0,0,.8);
+  overflow: hidden;
+  background-color: transparent;
+}
+
+.main-form input[type='submit'] {
+  display: inline-block;
+  border: none;
+  cursor: pointer;
+  float: right;
+  height: 100%;
+  width: 20%;
+  text-align: center;
+  background-color: #008cdd;
+  color: #fff;
+  line-height: 50px;
+  font-size: 1.1em;
+  box-shadow: 0 0 1px 0 rgba(0,0,0,.8);
+  text-decoration: none;
+  -webkit-transition: background-color 0.3s;
+  transition: background-color 0.3s;
+}
+
+.main-form input[type='submit']:hover, .main-form .twitter-typeahead:hover, .tt-cursor, .main-button:hover{
+  background-color: #127ccb;
+}
+
+/* selector for placeholder */
+::-webkit-input-placeholder { 
+    color: #fff;
+}
+
+.main-form .tt-dropdown-menu {
+  background-color: #008cdd;
+  width: 100%;
+  box-shadow: 5px 5px 15px 0px rgba(0,0,0,.55);
+}
+
+.main-form .tt-suggestion {
+  padding: 1px 10px;
+  cursor: pointer;
+}
+
+.main-button {
+  display: block;
+  height: 50px;
+  width: 100px;
+  box-shadow: 0px 5px 15px 5px rgba(0,0,0,.55);
+  background-color: #2089da;
+  line-height: 50px;
+  text-align: center;
+  color: #fff;
+  text-decoration: none;
+  margin-top: 30px;
+  -webkit-transition: background-color 0.3s;
+  transition: background-color 0.3s;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  max-width: 900px;
+  width: 80%;
+  text-align: center;
+}
+
+footer a {
+  color: #fff;
+}
