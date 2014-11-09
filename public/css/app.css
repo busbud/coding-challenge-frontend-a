@@ -31,7 +31,7 @@ html, body {
 /* header */
 .header {
   box-shadow: 0 8px 8px rgba(0, 0, 0, 0.2);
-  background-color: #3678ae;
+  background-color: #127ccb;
   color: #fff;
   height: 60px;
 }
@@ -104,6 +104,7 @@ html, body {
   box-shadow: 0 0 -1px 0 rgba(0,0,0,.8);
   overflow: hidden;
   background-color: transparent;
+  font-weight: bold;
 }
 
 .main-form input[type='submit'] {
@@ -120,6 +121,7 @@ html, body {
   font-size: 1.1em;
   box-shadow: 0 0 1px 0 rgba(0,0,0,.8);
   text-decoration: none;
+  font-weight: bold;
   -webkit-transition: background-color 0.3s;
   transition: background-color 0.3s;
 }
