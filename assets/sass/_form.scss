@@ -43,6 +43,8 @@
 .Select-control {
   border-top: 1px solid lighten($blue-30, 10%);
   border-right: 1px solid lighten($blue-30, 10%);
+}
+.Select-control {
   padding-left: 10px;
 }
 .Select-input,
@@ -80,6 +82,7 @@
 .Select-option {
   cursor: pointer;
 }
+.Select-option.is-focused,
 .Select-option:focus,
 .Select-option:active,
 .Select-option:hover {
@@ -105,7 +108,7 @@
   top: 8px;
   cursor: pointer;
 }
-.form-errors {
+.form-help {
   margin-top: 10px;
   text-shadow: 0 1px 0 $gray-90;
   font-weight: 100;
