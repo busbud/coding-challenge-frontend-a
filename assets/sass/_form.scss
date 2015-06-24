@@ -3,7 +3,7 @@
   @include linear-gradient(#499fc5 0%, #275597 100%);
   color: white;
   background-clip: padding-box;
-  box-shadow: 0px 0px 2px 0px $gray-70;
+  box-shadow: 0px 0px 2px 0px $gray-80;
   padding: 40px 30px 20px 30px; 
   border-radius: 3px;
 }
@@ -13,29 +13,37 @@
   font-weight: 200;
   font-size: 32px;
 }
-.form .error {
-  color: #9d261d;
+.form-container {
+  margin: 40px 0;
 }
 .form {
   box-shadow: 0 3px 5px 0px $gray-80;
-  margin: 40px 0;
   width: 100%;
   font-size: 14px;
+  background-color: $blue-30;
+}
+.form.errors {
+  border: 2px solid red;
 }
 .form button {
   font-size: 14px;
   width: 20%;
   background-color: $blue-40;
 }
-.Select {
+.select-group {
   display: inline-block;
   position: relative;
   width: 40%;
+}
+.Select {
+  width: 100%;
+  background-color: $blue-30;
 }
 .form button,
 .Select-control {
   border-top: 1px solid lighten($blue-30, 10%);
   border-right: 1px solid lighten($blue-30, 10%);
+  padding-left: 10px;
 }
 .Select-input,
 .Select-input input {
@@ -82,13 +90,29 @@
 }
 .Select-placeholder {
   position: absolute;
-  padding: 7px 0 7px 20px;
-  opacity: 0.8;
+  padding: 8px 0 8px 20px;
+  opacity: 0.7;
   font-weight: 100;
+  font-size: 13px;
+}
+.Select.has-value .Select-placeholder {
+  opacity: 1;
+  font-weight: 200;
 }
 .Select-clear {
   position: absolute;
   right: 8px;
   top: 8px;
   cursor: pointer;
+}
+.form-errors {
+  margin-top: 10px;
+  text-shadow: 0 1px 0 $gray-90;
+  font-weight: 100;
+  font-size: 14px;
+}
+.select-group-addon {
+  position: absolute;
+  top: 10px;
+  left: 10px;
 }
