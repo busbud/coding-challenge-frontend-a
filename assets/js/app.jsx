@@ -29,7 +29,7 @@ var BLocationBox = React.createClass({
   },
 
   handleBLocationSubmit: function(location) {
-    console.log('Location submitted.');
+    // TODO: Handle submission
   },
 
   render: function() {
@@ -83,8 +83,8 @@ var BLocationForm = React.createClass({
     return (
       <div className="form-container">
         <form className={this.state.errors ? 'form errors' : 'form'} onSubmit={this.handleSubmit}>
-          <div className="select-group">
-            <i className="fa fa-location-arrow select-group-addon"></i>
+          <div className="Select-group">
+            <i className="fa fa-location-arrow Select-group-addon"></i>
             <Select name="location-from"
               placeholder="Leaving from"
               value={this.state.locationFrom}
@@ -93,8 +93,8 @@ var BLocationForm = React.createClass({
               onChange={this.onFromChange}>
             </Select>
           </div>
-          <div className="select-group">
-            <i className="fa fa-map-marker select-group-addon"></i>
+          <div className="Select-group">
+            <i className="fa fa-map-marker Select-group-addon"></i>
             <Select name="location-to"
               placeholder=""
               value={this.state.locationTo}
