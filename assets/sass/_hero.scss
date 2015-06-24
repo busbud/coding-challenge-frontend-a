@@ -5,15 +5,15 @@
   background-position: center bottom;
   background-size: cover;
   background-image: url("//busbud-pubweb-assets.global.ssl.fastly.net/images/homepage/c70405a.bolivia.jpg");
-  box-shadow: 0 1px 0 #fff;
   padding: 60px 0 40px 0;
   margin-bottom: 80px;
   font-family: "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: normal;
+  font-weight: 100;
   color: #293033;
-  text-shadow: 0 1px 0 #fff;
+  height: 100%;
 }
 .hero-unit .slogan {
+  text-shadow: 0 1px 0 $gray-90;
   font-weight: 100;
-  font-size: 16px;
+  font-size: 14px;
 }

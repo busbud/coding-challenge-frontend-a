@@ -87,10 +87,10 @@ var BLocationForm = React.createClass({
     }
 
     return (
-      <form className="location-form" onSubmit={this.handleSubmit}>
+      <form className="form" onSubmit={this.handleSubmit}>
         <Select
             name="form-field-name"
-            placeholder="Leaving From"
+            placeholder="Leaving from"
             multi={false}
             asyncOptions={this.props.getOptions}
             onFocus={setPlaceholder}
@@ -99,7 +99,7 @@ var BLocationForm = React.createClass({
             name="form-field-name"
             placeholder=""
             multi={false}
-            placeholder="Going To"
+            placeholder="Going to"
             asyncOptions={this.props.getOptions}
             onFocus={setPlaceholder}
         />
