@@ -1,0 +1,26 @@
+  /* header */
+.header {
+  @include linear-gradient(#275597 0%, #499fc5 100%);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  padding: 15px 0;
+}
+.header a {
+  color: #fff;
+}
+  /* logo */
+.logo {
+  background: url("//busbud-pubweb-assets.global.ssl.fastly.net/images/logos/fc7ed21.logo-post-60@2x.png") 0 0 no-repeat;
+  background-size: 124px;
+  width: 124px;
+  height: 40px;
+}
+.logo a {
+  display: block;
+  height: 100%;
+}
+.logo a:hover {
+  text-decoration: none;
+}
+.logo span {
+  display: none;
+}

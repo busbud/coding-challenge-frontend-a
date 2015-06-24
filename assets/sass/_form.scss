@@ -1,0 +1,121 @@
+  /* search form */
+.search-form {
+  @include linear-gradient(#499fc5 0%, #275597 100%);
+  color: white;
+  background-clip: padding-box;
+  box-shadow: 0px 0px 2px 0px $gray-80;
+  padding: 40px 30px 20px 30px; 
+  border-radius: 3px;
+}
+.search-form h1 {
+  text-shadow: 0 2px 0 $gray-90;
+  margin: 0 0 10px 0;
+  font-weight: 200;
+  font-size: 32px;
+}
+.form-container {
+  margin: 40px 0;
+}
+.form {
+  box-shadow: 0 3px 5px 0px $gray-80;
+  width: 100%;
+  font-size: 14px;
+  background-color: $blue-30;
+}
+.form.errors {
+  border: 2px solid red;
+}
+.form button {
+  font-size: 14px;
+  width: 20%;
+  background-color: $blue-40;
+}
+.Select-group {
+  display: inline-block;
+  position: relative;
+  width: 40%;
+}
+.Select {
+  width: 100%;
+  background-color: $blue-30;
+}
+.form button,
+.Select-control {
+  border-top: 1px solid lighten($blue-30, 10%);
+  border-right: 1px solid lighten($blue-30, 10%);
+}
+.Select-control {
+  padding-left: 10px;
+}
+.Select-input,
+.Select-input input {
+  padding: 10px 20px;
+  color: white;
+  background-color: $blue-30;
+  width: 100%;
+  border: none;
+}
+.Select-input {
+  padding: 0;
+  box-sizing: border-box;
+  display: inline-block;
+}
+.form button:active,
+.form button:focus,
+.Select-input input:active,
+.Select-input input:focus,
+.Select-input:active,
+.Select-input:focus {
+  outline: none;
+}
+.Select-menu-outer {
+  position: absolute;
+  width: 100%;
+}
+.Select-noresults,
+.Select-option {
+  padding: 10px 20px;
+  background-color: $blue-10;
+  font-size: 12px;
+  font-weight: 100;
+}
+.Select-option {
+  cursor: pointer;
+}
+.Select-option.is-focused,
+.Select-option:focus,
+.Select-option:active,
+.Select-option:hover {
+  background-color: darken($blue-10, 10%);
+}
+.Select-noresults {
+  color: $gray-05;
+}
+.Select-placeholder {
+  position: absolute;
+  padding: 8px 0 8px 20px;
+  opacity: 0.7;
+  font-weight: 100;
+  font-size: 13px;
+}
+.Select.has-value .Select-placeholder {
+  opacity: 1;
+  font-weight: 200;
+}
+.Select-clear {
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  cursor: pointer;
+}
+.form-help {
+  margin-top: 10px;
+  text-shadow: 0 1px 0 $gray-90;
+  font-weight: 100;
+  font-size: 14px;
+}
+.Select-group-addon {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}

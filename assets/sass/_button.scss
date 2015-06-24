@@ -1,0 +1,18 @@
+.btn-primary {
+  border-radius: 0;
+  padding: 7px 20px;
+  color: white;
+  background-color: $blue-30;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary:active,
+.btn-primary:focus,
+.btn-primary:hover {
+  background-color: darken($blue-30, 10%);
+}
+
+.btn-primary .fa-search {
+  margin-right: 5px;
+}

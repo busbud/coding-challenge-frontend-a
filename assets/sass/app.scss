@@ -1,0 +1,16 @@
+@import 'base';
+
+html, body {
+  margin: 0;
+  height: 100%;
+  background: #EBF0F2;
+}
+  /* layouts */
+.main-column {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.displayNone {
+  display: none;
+}

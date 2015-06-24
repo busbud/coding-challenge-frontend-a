@@ -1,0 +1,19 @@
+  /* hero */
+.hero-unit {
+  background-repeat: no-repeat;
+  background-color: #000;
+  background-position: center bottom;
+  background-size: cover;
+  background-image: url("//busbud-pubweb-assets.global.ssl.fastly.net/images/homepage/c70405a.bolivia.jpg");
+  padding: 60px 0 40px 0;
+  margin-bottom: 80px;
+  font-family: "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 100;
+  color: #293033;
+  height: 100%;
+}
+.hero-unit .slogan {
+  text-shadow: 0 1px 0 $gray-90;
+  font-weight: 100;
+  font-size: 14px;
+}
