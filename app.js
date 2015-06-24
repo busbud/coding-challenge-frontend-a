@@ -16,6 +16,8 @@ app.configure(function(){
   app.use(app.router);
 });
 
+app.use(express.static('public'));
+
 app.configure('development', function(){
   app.use(express.errorHandler());
 });
