@@ -47,15 +47,16 @@ var BLocationForm = React.createClass({
       locationFrom: null,
       locationTo: null,
       errors: false,
+      success: false,
     }
   },
 
   onFromChange: function(value) {
-    this.setState({ locationFrom: value, errors: false });
+    this.setState({ locationFrom: value, errors: false, success: false });
   },
 
   onToChange: function(value) {
-    this.setState({ locationTo: value, errors: false });
+    this.setState({ locationTo: value, errors: false, success: false });
   },
 
   handleSubmit: function(e) {
@@ -66,6 +67,15 @@ var BLocationForm = React.createClass({
       return;
     }
 
+    // Reset Form
+    this.setState({
+      locationFrom: null,
+      locationTo: null,
+      errors: false,
+      success: true,
+    })
+
+    // Submit form
     this.props.onBLocationSubmit(this.state);
   },
 
@@ -97,8 +107,11 @@ var BLocationForm = React.createClass({
             <i className="fa fa-search"></i> Search
           </button>
         </form>
-        <div className={this.state.errors ? 'form-errors' : 'displayNone'}>
-          <span>Please enter a departure and arrival location!</span>
+        <div className={this.state.errors ? 'form-help' : 'displayNone'}>
+          <span>Please enter your locations of departure and arrival!</span>
+        </div>
+        <div className={this.state.success ? 'form-help' : 'displayNone'}>
+          <span>Submission successful!</span>
         </div>
       </div>
     );
