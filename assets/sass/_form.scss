@@ -58,3 +58,13 @@
 .Select-noresults {
   color: $gray-05;
 }
+.Select-placeholder {
+  position: absolute;
+  padding: 5px;
+  font-weight: 100;
+}
+.Select-clear {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+}
