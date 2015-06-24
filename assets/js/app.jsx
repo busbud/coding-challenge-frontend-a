@@ -1,6 +1,16 @@
 var React = require('react');
 var Select = require('react-select');
 var $ = require('jquery');
+var _ = require('lodash');
+
+function mapLocationsToSelectOptions(locations) {
+  return _.map(locations, function (location) {
+      return {
+        value: location.city_id,
+        label: location.full_name,
+      }
+  });
+}
 
 var BLocationBox = React.createClass({
   loadBLocationsFromServer: function(inputText, callback) {
@@ -11,8 +21,8 @@ var BLocationBox = React.createClass({
       url: url,
       dataType: 'json',
       success: function(data) {
-        console.log(data);
-        callback(null, {options: data})
+        console.log(mapLocationsToSelectOptions(data));
+        callback(null, {options: mapLocationsToSelectOptions(data)})
       }.bind(this),
       error: function(xhr, status, err) {
         console.log('error');
