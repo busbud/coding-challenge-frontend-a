@@ -1,6 +1,11 @@
 import React from 'react';
-import App from './components/App';
+import Api   from './services/Api';
+import App   from './components/App';
 
 import './styles/main.less';
 
-React.render(<App/>, document.getElementById('app'));
+var API_HOST = 'http://busbud-napi-prod.global.ssl.fastly.net';
+var api = new Api({host: API_HOST});
+api.connect();
+
+React.render(<App api={api}/>, document.getElementById('app'));
