@@ -1,0 +1,97 @@
+.Autocomplete {
+  position: relative;
+}
+
+.Autocomplete-background {
+  background: #2186dc;
+
+  transition: background .3s ease;
+  .Autocomplete:hover & {
+    background: #2a8ee2;
+  }
+}
+
+.Autocomplete-label {
+  background: none;
+  color: #8ec4ef;
+}
+
+.Autocomplete-label,
+.Autocomplete .react-autosuggest {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+@keyframes Autocomplete-labelPosition {
+  0%   { top: 0; }
+  100% { top: -30px; }
+}
+
+.Autocomplete-label.is-top {
+  height: 30px;
+  top: -30px;
+  font-size: 14px;
+  line-height: 30px;
+  text-align: center;
+  z-index: -1;
+
+  background: #074562;
+  color: #fff;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.75);
+
+  animation: Autocomplete-labelPosition .3s ease-out;
+}
+
+.Autocomplete-background,
+.Autocomplete-label,
+.Autocomplete-input {
+  height: 50px;
+}
+
+.Autocomplete-label,
+.Autocomplete-input {
+  font-size: 16px;
+  line-height: 50px;
+  vertical-align: middle;
+  padding: 0 20px;
+}
+
+.Autocomplete-input {
+  display: block;
+  width: 100%;
+
+  border: 0;
+  background: none;
+  color: #fff;
+
+  &:focus {
+    // Disable default WebKit focus style
+    outline: 0;
+  }
+}
+
+.Autocomplete .react-autosuggest__suggestions {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.Autocomplete .react-autosuggest__suggestion {
+  font-size: 14px;
+  height: 45px;
+  line-height: 45px;
+  vertical-align: middle;
+
+  padding: 0 20px;
+
+  background: #2186dc;
+  color: #fff;
+
+  cursor: pointer;
+
+  &--focused {
+    background: #2a8ee2;
+  }
+}

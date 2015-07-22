@@ -6,6 +6,7 @@ import './styles/main.less';
 
 var API_HOST = 'http://busbud-napi-prod.global.ssl.fastly.net';
 var api = new Api({host: API_HOST});
-api.connect();
+// TODO: Uncomment when ready to use real data
+// api.connect();
 
 React.render(<App api={api}/>, document.getElementById('app'));
