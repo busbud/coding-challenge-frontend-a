@@ -56,7 +56,7 @@ class App extends React.Component {
       <Autocomplete
         id="origin"
         label="Leaving from"
-        suggestions={getSuggestions}
+        getSuggestions={getSuggestions}
         suggestionValue={suggestion => suggestion.full_name}
         onSuggestionSelected={console.log.bind(console, 'selected')} />
     );

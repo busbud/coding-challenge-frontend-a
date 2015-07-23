@@ -18,8 +18,16 @@ module.exports = {
   ],
   module: {
     loaders: [
+      // TODO: Remove when change to react-autosuggest merged
+      {test: /react-autosuggest/, loader: 'babel'},
       {test: /\.js$/, loader: 'babel', exclude: /node_modules/},
       {test: /\.less$/, loader: 'style!css!autoprefixer!less'}
     ]
+  },
+  resolve: {
+    alias: {
+      // TODO: Remove when change to react-autosuggest merged
+      'react-autosuggest': 'react-autosuggest/src/Autosuggest'
+    }
   }
 };
