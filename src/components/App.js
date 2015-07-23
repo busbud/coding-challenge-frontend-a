@@ -1,27 +1,12 @@
-import React        from 'react';
-import Autocomplete from './Autocomplete';
+import React      from 'react';
+import _          from 'lodash';
+import SearchForm from './SearchForm';
 
-var propTypes = {
-  api: React.PropTypes.object.isRequired
-};
-
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-
-  render() {
-    return (
-      <div className="App">
-        {this.renderAutocomplete()}
-      </div>
-    );
-  }
-
-  renderAutocomplete() {
-    // TODO: Remove this "fake API" and replace with real one
-    var suggestions = [
+// TODO: Remove this "fake API" and replace with real one
+function getSuggestions(input, cb) {
+  var suggestions = [];
+  if (_.startsWith(input.toLowerCase(), 'm')) {
+    suggestions = [
       {
         'city_id':   '375dd587-9001-acbd-84a4-683dedfb933e',
         'city_url':  'Montreal,Quebec,Canada',
@@ -48,17 +33,55 @@ class App extends React.Component {
         'full_name': 'Montauban, Midi-Pyrenees, France'
       }
     ];
-    function getSuggestions(input, cb) {
-      setTimeout(() => cb(null, suggestions), 300);
-    }
+  } else if (_.startsWith(input.toLowerCase(), 'n')) {
+    suggestions = [
+      {
+        'city_id':   '375dd587-9001-acbd-84a4-683deda84183',
+        'city_url':  'NewYork,NewYork,UnitedStates',
+        'full_name': 'New York, New York, United States'
+      },
+      {
+        'city_id':   '96a84d87-5f77-43e9-808e-d52342c19302',
+        'city_url':  'NewOrleans,Louisiana,UnitedStates',
+        'full_name': 'New Orleans, Louisiana, United States'
+      },
+      {
+        'city_id':   '375dd587-9001-acbd-84a4-683dedc7c687',
+        'city_url':  'Newark,NewJersey,UnitedStates',
+        'full_name': 'Newark, New Jersey, United States'
+      },
+      {
+        'city_id':   '375dd587-9001-acbd-84a4-683ded9cb924',
+        'city_url':  'NewcastleuponTyne,England,UnitedKingdom',
+        'full_name': 'Newcastle upon Tyne, England, United Kingdom'
+      },
+      {
+        'city_id':   '375dd587-9001-acbd-84a4-683ded82b939',
+        'city_url':  'NewportNews,Virginia,UnitedStates',
+        'full_name': 'Newport News, Virginia, United States'
+      }
+    ];
+  }
+  setTimeout(() => cb(null, suggestions), 300);
+}
 
+var propTypes = {
+  api: React.PropTypes.object.isRequired
+};
+
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+
+  render() {
     return (
-      <Autocomplete
-        id="origin"
-        label="Leaving from"
-        getSuggestions={getSuggestions}
-        suggestionValue={suggestion => suggestion.full_name}
-        onSuggestionSelected={console.log.bind(console, 'selected')} />
+      <div className="App">
+        <SearchForm
+          getSuggestions={getSuggestions}
+          onSubmit={console.log.bind(console, 'submit')} />
+      </div>
     );
   }
 }

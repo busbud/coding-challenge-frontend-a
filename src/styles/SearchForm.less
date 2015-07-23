@@ -1,0 +1,47 @@
+.SearchForm {
+  // Leave room for input labels when on top
+  padding-top: 30px;
+}
+
+.SearchForm-input {
+  display: inline-block;
+  vertical-align: middle;
+  width: 400px;
+
+  border-top: 1px solid #75b6ed;
+  border-right: 1px solid #52a3e8;
+}
+
+.SearchForm-button {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0;
+  text-align: center;
+  cursor: pointer;
+  white-space: nowrap;
+  background-image: none;
+  text-decoration: none;
+  border: none;
+
+  width: 160px;
+
+  font-size: 16px;
+  line-height: 50px;
+  padding: 0 20px;
+
+  border-top: 1px solid #8bc2ef;
+  border-right: 1px solid #489ee6;
+  background: #3795e4;
+  color: #fff;
+
+  transition: background .3s ease;
+  &:hover,
+  &:focus {
+    background: lighten(#3795e4, 10%)
+  }
+
+  &:focus {
+    // Disable default WebKit focus style
+    outline: 0;
+  }
+}

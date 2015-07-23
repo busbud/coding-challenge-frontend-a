@@ -28,7 +28,6 @@ class Autocomplete extends React.Component {
   }
 
   render() {
-    console.log('render', this.state.input);
     var labelClassName = classNames({
       'Autocomplete-label': true,
       'is-top':             this.state.input.trim().length > 0
