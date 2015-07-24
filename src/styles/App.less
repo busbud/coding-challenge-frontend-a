@@ -1,6 +1,11 @@
+@App-headWidth: 2*@global-searchInputWidth + @global-searchButtonWidth;
+
+@App-blue: #127dcb;
+@App-teal: #05a0ba;
+
 .App {
-  background-color: #127dcb;
-  background-image: linear-gradient(to bottom right, #127dcb, #05a0ba);
+  background-color: @App-blue;
+  background-image: linear-gradient(to bottom right, @App-blue, @App-teal);
 }
 
 .App-head {
@@ -32,11 +37,13 @@
 
 .App-searchForm {
   margin-bottom: 40px;
+
   box-shadow: 2px 3px 15px rgba(0,0,0,0.5);
 }
 
 .App-message {
   min-height: 40px;
+
   color: #fff;
 }
 

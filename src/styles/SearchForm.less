@@ -1,9 +1,22 @@
+@SearchForm-height:          @global-searchHeight;
+@SearchForm-labelTopHeight:  @global-searchLabelTopHeight;
+@SearchForm-inputBorderSize: @global-searchInputBorderSize;
+@SearchForm-inputWidth:      @global-searchInputWidth;
+@SearchForm-buttonWidth:     @global-searchButtonWidth;
+
+@SearchForm-inputBorderTopColor:    @global-searchInputBorderTopColor;
+@SearchForm-inputBorderRightColor:  #52a3e8;
+@SearchForm-buttonBorderTopColor:   #8bc2ef;
+@SearchForm-buttonBorderRightColor: #489ee6;
+@SearchForm-buttonBackgroundColor:  #3795e4;
+
 .SearchForm {
   // Leave room for input labels when on top
-  margin-top: 30px;
-  position: relative;
+  margin-top: @SearchForm-labelTopHeight;
 
-  background: #52a3e8;
+  // For .SearchForm-topLine "hack"
+  position: relative;
+  background: @SearchForm-inputBorderRightColor;
 }
 
 .SearchForm-topLine {
@@ -12,15 +25,16 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 1px;
-  background: #75b6ed;
+  height: @SearchForm-inputBorderSize;
+
+  background: @SearchForm-inputBorderTopColor;
 }
 
 .SearchForm-input {
   display: inline-block;
   vertical-align: middle;
-  width: (400px - 1px);
-  margin-right: 1px;
+  width: (@SearchForm-inputWidth - @SearchForm-inputBorderSize);
+  margin-right: @SearchForm-inputBorderSize;
 }
 
 .SearchForm-button {
@@ -34,22 +48,22 @@
   text-decoration: none;
   border: none;
 
-  width: 160px;
-  height: 50px;
+  width: @SearchForm-buttonWidth;
+  height: @SearchForm-height;
 
   font-size: 16px;
-  line-height: 50px;
+  line-height: @SearchForm-height;
   padding: 0 20px;
 
-  border-top: 1px solid #8bc2ef;
-  border-right: 1px solid #489ee6;
-  background: #3795e4;
+  border-top: @SearchForm-inputBorderSize solid @SearchForm-buttonBorderTopColor;
+  border-right: @SearchForm-inputBorderSize solid @SearchForm-buttonBorderRightColor;
+  background: @SearchForm-buttonBackgroundColor;
   color: #fff;
 
   transition: background .3s ease;
   &:hover,
   &:focus {
-    background: lighten(#3795e4, 10%)
+    background: lighten(@SearchForm-buttonBackgroundColor, 10%)
   }
 
   &:focus {
