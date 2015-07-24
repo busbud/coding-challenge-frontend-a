@@ -6,12 +6,17 @@
 .Autocomplete-background {
   z-index: 10;
   background: #2186dc;
+  color: #fff;
 
   transition: background .3s ease;
   .Autocomplete:hover &,
   &.is-focused {
     background: #2a8ee2;
   }
+}
+
+.Autocomplete i {
+  font-size: 18px;
 }
 
 .Autocomplete-label {
@@ -73,11 +78,6 @@
 .Autocomplete-hint,
 .Autocomplete-input {
   height: 50px;
-}
-
-.Autocomplete-label,
-.Autocomplete-hint,
-.Autocomplete-input {
   font-size: 16px;
   line-height: 50px;
   vertical-align: middle;
@@ -86,6 +86,16 @@
   // So text baseline is alligned accross these elements
   border-top: 1px solid transparent;
   // border-right: 1px solid transparent;
+}
+
+.Autocomplete--withIcon .Autocomplete-label,
+.Autocomplete--withIcon .Autocomplete-hint,
+.Autocomplete--withIcon .Autocomplete-input {
+  padding-left: 50px;
+}
+
+.Autocomplete--withIcon .Autocomplete-label.is-top {
+  padding-left: 20px;
 }
 
 .Autocomplete-input {
@@ -127,4 +137,8 @@
   &--focused {
     background: #2a8ee2;
   }
+}
+
+.Autocomplete--withIcon .react-autosuggest__suggestion {
+  padding-left: 50px;
 }

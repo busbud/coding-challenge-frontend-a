@@ -9,7 +9,8 @@ var propTypes = {
   getSuggestions:       React.PropTypes.func.isRequired,
   suggestionValue:      React.PropTypes.func,
   minInputLength:       React.PropTypes.number,
-  onSuggestionSelected: React.PropTypes.func
+  onSuggestionSelected: React.PropTypes.func,
+  icon:                 React.PropTypes.string
 };
 
 var defaultProps = {
@@ -29,6 +30,10 @@ class Autocomplete extends React.Component {
   }
 
   render() {
+    var className = classNames({
+      'Autocomplete':           true,
+      'Autocomplete--withIcon': this.props.icon
+    });
     var backgroundClassName = classNames({
       'Autocomplete-background': true,
       'is-focused':              this.state.isFocused
@@ -39,8 +44,10 @@ class Autocomplete extends React.Component {
     });
 
     return (
-      <div className="Autocomplete">
-        <div className={backgroundClassName}></div>
+      <div className={className}>
+        <div className={backgroundClassName}>
+          {this.renderIcon()}
+        </div>
         <label htmlFor={this.props.id} className={labelClassName}>
           {this.props.label}
         </label>
@@ -66,6 +73,14 @@ class Autocomplete extends React.Component {
           id={this.props.id} />
       </div>
     );
+  }
+
+  renderIcon() {
+    if (!this.props.icon) {
+      return null;
+    }
+
+    return <i className={`fa fa-${this.props.icon}`}></i>;
   }
 
   renderSuggestion(suggestion) {

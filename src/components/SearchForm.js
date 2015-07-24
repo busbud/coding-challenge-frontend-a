@@ -33,7 +33,8 @@ class SearchForm extends React.Component {
             onSuggestionSelected={(suggestion, e) => {
               e.preventDefault();
               this.setState({origin: suggestion});
-            }} />
+            }}
+            icon="location-arrow" />
         </div>
         <div className="SearchForm-input">
           <Autocomplete
@@ -44,7 +45,8 @@ class SearchForm extends React.Component {
             onSuggestionSelected={(suggestion, e) => {
               e.preventDefault();
               this.setState({destination: suggestion});
-            }} />
+            }}
+            icon="map-marker" />
         </div>
         <button
           className="SearchForm-button"
@@ -53,6 +55,7 @@ class SearchForm extends React.Component {
             e.preventDefault();
             this.props.onSubmit(this.state);
           }}>
+          <i className="fa fa-search"></i>
           {'Search'}
         </button>
       </form>
