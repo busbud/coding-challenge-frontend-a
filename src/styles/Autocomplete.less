@@ -1,8 +1,10 @@
 .Autocomplete {
   position: relative;
+  height: 50px;
 }
 
 .Autocomplete-background {
+  z-index: 10;
   background: #2186dc;
 
   transition: background .3s ease;
@@ -11,12 +13,29 @@
   }
 }
 
+.Autocomplete-label {
+  z-index: 11;
+}
+
+.Autocomplete-hint {
+  z-index: 12;
+}
+
+.Autocomplete .react-autosuggest {
+  z-index: 13;
+}
+
+.Autocomplete .react-autosuggest__suggestions {
+  z-index: 14;
+}
+
 .Autocomplete-label,
 .Autocomplete-hint {
   background: none;
   color: #8ec4ef;
 }
 
+.Autocomplete-background,
 .Autocomplete-label,
 .Autocomplete-hint,
 .Autocomplete .react-autosuggest {
@@ -32,16 +51,18 @@
 }
 
 .Autocomplete-label.is-top {
+  // Go up behind background
+  z-index: 9;
+
   height: 30px;
   top: -30px;
   font-size: 14px;
   line-height: 30px;
   text-align: center;
-  z-index: -1;
 
   background: #074562;
   color: #fff;
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.75);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 
   animation: Autocomplete-labelPosition .3s ease-out;
 }
@@ -60,6 +81,10 @@
   line-height: 50px;
   vertical-align: middle;
   padding: 0 20px;
+
+  // So text baseline is alligned accross these elements
+  border-top: 1px solid transparent;
+  // border-right: 1px solid transparent;
 }
 
 .Autocomplete-input {
@@ -67,6 +92,9 @@
   width: 100%;
 
   border: 0;
+  border-top: 1px solid #75b6ed;
+  // border-right: 1px solid #52a3e8;
+
   background: none;
   color: #fff;
 

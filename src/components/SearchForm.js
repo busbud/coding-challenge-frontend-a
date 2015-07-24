@@ -23,6 +23,7 @@ class SearchForm extends React.Component {
   render() {
     return (
       <form className="SearchForm">
+        <div className="SearchForm-topLine"></div>
         <div className="SearchForm-input">
           <Autocomplete
             id="origin"

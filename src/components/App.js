@@ -80,10 +80,43 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
+        <div className="App-head">
+          {this.renderTaglines()}
+          {this.renderSearchForm()}
+          {this.renderMessage()}
+        </div>
+      </div>
+    );
+  }
+
+  renderTaglines() {
+    var citiesCount = 10463;
+    var countriesCount = 89;
+
+    return (
+      <div className="App-taglines">
+        <div className="App-tagline App-tagline--large">
+          {'Find a bus for your next trip'}
+        </div>
+        <div className="App-tagline App-tagline--small">
+          {[
+            'Now serving bus schedules for',
+            citiesCount,
+            'cities in',
+            countriesCount,
+            'countries'
+          ].join(' ')}
+        </div>
+      </div>
+    );
+  }
+
+  renderSearchForm() {
+    return (
+      <div className="App-searchForm">
         <SearchForm
           getSuggestions={getSuggestions}
           onSubmit={this.handleSubmit.bind(this)} />
-        {this.renderMessage()}
       </div>
     );
   }
@@ -135,7 +168,7 @@ class App extends React.Component {
   renderMessage() {
     var message = this.state.message;
     if (!message) {
-      return null;
+      return <div className="App-message"></div>;
     }
 
     return (

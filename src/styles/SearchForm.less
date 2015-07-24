@@ -1,15 +1,26 @@
 .SearchForm {
   // Leave room for input labels when on top
-  padding-top: 30px;
+  margin-top: 30px;
+  position: relative;
+
+  background: #52a3e8;
+}
+
+.SearchForm-topLine {
+  // Hack: make sure there is no gap between autocomplete input top borders
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: #75b6ed;
 }
 
 .SearchForm-input {
   display: inline-block;
   vertical-align: middle;
-  width: 400px;
-
-  border-top: 1px solid #75b6ed;
-  border-right: 1px solid #52a3e8;
+  width: (400px - 1px);
+  margin-right: 1px;
 }
 
 .SearchForm-button {
@@ -24,6 +35,7 @@
   border: none;
 
   width: 160px;
+  height: 50px;
 
   font-size: 16px;
   line-height: 50px;
