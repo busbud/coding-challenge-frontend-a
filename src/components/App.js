@@ -72,7 +72,9 @@ var propTypes = {
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      message: null
+    };
   }
 
   render() {
@@ -80,7 +82,65 @@ class App extends React.Component {
       <div className="App">
         <SearchForm
           getSuggestions={getSuggestions}
-          onSubmit={console.log.bind(console, 'submit')} />
+          onSubmit={this.handleSubmit.bind(this)} />
+        {this.renderMessage()}
+      </div>
+    );
+  }
+
+  handleSubmit(form_data) {
+    var label_map = {
+      origin:      '"Leaving from"',
+      destination: '"Going to"'
+    };
+    var missing_values = _.reduce(form_data, (result, v, k) => {
+      if (v) return result;
+      result.push(label_map[k]);
+      return result;
+    }, []);
+
+    if (!_.isEmpty(missing_values)) {
+      this.setState({
+        message: {
+          type:     'error',
+          children: [
+            'Sorry! We didn\'t recognize the location you gave us for ',
+             missing_values.join(' and '),
+             '. Try again?'
+          ].join('')
+        }
+      });
+      return;
+    }
+
+    var results_link = [
+      'https://www.busbud.com/en/bus-schedules-results',
+      _.get(form_data, ['origin', 'city_url']),
+      _.get(form_data, ['destination', 'city_url'])
+    ].join('/');
+
+    this.setState({
+      message: {
+        type:     'success',
+        children: (
+          <span>
+            {'Ok, here are your search results: '}
+            <a href={results_link} target="_blank">{results_link}</a>
+          </span>
+        )
+      }
+    });
+  }
+
+  renderMessage() {
+    var message = this.state.message;
+    if (!message) {
+      return null;
+    }
+
+    return (
+      <div className={`App-message App-message--${message.type}`}>
+        {message.children}
       </div>
     );
   }
