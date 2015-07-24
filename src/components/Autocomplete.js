@@ -23,11 +23,16 @@ class Autocomplete extends React.Component {
     super(props);
     this.state = {
       input:       '',
-      suggestions: null
+      suggestions: null,
+      isFocused:   false
     };
   }
 
   render() {
+    var backgroundClassName = classNames({
+      'Autocomplete-background': true,
+      'is-focused':              this.state.isFocused
+    });
     var labelClassName = classNames({
       'Autocomplete-label': true,
       'is-top':             this.state.input.trim().length > 0
@@ -35,7 +40,7 @@ class Autocomplete extends React.Component {
 
     return (
       <div className="Autocomplete">
-        <div className="Autocomplete-background"></div>
+        <div className={backgroundClassName}></div>
         <label htmlFor={this.props.id} className={labelClassName}>
           {this.props.label}
         </label>
@@ -54,7 +59,9 @@ class Autocomplete extends React.Component {
           inputAttributes={{
             className: 'Autocomplete-input',
             id:        this.props.id,
-            onChange:  input => this.setState({input: input})
+            onChange:  input => this.setState({input: input}),
+            onFocus:   () => this.setState({isFocused: true}),
+            onBlur:    () => this.setState({isFocused: false})
           }}
           id={this.props.id} />
       </div>
