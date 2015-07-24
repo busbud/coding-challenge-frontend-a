@@ -24,46 +24,47 @@ class SearchForm extends React.Component {
     return (
       <form className="SearchForm">
         <div className="SearchForm-topLine"></div>
-        <div className="SearchForm-input">
-          <Autocomplete
-            id="origin"
-            label="Leaving from"
-            getSuggestions={this.props.getSuggestions}
-            suggestionValue={this.suggestionValue}
-            onSuggestionSelected={(suggestion, e) => {
-              e.preventDefault();
-              this.setState({origin: suggestion});
-            }}
-            icon="location-arrow" />
-        </div>
-        <div className="SearchForm-input">
-          <Autocomplete
-            id="destination"
-            label="Going to"
-            getSuggestions={this.props.getSuggestions}
-            suggestionValue={this.suggestionValue}
-            onSuggestionSelected={(suggestion, e) => {
-              e.preventDefault();
-              this.setState({destination: suggestion});
-            }}
-            icon="map-marker" />
-        </div>
-        <button
-          className="SearchForm-button"
-          type="submit"
-          onClick={e => {
-            e.preventDefault();
-            this.props.onSubmit(this.state);
-          }}>
-          <i className="fa fa-search"></i>
-          {'Search'}
-        </button>
+        {this.renderInput('origin', 'Leaving from', 'location-arrow')}
+        {this.renderInput('destination', 'Going to', 'map-marker')}
+        {this.renderButton()}
       </form>
+    );
+  }
+
+  renderInput(key, label, icon) {
+    return (
+      <div className="SearchForm-input">
+        <Autocomplete
+          id={key}
+          label={label}
+          getSuggestions={this.props.getSuggestions}
+          suggestionValue={this.suggestionValue}
+          onSuggestionSelected={(suggestion, e) => {
+            e.preventDefault();
+            this.setState({[key]: suggestion});
+          }}
+          icon={icon} />
+      </div>
     );
   }
 
   suggestionValue(suggestion) {
     return _.get(suggestion, 'full_name');
+  }
+
+  renderButton() {
+    return (
+      <button
+        className="SearchForm-button"
+        type="submit"
+        onClick={e => {
+          e.preventDefault();
+          this.props.onSubmit(this.state);
+        }}>
+        <i className="fa fa-search"></i>
+        {'Search'}
+      </button>
+    );
   }
 }
 

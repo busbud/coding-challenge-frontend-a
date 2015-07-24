@@ -122,36 +122,43 @@ class App extends React.Component {
   }
 
   handleSubmit(form_data) {
+    var missing_values = this.missingValues(form_data);
+
+    if (!_.isEmpty(missing_values)) {
+      return this.handleMissingValues(missing_values);
+    }
+
+    this.handleSubmitSuccess(form_data);
+  }
+
+  missingValues(form_data) {
     var label_map = {
       origin:      '"Leaving from"',
       destination: '"Going to"'
     };
-    var missing_values = _.reduce(form_data, (result, v, k) => {
+
+    return _.reduce(form_data, (result, v, k) => {
       if (v) return result;
       result.push(label_map[k]);
       return result;
     }, []);
+  }
 
-    if (!_.isEmpty(missing_values)) {
-      this.setState({
-        message: {
-          type:     'error',
-          children: [
-            'Sorry! We didn\'t recognize the location you gave us for ',
-             missing_values.join(' and '),
-             '. Try again?'
-          ].join('')
-        }
-      });
-      return;
-    }
+  handleMissingValues(missing_values) {
+    this.setState({
+      message: {
+        type:     'error',
+        children: [
+          'Sorry! We didn\'t recognize the location you gave us for ',
+           missing_values.join(' and '),
+           '. Try again?'
+        ].join('')
+      }
+    });
+  }
 
-    var results_link = [
-      'https://www.busbud.com/en/bus-schedules-results',
-      _.get(form_data, ['origin', 'city_url']),
-      _.get(form_data, ['destination', 'city_url'])
-    ].join('/');
-
+  handleSubmitSuccess(form_data) {
+    var results_link = this.resultsLink(form_data);
     this.setState({
       message: {
         type:     'success',
@@ -163,6 +170,14 @@ class App extends React.Component {
         )
       }
     });
+  }
+
+  resultsLink(form_data) {
+    return [
+      'https://www.busbud.com/en/bus-schedules-results',
+      _.get(form_data, ['origin', 'city_url']),
+      _.get(form_data, ['destination', 'city_url'])
+    ].join('/');
   }
 
   renderMessage() {
