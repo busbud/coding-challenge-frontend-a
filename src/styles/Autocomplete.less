@@ -3,6 +3,7 @@
 @Autocomplete-borderSize:      @global-searchInputBorderSize;
 @Autocomplete-padding:         20px;
 @Autocomplete-paddingWithIcon: 50px;
+@Autocomplete-inputLineHeight: 20px;
 
 @Autocomplete-labelTopIndex:    9;
 @Autocomplete-backgroundIndex:  10;
@@ -121,6 +122,12 @@
 .Autocomplete-input {
   display: block;
   width: 100%;
+
+  // Certain browsers have cursors as big as line-height
+  // use padding to center vertically
+  line-height: @Autocomplete-inputLineHeight;
+  padding-top: (@Autocomplete-height - @Autocomplete-inputLineHeight)/2;
+  padding-bottom: (@Autocomplete-height - @Autocomplete-inputLineHeight)/2;
 
   background: none;
   color: #fff;
