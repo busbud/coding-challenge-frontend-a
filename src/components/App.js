@@ -90,8 +90,8 @@ class App extends React.Component {
   }
 
   renderTaglines() {
-    var citiesCount = 10463;
-    var countriesCount = 89;
+    var cities_count = 10463;
+    var countries_count = 89;
 
     return (
       <div className="App-taglines">
@@ -101,9 +101,9 @@ class App extends React.Component {
         <div className="App-tagline App-tagline--small">
           {[
             'Now serving bus schedules for',
-            citiesCount,
+            cities_count,
             'cities in',
-            countriesCount,
+            countries_count,
             'countries'
           ].join(' ')}
         </div>

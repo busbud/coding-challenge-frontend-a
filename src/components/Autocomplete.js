@@ -30,25 +30,25 @@ class Autocomplete extends React.Component {
   }
 
   render() {
-    var className = classNames({
+    var class_name = classNames({
       'Autocomplete':           true,
       'Autocomplete--withIcon': this.props.icon
     });
-    var backgroundClassName = classNames({
+    var background_class_name = classNames({
       'Autocomplete-background': true,
       'is-focused':              this.state.isFocused
     });
-    var labelClassName = classNames({
+    var label_class_name = classNames({
       'Autocomplete-label': true,
       'is-top':             this.state.input.trim().length > 0
     });
 
     return (
-      <div className={className}>
-        <div className={backgroundClassName}>
+      <div className={class_name}>
+        <div className={background_class_name}>
           {this.renderIcon()}
         </div>
-        <label htmlFor={this.props.id} className={labelClassName}>
+        <label htmlFor={this.props.id} className={label_class_name}>
           {this.props.label}
         </label>
         <div className="Autocomplete-hint">
@@ -100,10 +100,11 @@ class Autocomplete extends React.Component {
       return '';
     }
 
-    var escapedInput = _.escapeRegExp(input);
+    var escaped_input = _.escapeRegExp(input);
     // Match input value, then capture trailing text
-    var frontMatchRegEx = new RegExp('^(?:' + escapedInput + ')(.+$)', 'i');
-    var match = frontMatchRegEx.exec(hint);
+    var front_match_regexp =
+      new RegExp('^(?:' + escaped_input + ')(.+$)', 'i');
+    var match = front_match_regexp.exec(hint);
     if (!match) {
       return '';
     }
