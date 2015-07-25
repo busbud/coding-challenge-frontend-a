@@ -1,0 +1,52 @@
+@App-headWidth: 2*@global-searchInputWidth + @global-searchButtonWidth;
+
+@App-blue: #127dcb;
+@App-teal: #05a0ba;
+
+.App {
+  background-color: @App-blue;
+  background-image: linear-gradient(to bottom right, @App-blue, @App-teal);
+}
+
+.App-head {
+  margin: auto;
+  width: 960px;
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+.App-taglines {
+  margin-bottom: 65px;
+}
+
+.App-tagline {
+  line-height: 1;
+
+  color: #fff;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.App-tagline--large {
+  font-size: 40px;
+  margin-bottom: 30px;
+}
+
+.App-tagline--small {
+  font-size: 16px;
+}
+
+.App-searchForm {
+  margin-bottom: 40px;
+
+  box-shadow: 2px 3px 15px rgba(0,0,0,0.5);
+}
+
+.App-message {
+  min-height: 40px;
+
+  color: #fff;
+}
+
+.App-message a {
+  color: #fff;
+}

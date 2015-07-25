@@ -1,0 +1,78 @@
+@SearchForm-height:          @global-searchHeight;
+@SearchForm-labelTopHeight:  @global-searchLabelTopHeight;
+@SearchForm-inputBorderSize: @global-searchInputBorderSize;
+@SearchForm-inputWidth:      @global-searchInputWidth;
+@SearchForm-buttonWidth:     @global-searchButtonWidth;
+
+@SearchForm-inputBorderTopColor:    @global-searchInputBorderTopColor;
+@SearchForm-inputBorderRightColor:  #52a3e8;
+@SearchForm-buttonBorderTopColor:   #8bc2ef;
+@SearchForm-buttonBorderRightColor: #489ee6;
+@SearchForm-buttonBackgroundColor:  #3795e4;
+
+.SearchForm {
+  // Leave room for input labels when on top
+  margin-top: @SearchForm-labelTopHeight;
+
+  // For .SearchForm-topLine "hack"
+  position: relative;
+  background: @SearchForm-inputBorderRightColor;
+}
+
+.SearchForm-topLine {
+  // Hack: make sure there is no gap between autocomplete input top borders
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: @SearchForm-inputBorderSize;
+
+  background: @SearchForm-inputBorderTopColor;
+}
+
+.SearchForm-input {
+  display: inline-block;
+  vertical-align: middle;
+  width: (@SearchForm-inputWidth - @SearchForm-inputBorderSize);
+  margin-right: @SearchForm-inputBorderSize;
+}
+
+.SearchForm-button {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0;
+  text-align: center;
+  cursor: pointer;
+  white-space: nowrap;
+  background-image: none;
+  text-decoration: none;
+  border: none;
+
+  width: @SearchForm-buttonWidth;
+  height: @SearchForm-height;
+
+  font-size: 16px;
+  line-height: @SearchForm-height;
+  padding: 0 20px;
+
+  border-top: @SearchForm-inputBorderSize solid @SearchForm-buttonBorderTopColor;
+  border-right: @SearchForm-inputBorderSize solid @SearchForm-buttonBorderRightColor;
+  background: @SearchForm-buttonBackgroundColor;
+  color: #fff;
+
+  transition: background .3s ease;
+  &:hover,
+  &:focus {
+    background: lighten(@SearchForm-buttonBackgroundColor, 10%)
+  }
+
+  &:focus {
+    // Disable default WebKit focus style
+    outline: 0;
+  }
+}
+
+.SearchForm-button i {
+  font-size: 18px;
+  margin-right: 10px;
+}

@@ -1,0 +1,168 @@
+@Autocomplete-height:          @global-searchHeight;
+@Autocomplete-labelTopHeight:  @global-searchLabelTopHeight;
+@Autocomplete-borderSize:      @global-searchInputBorderSize;
+@Autocomplete-padding:         20px;
+@Autocomplete-paddingWithIcon: 50px;
+@Autocomplete-inputLineHeight: 20px;
+
+@Autocomplete-labelTopIndex:    9;
+@Autocomplete-backgroundIndex:  10;
+@Autocomplete-labelIndex:       11;
+@Autocomplete-hintIndex:        12;
+@Autocomplete-inputIndex:       13;
+@Autocomplete-suggestionsIndex: 14;
+
+@Autocomplete-borderTopColor:         @global-searchInputBorderTopColor;
+@Autocomplete-backgroundColor:        #2186dc;
+@Autocomplete-backgroundFocusedColor: #2a8ee2;
+
+.Autocomplete {
+  position: relative;
+  height: @Autocomplete-height;
+}
+
+.Autocomplete-background {
+  z-index: @Autocomplete-backgroundIndex;
+
+  background: @Autocomplete-backgroundColor;
+  color: #fff;
+
+  transition: background .3s ease;
+
+  .Autocomplete:hover &,
+  &.is-focused {
+    background: @Autocomplete-backgroundFocusedColor;
+  }
+}
+
+.Autocomplete i {
+  font-size: 18px;
+}
+
+.Autocomplete-label {
+  z-index: @Autocomplete-labelIndex;
+}
+
+.Autocomplete-hint {
+  z-index: @Autocomplete-hintIndex;
+}
+
+.Autocomplete .react-autosuggest {
+  z-index: @Autocomplete-inputIndex;
+}
+
+.Autocomplete .react-autosuggest__suggestions {
+  z-index: @Autocomplete-suggestionsIndex;
+}
+
+.Autocomplete-label,
+.Autocomplete-hint {
+  background: none;
+  color: #8ec4ef;
+}
+
+.Autocomplete-background,
+.Autocomplete-label,
+.Autocomplete-hint,
+.Autocomplete .react-autosuggest {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+@keyframes Autocomplete-labelPosition {
+  0%   { top: 0; }
+  100% { top: -@Autocomplete-labelTopHeight; }
+}
+
+.Autocomplete-label.is-top {
+  // Go up behind background
+  z-index: @Autocomplete-labelTopIndex;
+
+  height: @Autocomplete-labelTopHeight;
+  top: -@Autocomplete-labelTopHeight;
+
+  font-size: 14px;
+  line-height: @Autocomplete-labelTopHeight;
+  text-align: center;
+
+  background: #074562;
+  color: #fff;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+
+  animation: Autocomplete-labelPosition .3s ease-out;
+}
+
+.Autocomplete-background,
+.Autocomplete-label,
+.Autocomplete-hint,
+.Autocomplete-input {
+  height: @Autocomplete-height;
+  padding: 0 @Autocomplete-padding;
+
+  font-size: 16px;
+  line-height: @Autocomplete-height;
+  vertical-align: middle;
+
+  // So text baseline is alligned accross these elements
+  border-top: @Autocomplete-borderSize solid transparent;
+}
+
+.Autocomplete--withIcon .Autocomplete-label,
+.Autocomplete--withIcon .Autocomplete-hint,
+.Autocomplete--withIcon .Autocomplete-input {
+  padding-left: @Autocomplete-paddingWithIcon;
+}
+
+.Autocomplete--withIcon .Autocomplete-label.is-top {
+  padding-left: @Autocomplete-padding;
+}
+
+.Autocomplete-input {
+  display: block;
+  width: 100%;
+
+  // Certain browsers have cursors as big as line-height
+  // use padding to center vertically
+  line-height: @Autocomplete-inputLineHeight;
+  padding-top: (@Autocomplete-height - @Autocomplete-inputLineHeight)/2;
+  padding-bottom: (@Autocomplete-height - @Autocomplete-inputLineHeight)/2;
+
+  background: none;
+  color: #fff;
+  border: 0;
+  border-top: @Autocomplete-borderSize solid @Autocomplete-borderTopColor;
+
+  &:focus {
+    // Disable default WebKit focus style
+    outline: 0;
+  }
+}
+
+.Autocomplete .react-autosuggest__suggestions {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.Autocomplete .react-autosuggest__suggestion {
+  cursor: pointer;
+  padding: 0 @Autocomplete-padding;
+
+  font-size: 14px;
+  height: 45px;
+  line-height: 45px;
+  vertical-align: middle;
+
+  background: @Autocomplete-backgroundColor;
+  color: #fff;
+
+  &--focused {
+    background: @Autocomplete-backgroundFocusedColor;
+  }
+}
+
+.Autocomplete--withIcon .react-autosuggest__suggestion {
+  padding-left: @Autocomplete-paddingWithIcon;
+}
