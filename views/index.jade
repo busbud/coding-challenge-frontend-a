@@ -2,18 +2,17 @@ doctype html
 html.en(lang='en')
   head
     title=title
+    
+    link(rel="stylesheet", type="text/css", href="css/foundation.css")
+    link(rel="stylesheet", type="text/css", href="css/global.css")
+
     style(type='text/css').
       html, body {
         margin: 0;
         min-height: 300px;
         background: #EBF0F2;
       }
-        /* layouts */
-      .main-column {
-        max-width: 700px;
-        width: 700px;
-        margin: 0 auto;
-      }
+
         /* header */
       .header {
         box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
@@ -83,9 +82,18 @@ html.en(lang='en')
       .search-form .error {
         color: #9d261d;
       }
+
     script(src='http://use.typekit.net/pdu4jrt.js')
     script.
       try{Typekit.load();}catch(e){}
+
+
+    script(src="/js/jquery-1.11.1.min.js")
+    script(src="/js/foundation/modernizr.js")
+    script(src="/js/foundation/foundation.min.js")
+
+    script(src="/js/search.js")
+
   body#b
     .header
       .main-column
@@ -95,8 +103,32 @@ html.en(lang='en')
     #bd
       div
         .hero-unit
-          .main-column
-            .search-form
+          .main-column.row
+            .search-form.columns.small-10.small-centered
               strong.slogan Now serving information between many places
               // Form goes here
               h1 Find three places
+
+              form#search-form
+                .row
+                    #from.columns.small-12.medium-5.tight.from-column
+                        div.tooltip
+                        label Leaving from
+                        input(type="text")
+                        svg(viewBox="0 0 32 32")
+                            g
+                                path(d="M30,0c-0.341,0-0.662,0.085-0.943,0.236l-28,15C0.428,15.573,0,16.236,0,17c0,1.105,0.896,2,2,2h11v11c0,1.104,0.896,2,2,2c0.763,0,1.427-0.428,1.764-1.058l15-28C31.915,2.662,32,2.341,32,2C32,0.895,31.104,0,30,0z M16,26.016V18c0-1.105-0.895-2-2-2H5.984L27.557,4.443L16,26.016z")
+                        ul.proposals
+
+                    #to.columns.small-12.medium-5.tight.to-column
+                        div.tooltip
+                        label Going to
+                        input(type="text")
+                        svg(viewBox="0 0 128 128")
+                            path(d="M64,4.7c-24.6,0-44.5,19.9-44.5,44.5c0,12.8,6.4,24.4,12.7,35.1C39.9,97.6,49.1,110,59.8,121c2.3,2.4,6.1,2.4,8.5,0c9.4-9.3,17.7-19.8,24.7-31c7.5-12.1,15.6-26.1,15.6-40.8C108.5,24.7,88.6,4.7,64,4.7z M64,75c-14.9,0-27-12.1-27-27s12.1-27,27-27S91,33,91,48S78.9,75,64,75z")
+                        ul.proposals
+
+                    .columns.small-12.medium-2.tight.submit-column
+                        input(type="submit",value="Search")
+                        
+                    
